@@ -1,0 +1,75 @@
+.carrusel {
+    border: 8px solid black;
+    height: 400px;
+    width: 650px;
+    overflow: hidden;
+    box-shadow: 0 0 100px #CCFFFF;
+    margin: 20px;
+}
+
+.carrusel div {    
+
+    display: flex;
+    animation-name: movimiento;
+    transition: 2s;
+    animation-delay: 2s;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition-timing-function: linear;
+}
+.carrusel div a{    
+    background-color: #CCFFFF;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+    font-family: CaviarNegrita;
+}
+.carrusel div a img{
+     height: 400px;
+    width: 650px;
+}    
+
+
+.carrusel div:hover {
+    animation-play-state: paused;
+}
+
+
+@keyframes movimiento {
+    20% {
+        transform: translateX(-650px);
+        transition: 2s;
+    }
+
+    40% {
+        transform: translateX(-1300px);
+        transition: 2s;
+    }
+
+    60% {
+        transform: translateX(-1950px);
+        transition: 2s;
+    }
+
+    80% {
+        transform: translateX(-2600px);
+        transition: 2s;
+    }
+
+    100% {
+        transform: translateX(-3250px);
+        transition: 2s;
+    }
+}
+
+@keyframes color {
+    100% {
+        color: #5f30dd;
+            transition: 2s;
+
+    }
+}
+
+
+
