@@ -54,13 +54,15 @@ body {
 }
 
 footer{
-    background-color: WHITE;;
+    background-color: white;
+    font-family: CaviarNegrita;
     font-size: 1.2em;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    color: white;
-    left: 0;
+    margin: 20px 0 0 0;
+    padding: 10px;
+    color: black;
     text-align: center;
     text-decoration: none;
 }
@@ -78,9 +80,10 @@ input:not([type="submit"]):not([type="button"]):focus, textarea:focus{
     background-color: #CCFFFF;
 }
 
-
-font{
+ 
+.error{
     font-weight: bold;
-    text-shadow: 1px 1px 10px black;
+    text-shadow: 1px 1px 10px brown;
+    color: red;
     font-size: 0.8em;
 }

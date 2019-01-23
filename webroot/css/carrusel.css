@@ -1,5 +1,5 @@
 .carrusel {
-    border: 8px solid black;
+    border: 8px ridge #3f3f3f;
     height: 400px;
     width: 650px;
     overflow: hidden;

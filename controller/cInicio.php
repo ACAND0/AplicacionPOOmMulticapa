@@ -1,8 +1,5 @@
 <?php
 
-require_once 'model/Usuario.php';
-
-
 
 if(isset($_REQUEST['salir'])){//Si hemos pulsado salir
         unset($_SESSION['usuario']);  //Vaciamos la variable SESSION del usuario

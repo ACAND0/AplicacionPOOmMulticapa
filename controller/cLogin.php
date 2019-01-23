@@ -1,7 +1,7 @@
 <?php
 
-$entradaOk = true;
-
+$entradaOk = true;//Estado de la entrada
+$Usuario = null;//Almacena un objeto usuario si se consigue instanciar
 $aErrores = [
     CodUsuario => null,
     Password => null
@@ -11,11 +11,10 @@ $aRespuestas = [
     Password => null
 ];
 
-
 if (isset($_REQUEST['Aceptar'])) {//Si se ha pulsado el botón aceptar
     //Pasamos a validar los campos introducidos
-    $aErrores[CodUsuario] = validacion::validarAlfabetico($_REQUEST['CodUsuario'], 1, 15, 3);
-    $aErrores[Password] = validacion::comprobarAlfaNumerico($_REQUEST['Password'], 255, 4, 1);
+    $aErrores[CodUsuario] = validacionFormularios::comprobarAlfabetico($_REQUEST['CodUsuario'], 15, 3, 1);
+    $aErrores[Password] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['Password'], 255, 4, 1);
 
     foreach ($aErrores as $campo => $error) {//Recorremos el array de errores en busca de alguno
         if ($error != null) {//Si hay errores
@@ -28,7 +27,8 @@ if (isset($_REQUEST['Aceptar'])) {//Si se ha pulsado el botón aceptar
 if (isset($_REQUEST['Aceptar']) && $entradaOk) {//Si la entrada es correcta
     $aRespuestas[CodUsuario] = $_REQUEST['CodUsuario'];
     $aRespuestas[Password] = $_REQUEST['Password'];
-    $Usuario = Usuario::validarUsuario($aRespuestas[CodUsuario], $aRespuestas[Password]); //Compruebo que el usuario y password sean correctos
+    
+ //  $Usuario = Usuario::validarUsuario($aRespuestas[CodUsuario], $aRespuestas[Password]); //Compruebo que el usuario y password sean correctos
 
     if (is_null($Usuario)) {//Si no existe un usaurio con esas credenciales
         $aErrores[Password] = $aErrores[Password] . "Usuario/Contraseña incorrectos";
@@ -41,8 +41,8 @@ if (isset($_REQUEST['Aceptar']) && $entradaOk) {//Si la entrada es correcta
         header("Location: index.php");
         exit;
     }
-}
+}else{
 $_SESSION['pagina'] = 'login'; //Establecemos la página en el login
 require_once $vistas['layout']; //Y cargamos el layout
-
+}
 

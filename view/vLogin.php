@@ -7,11 +7,13 @@
             <tr>
                 <td>Usuario: </td>
                 <td><input type="text" size="15" name="CodUsuario" value="<?php echo $_REQUEST['CodUsuario']; ?>">
+                    <font class="error"><?php echo $aErrores[CodUsuario]; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>Contraseña: </td>
                 <td><input type="password" size="15" name="Password" value="<?php echo $_REQUEST['Password']; ?>">
+                    <font  class="error"><?php echo $aErrores[Password]; ?></font>
                 </td>
             </tr>
 
@@ -35,7 +37,7 @@
         <a href="webroot/images/EstructuraDeAlmacenamiento.JPG" target="_blank">ESTRUCTURA DE ALMACENAMIENTO<img src="webroot/images/EstructuraDeAlmacenamiento.JPG" /></a>
         <a href="webroot/images/ModeloFisicoDeDatos.jpg" target="_blank">MODELO FÍSICO DE DATOS<img src="webroot/images/ModeloFisicoDeDatos.jpg" /></a>
         <a href="webroot/images/RelacionDeFicheros.jpg" target="_blank">RELACIÓN DE FICHEROS<img src="webroot/images/RelacionDeFicheros.jpg" /></a>
-      
+
     </div>
 </div>
 

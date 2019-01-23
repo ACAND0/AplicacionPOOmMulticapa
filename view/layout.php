@@ -1,12 +1,11 @@
 <?php
-
 $vista = $vistas['login'];
 
 if (isset($_SESSION['usuario'])) {//Si hay una sesión iniciada
-    $vista = $vistas['inicio'];//Cargamos la vista de inicio
-} 
+    $vista = $vistas['inicio']; //Cargamos la vista de inicio
+}
 if (isset($_SESSION['pagina'])) {//Si hay una página definida
-    $vista = $vistas[$_SESSION['pagina']];//Cargamos la vista de dicha página
+    $vista = $vistas[$_SESSION['pagina']]; //Cargamos la vista de dicha página
 }
 ?>
 <!DOCTYPE html>
@@ -21,15 +20,15 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
 
     <body>
         <?php
-
-       require_once $vista;
-        
+        require_once $vista;
         ?>
-        
-        
+
+
 
     </body>
     <footer>
-        <a href=""><img src="webroot/images/GitHub_Logo.png"/></a>
+        <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa"><img src="webroot/images/GitHub_Logo.png"/></a>
+        Adrián Cando Oviedo®
+
     </footer>
 </html>
