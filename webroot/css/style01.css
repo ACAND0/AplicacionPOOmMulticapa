@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: Caviar;
     src: url(../fuentes/CaviarDreams.ttf);
@@ -10,7 +12,8 @@
 
 body {
     background-image: url("../images/fondo1.jpg");
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100%;
     font-family: Caviar;
     color: white;
@@ -86,4 +89,10 @@ input:not([type="submit"]):not([type="button"]):focus, textarea:focus{
     text-shadow: 1px 1px 10px brown;
     color: red;
     font-size: 0.8em;
+}
+
+
+.formCentrado{
+    text-align: center;
+    margin: 40px 0 0 0;
 }

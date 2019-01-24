@@ -1,7 +1,7 @@
 <?php
 
 
-if(isset($_REQUEST['salir'])){//Si hemos pulsado salir
+if(isset($_REQUEST['Salir'])){//Si hemos pulsado salir
         unset($_SESSION['usuario']);  //Vaciamos la variable SESSION del usuario
         session_destroy();//Destruimos la sesión
         header("Location: index.php"); //Y redireccionamos al index

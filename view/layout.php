@@ -1,11 +1,12 @@
 <?php
-$vista = $vistas['login'];
 
 if (isset($_SESSION['usuario'])) {//Si hay una sesión iniciada
     $vista = $vistas['inicio']; //Cargamos la vista de inicio
 }
 if (isset($_SESSION['pagina'])) {//Si hay una página definida
     $vista = $vistas[$_SESSION['pagina']]; //Cargamos la vista de dicha página
+}else{
+    $vista = $vistas['login'];
 }
 ?>
 <!DOCTYPE html>

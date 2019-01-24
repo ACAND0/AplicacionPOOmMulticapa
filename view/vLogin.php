@@ -21,7 +21,7 @@
                 <td></td> 
                 <td colspan="2">
                     <input class='btn' type="submit" name="Aceptar" value="Entrar">
-                    <input class='btn' type="button" name="Registrarse" value="Registrarse">
+                    <input class='btn' type="submit" name="Registrarse" value="Registrarse">
                 </td>
             </tr>
         </table>
