@@ -46,7 +46,7 @@ if (isset($_REQUEST['Aceptar']) && $entradaOk) {//Si la entrada es correcta
     } else {//Si existe un usaurio con esas credenciales
         $_SESSION['usuario'] = $Usuario; //Cargamos en la sesión usuario el Usuario creado en la validación
         $_SESSION['pagina'] = 'inicio';
-        //  $_SESSION['visitas'] = Usuario::registrarUltimaConexion($_REQUEST['CodUsuario']); 
+        $Usuario->registrarUltimaConexion($aRespuestas[CodUsuario]);
         header("Location: index.php");
         exit;
     }

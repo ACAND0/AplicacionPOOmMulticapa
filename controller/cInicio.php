@@ -7,6 +7,11 @@ if(isset($_REQUEST['Salir'])){//Si hemos pulsado salir
         header("Location: index.php"); //Y redireccionamos al index
 }
 
+if(isset($_REQUEST['EditarPerfil'])){//Si hemos pulsado salir
+        $_SESSION['pagina']='miCuenta';  //Vaciamos la variable SESSION del usuario
+        header("Location: index.php"); //Y redireccionamos al index
+}
+
 if (!isset($_SESSION['usuario'])) { //Si no existe un usaurio logueado
     header("Location: index.php"); //Redireccionamos al index
 } else{//Si existe, cargamos el layout

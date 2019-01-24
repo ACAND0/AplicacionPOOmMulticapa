@@ -32,35 +32,53 @@ class UsuarioPDO implements UsuarioDB {
         return $aUsuario;   //Devuelvo el array con los datos del usuario   
     }
 
-    public static function altaUsuario($CodUsuario, $Password,$DescUsuario) {
-        $UsuarioCreado=false;
+    public static function altaUsuario($CodUsuario, $Password, $DescUsuario) {
+        $UsuarioCreado = false;
         $consulta = "INSERT INTO T01_Usuarios1 VALUES (?,SHA2(?, 256),?,0,null,'usuario')";
-        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodUsuario, $Password,$DescUsuario]);
-        if ($resConsulta->rowCount() != 0) { 
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodUsuario, $Password, $DescUsuario]);
+        if ($resConsulta->rowCount() != 0) {
             $UsuarioCreado = true;
         }
         return $UsuarioCreado;
     }
 
-    public static function modificarUsuario() {
-        
+    public static function modificarUsuario($CodUsuario,$DescUsuario) {
+        $UsuarioModificado = false;
+        $consulta = "UPDATE T01_Usuarios1 SET T01_DescUsuario=? WHERE T01_CodUsuario=?";
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$DescUsuario, $CodUsuario]);
+        if ($resConsulta->rowCount() != 0) {
+            $UsuarioModificado = true;
+        }
+        return $UsuarioModificado;
     }
 
-    public static function borrarUsuario() {
-        
+    public static function borrarUsuario($CodUsuario) {
+        $eliminado = false;
+        $consulta = "DELETE FROM T01_Usuarios1 WHERE T01_CodUsuario=?";
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodUsuario]); //Ejecutamos la consulta
+        if ($resConsulta->rowCount() != 0) { //Comprobamos si se han obtenido resultados en la consulta
+            $eliminado = true;
+        }
+        return $eliminado;
     }
 
     public static function registrarUltimaConexion($CodUsuario) {
-        $consulta = "UPDATE T01_Usuarios1 SET T01_NumAccesos=+1,T01_FechaHoraUltimaConexion=? WHERE T01_CodUsuario=?";
+        $registrado = false;
+        $consulta = "UPDATE T01_Usuarios1 SET T01_NumAccesos=T01_NumAccesos+1,T01_FechaHoraUltimaConexion=? WHERE T01_CodUsuario=?";
         $fecha = new DateTime();
-        $fecha->getTimestamp();
-        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$fecha,$CodUsuario]); //Ejecutamos la consulta
+        
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$fecha->getTimestamp(), $CodUsuario]); //Ejecutamos la consulta
+
+        if ($resConsulta->rowCount() != 0) { //Comprobamos si se han obtenido resultados en la consulta
+            $registrado = true;
+        }
+        return $registrado;
     }
 
     public static function validarCodNoExiste($CodUsuario) {
         $existe = false;
         $consulta = "SELECT * FROM T01_Usuarios1 WHERE T01_CodUsuario=?";
-        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodUsuario]); 
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodUsuario]);
         if ($resConsulta->rowCount() != 0) { //Comprobamos si se han obtenido resultados en la consulta
             $existe = true;
         }

@@ -12,11 +12,13 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Aplicación 17-18</title>
+        <title>Aplicación Multicapa / POO</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="webroot/css/style01.css">
         <link rel="stylesheet" type="text/css" href="webroot/css/carrusel.css">
+        <link rel="icon" href="webroot/favicon/favicon.ico" type="image/gif" >
+
     </head>
 
     <body>

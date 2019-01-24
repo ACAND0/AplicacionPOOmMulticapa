@@ -92,25 +92,25 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
         return $Usuario;
     }
 
-    public static function altaUsuario($CodUsuario, $Password,$DescUsuario) {
-        
+    public static function altaUsuario($CodUsuario, $Password, $DescUsuario) {
+
         if (UsuarioPDO::altaUsuario($CodUsuario, $Password, $DescUsuario)) {
             $Usuario = new Usuario($CodUsuario, $Password, $DescUsuario, 0, null, 'usuario');
         }
         return $Usuario;
-        
     }
 
-    public function modificarUsuario() {
-        
+    public function modificarUsuario($DescUsuario) {
+        $this->setDescUsuario($DescUsuario);
+        return UsuarioPDO::modificarUsuario($this->getCodUsuario(), $DescUsuario);
     }
 
     public function borrarUsuario() {
-        
+        return UsuarioPDO::borrarUsuario($this->getCodUsuario());
     }
 
-    public function registrarUltimaConexion() {
-        return UsuarioPDO::registrarUltimaConexion();
+    public function registrarUltimaConexion($CodUsuario) {
+        return UsuarioPDO::registrarUltimaConexion($CodUsuario);
     }
 
     public static function validarCodNoExiste($CodUsuario) {
