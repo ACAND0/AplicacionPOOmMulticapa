@@ -53,12 +53,13 @@ if (isset($_REQUEST['Aceptar'])) {
 if (isset($_REQUEST['Aceptar']) && $entradaOK) {
 
     $aRespuestas[DescUsuario] = $_REQUEST['DescUsuario']; //Recojo la nueva descripcion si ha cambiado, sino es la misma
+    
+    $modificado = $_SESSION['usuario']->modificarUsuario($aRespuestas[DescUsuario]);
 
-
-    if ($_SESSION['usuario']->modificarUsuario($aRespuestas[DescUsuario])) {
-        $_SESSION['pagina'] = 'inicio';  //V
+    if ($modificado) {
+        $_SESSION['pagina'] = 'inicio';
         header("Location: index.php");
     }else{
-        $aErrores[DescUsuario] = "No has modificado nada!";
+        echo "No has modificado nada, si no deseas modificar nada, pulsa Cancelar.";
     }
 }

@@ -17,7 +17,7 @@
                 <td>Descripción del usuario</td>
                 <td>
                     <textarea type="textarea" name="DescUsuario" rows="5" cols="30"><?php echo $_SESSION['usuario']->getDescUsuario(); ?></textarea>
-                    <font class="error"><?php echo $aErrores[DescUsuario]; ?></font>
+                    <font class="error"><?php echo $aErrores[DescUsuario] ?></font>
                 </td>
             </tr>
             <tr>

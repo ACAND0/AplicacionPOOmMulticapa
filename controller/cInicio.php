@@ -15,6 +15,13 @@ if(isset($_REQUEST['EditarPerfil'])){//Si hemos pulsado salir
 if (!isset($_SESSION['usuario'])) { //Si no existe un usaurio logueado
     header("Location: index.php"); //Redireccionamos al index
 } else{//Si existe, cargamos el layout
+    setlocale(LC_TIME, 'es_ES.UTF-8'); //Selecciona el idioma. 
+    date_default_timezone_set('Europe/Madrid');//Zona horaria 
+    $CodUsuario = $_SESSION['usuario']->getCodUsuario();
+    $NumAccesos = $_SESSION['usuario']->getNumAccesos();
+    $FechaHoraUltimaConexion = strftime("%A %d de %B del %Y a las %H:%M:%S",$_SESSION['usuario']->getFechaHoraUltimaConexion());
+    $Perfil = $_SESSION['usuario']->getPerfil();
+
    require_once 'view/layout.php';
 }
 

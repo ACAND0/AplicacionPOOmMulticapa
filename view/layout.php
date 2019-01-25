@@ -32,6 +32,6 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
     <footer>
         <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa"><img src="webroot/images/GitHub_Logo.png"/></a>
         Adrián Cando Oviedo®
-
+        <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa"><img src="webroot/images/GitLab_logo.png"/></a>
     </footer>
 </html>
