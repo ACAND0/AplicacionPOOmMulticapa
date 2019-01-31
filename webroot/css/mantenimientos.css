@@ -1,0 +1,72 @@
+
+
+.titulo {
+    background-color: #00CCCC;
+    text-align: center;
+    border: 2px solid #000000;
+    padding: 10px;
+    border-radius: 50px 20px;
+    font-family: CaviarNegrita;
+}
+
+.tabla02 {
+    width: 70%;
+    margin: 20px auto auto auto;
+    text-align: center;
+}
+
+
+/*BOCADILLO HOVER*/
+.bocadillo {
+    position: relative;
+    display: inline-block;
+}
+
+.bocadillo .textoBocadillo {
+    visibility: hidden;
+    width: 120px;
+    background-color: #000000;
+    color: #00CCCC;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+ 
+.bocadillo .textoBocadillo::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #000000 transparent;
+}
+
+.bocadillo:hover .textoBocadillo {
+    visibility: visible;
+} 
+
+.cajabusqueda{
+    color: #00CCCC;
+    width: 45%;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.cajabusqueda input:first-of-type{
+    line-height: 30px; 
+    width: 60%;
+    font-size: 1.2em; 
+}
+
+.tabla02 tr:first-of-type {
+    color: #00CCCC;
+    background-color: black;
+    height: 60px;
+}

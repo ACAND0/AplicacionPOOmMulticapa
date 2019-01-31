@@ -20,6 +20,12 @@ if (isset($_REQUEST['EditarPerfil'])) {//Si hemos pulsado salir
     exit;
 }
 
+if (isset($_REQUEST['MantenimientoDepartamentos'])) {//Si hemos pulsado salir
+    $_SESSION['pagina'] = 'mtoDepartamentos';  //Vaciamos la variable SESSION del usuario
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
+
 if (isset($_REQUEST['SOAP'])) {//Si hemos pulsado salir
     $_SESSION['paginaanterior'] = 'inicio';  //Vaciamos la variable SESSION del usuario
     $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
@@ -30,8 +36,8 @@ if (isset($_REQUEST['SOAP'])) {//Si hemos pulsado salir
 }
 
 if (isset($_REQUEST['REST'])) {//Si hemos pulsado salir
-    $_SESSION['paginaanterior'] = 'inicio';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
+ //   $_SESSION['paginaanterior'] = 'inicio';  //Vaciamos la variable SESSION del usuario
+    $_SESSION['pagina'] = 'rest';  //Vaciamos la variable SESSION del usuario
     header("Location: index.php"); //Y redireccionamos al index
     exit;
 }

@@ -10,7 +10,8 @@
             </tr>
             <tr>
                 <td>Contraseña: </td>
-                <td><input type="password" size="15" name="Password" value="<?php echo $_REQUEST['Password']; ?>">
+                <td><input type="password" size="15" name="Password" id="Password" value="<?php echo $_REQUEST['Password']; ?>">
+                    <a style="cursor: pointer;" onclick="mostrarPassword()">👁️</a>
                     <font  class="error"><?php echo $aErrores[Password]; ?></font>
                 </td>
             </tr>

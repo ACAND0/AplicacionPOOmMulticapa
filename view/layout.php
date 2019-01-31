@@ -12,7 +12,7 @@ if (isset($_SESSION['usuario'])) {//Si hay una sesión iniciada
 }
 if (isset($_SESSION['pagina'])) {//Si hay una página definida
     $vista = $vistas[$_SESSION['pagina']]; //Cargamos la vista de dicha página
-}else{
+} else {
     $vista = $vistas['login'];
 }
 ?>
@@ -24,7 +24,10 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="webroot/css/style01.css">
         <link rel="stylesheet" type="text/css" href="webroot/css/carrusel.css">
+        <link rel = "stylesheet" type = "text/css" href = "webroot/css/mantenimientos.css">
+
         <link rel="icon" href="webroot/favicon/favicon.ico" type="image/gif" >
+        <script type="text/javascript" src="webroot/js/funciones.js"></script>
 
     </head>
 
