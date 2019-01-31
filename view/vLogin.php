@@ -1,6 +1,3 @@
-<input class='exit' type="button" name="Cancelar" value="X" onclick="location = '../indexProyectoDWES.php'">
-
-
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
     <div>
         <table  class="tabla01">

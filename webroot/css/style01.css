@@ -47,7 +47,7 @@ body {
     border-radius: 6px;
     border: 1.5px solid #00CCCC;
     padding: 4px 20px 4px 20px;
-
+    margin: 2px;
 }
 
 
@@ -104,4 +104,19 @@ input:not([type="submit"]):not([type="button"]):focus, textarea:focus{
 .formCentrado{
     text-align: center;
     margin: 40px 0 0 0;
+}
+
+.apariciontexto{
+ animation-duration: 4s;
+  animation-name: apariciontexto;
+}
+
+@keyframes apariciontexto {
+  from {
+    color: transparent;
+  }
+
+  to {
+    color: white;
+  }
 }

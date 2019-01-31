@@ -42,7 +42,7 @@ class UsuarioPDO implements UsuarioDB {
         return $UsuarioCreado;
     }
 
-    public static function modificarUsuario($CodUsuario,$DescUsuario) {
+    public static function modificarUsuario($CodUsuario, $DescUsuario) {
         $UsuarioModificado = false;
         $consulta = "UPDATE T01_Usuarios1 SET T01_DescUsuario=? WHERE T01_CodUsuario=?";
         $resConsulta = DBPDO::ejecutarConsulta($consulta, [$DescUsuario, $CodUsuario]);
@@ -50,6 +50,16 @@ class UsuarioPDO implements UsuarioDB {
             $UsuarioModificado = true;
         }
         return $UsuarioModificado;
+    }
+
+    public static function cambiarPassword($password, $CodUsuario) {
+        $passwordModificado = false;
+        $consulta = "UPDATE T01_Usuarios1 SET T01_Password=SHA2(?, 256) WHERE T01_CodUsuario=?"; //Creo el query
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$password, $CodUsuario]);
+        if ($resConsulta->rowCount() != 0) {
+            $passwordModificado = true;
+        }
+        return $passwordModificado;
     }
 
     public static function borrarUsuario($CodUsuario) {
@@ -66,7 +76,7 @@ class UsuarioPDO implements UsuarioDB {
         $registrado = false;
         $consulta = "UPDATE T01_Usuarios1 SET T01_NumAccesos=T01_NumAccesos+1,T01_FechaHoraUltimaConexion=? WHERE T01_CodUsuario=?";
         $fecha = new DateTime();
-        
+
         $resConsulta = DBPDO::ejecutarConsulta($consulta, [$fecha->getTimestamp(), $CodUsuario]); //Ejecutamos la consulta
 
         if ($resConsulta->rowCount() != 0) { //Comprobamos si se han obtenido resultados en la consulta

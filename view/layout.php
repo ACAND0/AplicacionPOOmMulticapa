@@ -1,4 +1,11 @@
 <?php
+/*
+ * layout
+ * 
+ * Esta es una plantilla, que contiene lo que cualquier vista de la aplicación tiene, encabezado cuerpo y footer.
+ * 
+ */
+
 
 if (isset($_SESSION['usuario'])) {//Si hay una sesión iniciada
     $vista = $vistas['inicio']; //Cargamos la vista de inicio
@@ -30,14 +37,9 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
 
     </body>
     <footer>
-<<<<<<< HEAD
         <a href="doc/phpDoc/index.html" target="_blank"><img src="webroot/images/phpDoc.png" />PHPDoc</a>
         <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa"><img src="webroot/images/GitHub_Logo.png"/></a>
-        <a>Adrián Cando Oviedo®</a>
-=======
-        <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa"><img src="webroot/images/GitHub_Logo.png"/></a>
-        Adrián Cando Oviedo®
->>>>>>> origin/master
+        <a href="../indexProyectoDWES.php">Adrián Cando Oviedo®</a>
         <a href="http://DAW-USGIT.sauces.local/acando/AplicacionPOOmMulticapa.git"><img src="webroot/images/GitLab_logo.png"/></a>
     </footer>
 </html>

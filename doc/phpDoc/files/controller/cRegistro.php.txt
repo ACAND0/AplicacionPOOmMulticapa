@@ -45,9 +45,11 @@ if (isset($_REQUEST['Aceptar']) && $entradaOK) {
 
     $aRespuestas[CodUsuario] = $_REQUEST['CodUsuario'];
     $aRespuestas[DescUsuario] = $_REQUEST['DescUsuario'];
-    $aRespuestas[Password] = hash('sha256', $_REQUEST['Password']);
+    $aRespuestas[Password] = $_REQUEST['Password'];
 
-    $Usuario = Usuario::altaUsuario($aRespuestas[CodUsuario], $aRespuestas[DescUsuario], $aRespuestas[Password]);
+    $Usuario = Usuario::altaUsuario($aRespuestas[CodUsuario], $aRespuestas[Password], $aRespuestas[DescUsuario]);
+    $Usuario->registrarUltimaConexion($aRespuestas[CodUsuario]);
+
     $_SESSION['usuario'] = $Usuario;
     $_SESSION['pagina'] = 'inicio';
     header("Location: index.php");

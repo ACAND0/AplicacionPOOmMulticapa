@@ -1,4 +1,27 @@
 <?php
+/*
+ * MiCuenta
+ * 
+ * Este controlador permite redireccionar según que botón hayamos pulsado a CambiarPassword o BorrarCuenta
+ * Modifica la descripción de un usuario si se ha pulsado aceptar y la validación es correcta.
+ */
+if (isset($_REQUEST['Cancelar'])) {//Si hemos pulsado salir
+    $_SESSION['pagina'] = 'inicio';  //V
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
+
+if (isset($_REQUEST['CambiarPassword'])) {//Si hemos pulsado CambiarContraseña
+    $_SESSION['pagina'] = 'cambiarPassword';  //V
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
+
+if (isset($_REQUEST['BorrarCuenta'])) {//Si hemos pulsado EliminarPerfil
+    $_SESSION['pagina'] = 'borrarCuenta';  //V
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
 
 $entradaOK = true;
 
@@ -11,33 +34,6 @@ $aErrores = [
     DescUsuario => null
 ];
 
-if (isset($_REQUEST['Cancelar'])) {//Si hemos pulsado salir
-    $_SESSION['pagina'] = 'inicio';  //V
-    header("Location: index.php"); //Y redireccionamos al index
-    exit;
-}
-
-if (isset($_REQUEST['CambiarContraseña'])) {//Si hemos pulsado CambiarContraseña
-    $_SESSION['pagina'] = 'inicio';  //V
-    header("Location: index.php"); //Y redireccionamos al index
-    exit;
-
-}
-
-if (isset($_REQUEST['BorrarCuenta'])) {//Si hemos pulsado EliminarPerfil
-    $_SESSION['pagina'] = 'borrarCuenta';  //V
-    header("Location: index.php"); //Y redireccionamos al index
-    exit;
-}
-
-
-if (!isset($_SESSION['usuario'])) { //Si no existe un usaurio logueado
-    header("Location: index.php"); //Redireccionamos al index
-     exit;
-} else {//Si existe, cargamos el layout
-    require_once 'view/layout.php';
-}
-
 if (isset($_REQUEST['Aceptar'])) {
     //Valido las entradas
     $aErrores[DescUsuario] = validacionFormularios::comprobarAlfanumerico($_REQUEST['DescUsuario'], 255, 5, 1);
@@ -45,7 +41,7 @@ if (isset($_REQUEST['Aceptar'])) {
     foreach ($aErrores as $campo => $error) {
         if ($error != null) {
             $entradaOK = false;
-            $_POST[$campo] = "";
+            $_REQUEST[$campo] = "";
         }
     }
 }
@@ -53,13 +49,13 @@ if (isset($_REQUEST['Aceptar'])) {
 if (isset($_REQUEST['Aceptar']) && $entradaOK) {
 
     $aRespuestas[DescUsuario] = $_REQUEST['DescUsuario']; //Recojo la nueva descripcion si ha cambiado, sino es la misma
-    
-    $modificado = $_SESSION['usuario']->modificarUsuario($aRespuestas[DescUsuario]);
 
-    if ($modificado) {
+    $_SESSION['usuario']->modificarUsuario($aRespuestas[DescUsuario]);
         $_SESSION['pagina'] = 'inicio';
         header("Location: index.php");
-    }else{
-        echo "No has modificado nada, si no deseas modificar nada, pulsa Cancelar.";
-    }
+        exit;
+} else {
+    $_SESSION['pagina'] = 'miCuenta';
+    // echo $aErrores[DescUsuario];
+    require_once $vistas['layout']; //Y cargamos el layout
 }

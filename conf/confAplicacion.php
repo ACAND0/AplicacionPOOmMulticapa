@@ -1,4 +1,12 @@
 <?php
+/*
+ * confApplicación
+ * 
+ * Fichero php con la función de albergar los require de los ficheros necesarios y 2 arrays
+ * Uno con los contrladores necesarios
+ * Otro con las vistas necesarias
+ * Se utilizan para poder llamar a todos los fichero sin necesidad de poner un path cada vez que los necesitemos
+ */
 require_once "conf/configDB.php";
 require_once "model/Usuario.php";
 require_once "core/validacion.php";
@@ -19,6 +27,7 @@ $vistas = [
     'consultarModificarUsuario' => 'view/vConsultarModificarUsuario.php',
     'consultarModificarDepartamento' => 'view/vConsultarModificarDepartamento.php',
     'borrarCuenta' => 'view/vBorrarCuenta.php',
+    'cambiarPassword' => 'view/vCambiarPassword.php',//Añadido
     'analisisOpiniones' => 'view/vAnalisisOpiniones.php',
     'altaDepartamento' => 'view/vAltaDepartamento.php',
     'altaCuestion' => 'view/vAltaCuestion.php',
@@ -46,6 +55,7 @@ $controladores = [
     'consultarModificarUsuario' => 'controller/cConsultarModificarUsuario.php',
     'consultarModificarDepartamento' => 'controller/cConsultarModificarDepartamento.php',
     'borrarCuenta' => 'controller/cBorrarCuenta.php',
+    'cambiarPassword' => 'controller/cCambiarPassword.php', //Añadido
     'analisisOpiniones' => 'controller/cAnalisisOpiniones.php',
     'altaDepartamento' => 'controller/cAltaDepartamento.php',
     'altaCuestion' => 'controller/cAltaCuestion.php',

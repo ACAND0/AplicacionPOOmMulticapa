@@ -1,8 +1,6 @@
-<?php
+<form class="formCentrado"action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><br>
+    
+    <img src="webroot/images/xubi.png" width="300" height="400"/><br>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+    <input class='btn' type="submit" name="ATRAS" value="Volver Atrás"/>
+</form>

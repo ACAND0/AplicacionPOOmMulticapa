@@ -1,8 +1,23 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * cWIP
+ * 
+ * Controlador del inicio, se encarga de comprobar que botones has podido pulsar y 
+ * redireccionar y de cargar en variables los datos que mostraremos posterirmente en la vista
+ * eliminando así la conexión de la vista con el modelo.
  */
 
+if (isset($_REQUEST['ATRAS'])) {//Si hemos pulsado salir
+    $_SESSION['pagina'] = $_SESSION['paginaanterior'];
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
+
+
+if (!isset($_SESSION['usuario'])) { //Si no existe un usaurio logueado
+    header("Location: index.php"); //Redireccionamos al index
+} else {
+    $_SESSION['pagina'] = 'wip';
+    require_once $vistas['layout'];
+}

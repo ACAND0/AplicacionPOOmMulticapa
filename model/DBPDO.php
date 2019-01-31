@@ -1,4 +1,26 @@
 <?php
+/*
+ * Fichero DBPDO.php
+ * 
+ * 
+ * 
+ */
+
+
+
+
+
+
+/*
+ * 
+ * 
+ * @author Adrián Camdo Oviedo
+ * @modifiedDate 28/01/2019
+ * @version 1.5
+ * 
+ * 
+ *  */
+
 
 Class DBPDO {
 

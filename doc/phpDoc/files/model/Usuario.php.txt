@@ -1,6 +1,27 @@
 <?php
+/*
+ * Fichero Usuaruio.php
+ * 
+ * 
+ * 
+ */
+
+
+
+
+
 
 require_once 'UsuarioPDO.php';
+/*
+ *  Clase usuario
+ * 
+ * @author Adrián Camdo Oviedo
+ * @modifiedDate 28/01/2019
+ * @version 1.5
+ * 
+ * @var 
+ * 
+ *  */
 
 Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
 
@@ -100,6 +121,11 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
         return $Usuario;
     }
 
+    public function cambiarPassword($password) {
+        $this->setPassword($password);
+        return UsuarioPDO::cambiarPassword($password, $this->getCodUsuario());
+    }
+    
     public function modificarUsuario($DescUsuario) {
         $this->setDescUsuario($DescUsuario);
         return UsuarioPDO::modificarUsuario($this->getCodUsuario(), $DescUsuario);
