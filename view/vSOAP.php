@@ -12,7 +12,6 @@
                 <td><input type="text" size="5" name="USD" value="<?php echo $resultado ?>" disabled>
                 </td>
             </tr>
-
             <tr>
                 <td></td> 
                 <td colspan="2">
