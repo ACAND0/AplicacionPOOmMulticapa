@@ -1,12 +1,11 @@
 <?php
+
 /*
  * Fichero Usuaruio.php
  * 
  * 
  * 
  */
-
-
 
 
 
@@ -25,7 +24,7 @@ require_once 'UsuarioPDO.php';
 
 Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
 
-    private $CodUsuario;
+    private $codUsuario;
     private $password;
     private $descUsuario;
     private $numAccesos;
@@ -33,8 +32,8 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
     private $perfil;
     private $listaOpinionesUsuario;
 
-    function __construct($CodUsuario, $password, $descUsuario, $numAccesos, $fechaHoraUltimaConexion, $perfil) {
-        $this->codUsuario = $CodUsuario;
+    function __construct($codUsuario, $password, $descUsuario, $numAccesos, $fechaHoraUltimaConexion, $perfil) {
+        $this->codUsuario = $codUsuario;
         $this->password = $password;
         $this->descUsuario = $descUsuario;
         $this->numAccesos = $numAccesos;
@@ -46,8 +45,8 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
         return $this->codUsuario;
     }
 
-    function setCodUsuario($CodUsuario) {
-        $this->codUsuario = $CodUsuario;
+    function setCodUsuario($codUsuario) {
+        $this->codUsuario = $codUsuario;
     }
 
     function getPassword() {
@@ -99,24 +98,24 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
     }
 
     /**
-     * @function validarUsuario($CodUsuario, $password)
-     * @param  string $CodUsuario, string $password
+     * @function validarUsuario($codUsuario, $password)
+     * @param  string $codUsuario, string $password
      * @return Objeto Instancia un objeto Usuario si la validación es satisfactoria
      * 
      */
-    public static function validarUsuario($CodUsuario, $password) {
+    public static function validarUsuario($codUsuario, $password) {
         $Usuario = null;
-        $aUsuario = UsuarioPDO::validarUsuario($CodUsuario, $password);
+        $aUsuario = UsuarioPDO::validarUsuario($codUsuario, $password);
         if (!empty($aUsuario)) {
-            $Usuario = new Usuario($CodUsuario, $password, $aUsuario['DescUsuario'], $aUsuario['NumAccesos'], $aUsuario['FechaHoraUltimaConexion'], $aUsuario['Perfil']);
+            $Usuario = new Usuario($codUsuario, $password, $aUsuario['DescUsuario'], $aUsuario['NumAccesos'], $aUsuario['FechaHoraUltimaConexion'], $aUsuario['Perfil']);
         }
         return $Usuario;
     }
 
-    public static function altaUsuario($CodUsuario, $Password, $DescUsuario) {
+    public static function altaUsuario($codUsuario, $Password, $DescUsuario) {
 
-        if (UsuarioPDO::altaUsuario($CodUsuario, $Password, $DescUsuario)) {
-            $Usuario = new Usuario($CodUsuario, $Password, $DescUsuario, 0, null, 'usuario');
+        if (UsuarioPDO::altaUsuario($codUsuario, $Password, $DescUsuario)) {
+            $Usuario = new Usuario($codUsuario, $Password, $DescUsuario, 0, null, 'usuario');
         }
         return $Usuario;
     }
@@ -125,7 +124,7 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
         $this->setPassword($password);
         return UsuarioPDO::cambiarPassword($password, $this->getCodUsuario());
     }
-    
+
     public function modificarUsuario($DescUsuario) {
         $this->setDescUsuario($DescUsuario);
         return UsuarioPDO::modificarUsuario($this->getCodUsuario(), $DescUsuario);
@@ -135,16 +134,15 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
         return UsuarioPDO::borrarUsuario($this->getCodUsuario());
     }
 
-    public function registrarUltimaConexion($CodUsuario) {
-        return UsuarioPDO::registrarUltimaConexion($CodUsuario);
+    public function registrarUltimaConexion($codUsuario) {
+        return UsuarioPDO::registrarUltimaConexion($codUsuario);
     }
 
-    public static function validarCodNoExiste($CodUsuario) {
-        return UsuarioPDO::validarCodNoExiste($CodUsuario);
+    public static function validarCodNoExiste($codUsuario) {
+        return UsuarioPDO::validarCodNoExiste($codUsuario);
     }
 
     public static function buscaUsuariosPorDesc() {
-        
     }
 
     public function creaOpinion() {

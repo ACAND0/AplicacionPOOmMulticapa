@@ -9,6 +9,7 @@
  */
 require_once "conf/configDB.php";
 require_once "model/Usuario.php";
+require_once "model/Departamento.php";
 require_once "core/validacion.php";
 $vistas = [
     'layout' => 'view/layout.php',

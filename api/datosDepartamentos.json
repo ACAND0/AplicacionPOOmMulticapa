@@ -1,0 +1,42 @@
+[{ "CodDepartamento": "CAR",
+        "DescDepartamento": "Control de archivos en red",
+        "NumEmple": 100,
+        "Presupuesto": 1000,
+        "FechaBaja": null
+    },
+    {
+        "CodDepartamento": "CEL",
+        "DescDepartamento": "Contrataciones de Empresas de Limpieza",
+        "NumEmple": 45,
+        "Presupuesto": 2500,
+        "FechaBaja": null
+    },
+    {
+        "CodDepartamento": "COT",
+        "DescDepartamento": "Contrataci\u00f3n y Organizaci\u00f3n de Empleados",
+        "NumEmple": 310,
+        "Presupuesto": 20000,
+        "FechaBaja": null
+    },
+    {
+        "CodDepartamento": "DAA",
+        "DescDepartamento": "Departamento de Atencion al Cliente",
+        "NumEmple": 10,
+        "Presupuesto": 100,
+        "FechaBaja": null
+    },
+    {
+        "CodDepartamento": "GDG",
+        "DescDepartamento": "Gesti\u00f3n de gastos",
+        "NumEmple": 2,
+        "Presupuesto": 3300,
+        "FechaBaja": null
+    },
+    {
+        "CodDepartamento": "GSS",
+        "DescDepartamento": "Gesti\u00f3n Seguridad Social",
+        "NumEmple": 20,
+        "Presupuesto": 15000,
+        "FechaBaja": null
+    }
+]

@@ -1,4 +1,12 @@
+@font-face {
+    font-family: CaviarNegrita;
+    src: url(../fuentes/CaviarDreams_Bold.ttf);
+}
 
+*{
+          outline: none;
+
+}
 
 .titulo {
     background-color: #00CCCC;
@@ -36,7 +44,21 @@
     left: 50%;
     margin-left: -60px;
 }
- 
+.bocadillo button{
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    heigt: 30px;
+}
+
+.bocadillo button:hover{
+    cursor: pointer;
+}
+.bocadillo button img{
+    width: inherit;
+    heigt: inherit;
+}
+
 .bocadillo .textoBocadillo::after {
     content: "";
     position: absolute;
@@ -69,4 +91,11 @@
     color: #00CCCC;
     background-color: black;
     height: 60px;
+}
+
+
+.tabla02 tr {
+    color: black;
+    height: 40px;
+    font-family: CaviarNegrita;
 }

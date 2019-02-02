@@ -13,10 +13,11 @@ T01_Perfil enum('administrador','usuario'))engine=innodb;
 
 -- TABLA DEPARTAMENTOS---
 
-create table T01_Departamentos1(
+create table T02_Departamentos1(
 CodDepartamento varchar(3) primary key,
 DescDepartamento varchar(255),
-FechaCreacionDepartamento int,
+FechaCreacionDepartamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+VolumenDeNegocio int,
 FechaBajaDepartamento int default null)engine=innodb;
 
 -- CREAR USUARIO --

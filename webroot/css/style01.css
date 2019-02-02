@@ -1,5 +1,8 @@
 
-
+a:link,a:visited,a:hover,a:active{ /*Estilo de los links*/
+        color: black;
+        text-decoration: none;
+}
 @font-face {
     font-family: Caviar;
     src: url(../fuentes/CaviarDreams.ttf);

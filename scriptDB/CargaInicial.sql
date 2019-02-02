@@ -14,8 +14,8 @@ insert into T01_Usuarios1 values ('admin',sha2('P@ssw0rd',256),'Cuenta de admini
                           ('mario',sha2('P@ssw0rd',256),'Cuenta de Mario Casquero',0,null,'usuario'),
                           ('laura',sha2('P@ssw0rd',256),'Cuenta de Laura Fernández',0,null,'usuario');
 
-insert into T02_Departamentos1 values ('TYD','Tecnología y Desarrollo',null,null,'usuario'),
-                                 ('DRH','Recursos Humanos',null,null,'usuario'),
-                                 ('MYP','Marketing y Personal',null,null,'usuario'),
-                                 ('DLT','Logística y Transporte',null,null,'usuario'),
-                                 ('DAE','Asuntos Económicos',null,null,'usuario');
+insert into T02_Departamentos1 values ('TYD','Tecnología y Desarrollo',CURRENT_TIMESTAMP,1000,null),
+                                 ('DRH','Recursos Humanos',CURRENT_TIMESTAMP,200,null),
+                                 ('MYP','Marketing y Personal',CURRENT_TIMESTAMP,4560,null),
+                                 ('DLT','Logística y Transporte',CURRENT_TIMESTAMP,3200,null),
+                                 ('DAE','Asuntos Económicos',CURRENT_TIMESTAMP,10090,null);

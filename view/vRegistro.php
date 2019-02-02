@@ -25,7 +25,7 @@
                 <td></td>
                 <td>
                     <input class='btn' type="submit" name="Aceptar" value="Aceptar">
-                    <input class='btn' type="submit" name="Cancelar" value="Cancelar" onclick="location = '../login.php'">
+                    <input class='btn' type="submit" name="Cancelar" value="Cancelar">
                 </td>
             </tr>
         </table>

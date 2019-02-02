@@ -3,29 +3,27 @@
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
 
     <div class="cajabusqueda" >
-        <input class="cajabuscar" type="text"  name="descripcionDepartamento" placeholder="Introduzca búsqeda por descripción"
-               value="<?php echo $_POST['descripcionDepartamento']; ?>" >
-               <?php
-               echo "<font color='#FF0000' size='1px'>$aErrores[descripcionDepartamento]</font>";
-               ?>
+        <input class="cajabuscar" type="text"  name="buscarPorDesc" placeholder="Introduzca búsqeda por descripción"
+               value="<?php echo $_REQUEST['buscarPorDesc']; ?>" >
+
         <input class='btn' type="submit" name="Buscar" value="Buscar">
-        <input class='btn' type='button' name='limpiarBuscar' value='Limpiar Búsqueda' ><br>
+        <input class='btn' type='submit' name='limpiarBuscar' value='Limpiar Búsqueda' ><br>
         Criterios de búsqueda:
-        
+
         <input type="radio" name="criterioBusqueda" <?php
-        if ($_POST['criterioBusqueda'] == "Baja") {
+        if ($_REQUEST['criterioBusqueda'] == "Baja") {
             echo "checked";
         }
         ?> value="Baja">Baja
-        
+
         <input type="radio" name="criterioBusqueda" <?php
-        if ($_POST['criterioBusqueda'] == "Alta") {
+        if ($_REQUEST['criterioBusqueda'] == "Alta") {
             echo "checked";
         }
         ?> value="Alta">Alta
-        
+
         <input type="radio" name="criterioBusqueda" <?php
-        if ($_POST['criterioBusqueda'] == "Todos") {
+        if ($_REQUEST['criterioBusqueda'] == "Todos") {
             echo "checked";
         }
         ?> value="Todos">Todos
@@ -41,15 +39,5 @@
     </div>
 
 
-    <table class="tabla02">                    
-        <tr class="primerafila">
-            <td>Código</td>
-            <td>Descripción</td>
-            <td>Acciones</td>
-        </tr>                    
+   
 
-        
-
-    </table>
-
-</form>
