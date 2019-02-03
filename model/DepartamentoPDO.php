@@ -4,15 +4,7 @@ require_once "DBPDO.php";
 
 class DepartamentoPDO {
 
-    public static function buscaDepartamentosPorCodigo($CodDepartamento) {
-        $existe = false;
-        $consulta = "SELECT * FROM T02_Departamentos1 where CodDepartamento = ?";
-        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodDepartamento]);
-        if ($resConsulta->rowCount() != 0) {
-            $existe = true;
-        }
-        return $existe;
-    }
+  
 
     public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda) {
         $aDepartamentos = []; //Array que rec
@@ -74,8 +66,14 @@ class DepartamentoPDO {
         
     }
 
-    public static function validaCodNoExiste() {
-        
+  public static function validaCodNoExiste($CodDepartamento) {
+        $existe = false;
+        $consulta = "SELECT * FROM T02_Departamentos1 where CodDepartamento = ?";
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodDepartamento]);
+        if ($resConsulta->rowCount() != 0) {
+            $existe = true;
+        }
+        return $existe;
     }
 
 }

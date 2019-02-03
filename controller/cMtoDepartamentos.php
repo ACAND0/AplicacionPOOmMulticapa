@@ -39,6 +39,14 @@ if (isset($_REQUEST['Editar'])) {//Si hemos pulsado salir
     exit;
 }
 
+
+
+if (isset($_REQUEST['Borrar'])) {//Si hemos pulsado salir
+    $_SESSION['pagina'] = 'eliminarDepartamento';  
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
+
 if (isset($_REQUEST['Salir'])) {//Si hemos pulsado salir
     $_SESSION['paginaanterior'] = 'mtoDepartamentos';  //Vaciamos la variable SESSION del usuario
     $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
@@ -82,7 +90,7 @@ if (isset($_REQUEST['Buscar'])) {
             echo "<td>";
 
             echo "<div class='bocadillo'>"; //Cada bloque como este produce un icono   
-            echo "<button  type='submit' name='Editar..'><img src='webroot/images/editar.png'/></button>";
+            echo "<button  type='submit' name='Editar'><img src='webroot/images/editar.png'/></button>";
             echo "<span class='textoBocadillo'>Editar</span>";
             echo "</div>";
 

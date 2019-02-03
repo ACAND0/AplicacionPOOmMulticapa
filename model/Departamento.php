@@ -48,9 +48,7 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
         $this->fechaBajaDepartamento = $fechaBajaDepartamento;
     }
 
-    public static function buscaDepartamentosPorCodigo($CodDepartamento) {
-        return DepartamentoPDO::buscaDepartamentosPorCodigo($CodDepartamento);
-    }
+
 
     /*
      * buscaDepartamentosPorDescripcion
@@ -92,8 +90,8 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
         
     }
 
-    public static function validaCodNoExiste() {
-        
+    public static function validaCodNoExiste($CodDepartamento) {
+        return DepartamentoPDO::validaCodNoExiste($CodDepartamento);
     }
 
 }

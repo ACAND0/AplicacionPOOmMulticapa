@@ -1,22 +1,22 @@
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <table class="tabla01">
-            <caption>REGISTRO</caption>
+            <caption>Alta de departamento</caption>
             <tr>
                 <td>Nombre de departamento</td>
-                <td><input type="text" size="15" name="CodDepartamento" value="<?php echo $_REQUEST['CodDepartamento']; ?>">
+                <td><input type="text" size="15" name="CodDepartamento" value="<?php echo $_REQUEST['CodDepartamento']; ?>" placeholder="Ej: AAA">
                     <font class="error"><?php echo $aErrores[CodDepartamento]; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>Descripción del departamento</td>
                 <td>
-                    <textarea type="textarea"name="DescDepartamento" rows="5" cols="30"><?php echo $_REQUEST['DescDepartamento']; ?></textarea>
+                    <textarea type="textarea"name="DescDepartamento" rows="5" cols="30"><?php echo $_REQUEST['DescDepartamento']; ?> </textarea>
                     <font class="error"><?php echo $aErrores[DescDepartamento]; ?></font>
                 </td>
             </tr>
             <tr>
                 <td>Volumen de negocio</td>
-                <td><input type="number" size="50" name="VolumenDeNegocio" value="<?php echo $_REQUEST['VolumenDeNegocio']; ?>">
+                <td><input type="number" size="50" name="VolumenDeNegocio" value="<?php echo $_REQUEST['VolumenDeNegocio']; ?>" placeholder="Ej: 1250">
                     <font class="error"><?php echo $aErrores[VolumenDeNegocio]; ?></font>
                 </td>
             </tr>

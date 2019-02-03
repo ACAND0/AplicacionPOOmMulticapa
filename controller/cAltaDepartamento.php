@@ -32,7 +32,7 @@ if (isset($_REQUEST['Aceptar'])) {
 
    
 
-    if (Departamento::buscaDepartamentosPorCodigo($_REQUEST['CodDepartamento'])) {
+    if (Departamento::validaCodNoExiste($_REQUEST['CodDepartamento'])) {
         $aErrores[CodDepartamento] = "Ese código de departamento ya existe, seleccione otro por favor.";
     }
 
