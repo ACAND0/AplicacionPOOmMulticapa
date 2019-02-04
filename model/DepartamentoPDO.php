@@ -4,7 +4,24 @@ require_once "DBPDO.php";
 
 class DepartamentoPDO {
 
-  
+    public static function buscaDepartamentosPorCodigo($codigo) {
+        $aDepartamento = []; //Array que rec
+        //Dependiendo del criterio de búsqueda crearemos un query u otro
+
+        $consulta = "SELECT * FROM T02_Departamentos1 where CodDepartamento=?";
+
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$codigo]);
+        if ($resConsulta->rowCount() != 0) { //Comprobamos si se han obtenido resultados en la consulta
+            $resFetch = $resConsulta->fetchObject(); //Minetras podamos instanciar objetos
+            $aDepartamento['CodDepartamento'] = $resFetch->CodDepartamento; //Introducimos valores en el array
+            $aDepartamento['DescDepartamento'] = $resFetch->DescDepartamento;
+            $aDepartamento['VolumenDeNegocio'] = $resFetch->VolumenDeNegocio;
+            $aDepartamento['FechaBajaDepartamento'] = $resFetch->FechaBajaDepartamento;
+        }else{
+            $aDepartamento=null;
+        }
+        return $aDepartamento;
+    }
 
     public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda) {
         $aDepartamentos = []; //Array que rec
@@ -37,13 +54,13 @@ class DepartamentoPDO {
 
     public static function altaDepartamento($CodDepartamento, $DescDepartamento, $VolumenNegocio) {
         $DepartamentoCreado = false;
-        date_default_timezone_set('Europe/Madrid');//Establezco la zona horaria de España
-        $fecha = new DateTime();//Creo una nueva fecha actual
-        $fecha->getTimestamp();//Recojo el timestamp de esa fecha
-        $fecha = date("Y-m-d H:i:s");//Formateo el timestamp para que coincida con la tabla en la base de datos
+        date_default_timezone_set('Europe/Madrid'); //Establezco la zona horaria de España
+        $fecha = new DateTime(); //Creo una nueva fecha actual
+        $fecha->getTimestamp(); //Recojo el timestamp de esa fecha
+        $fecha = date("Y-m-d H:i:s"); //Formateo el timestamp para que coincida con la tabla en la base de datos
 
         $consulta = "INSERT INTO T02_Departamentos1 VALUES (?,?,?,?,null)";
-        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodDepartamento, $DescDepartamento,$fecha, $VolumenNegocio]);
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodDepartamento, $DescDepartamento, $fecha, $VolumenNegocio]);
         if ($resConsulta->rowCount() != 0) {
             $DepartamentoCreado = true;
         }
@@ -66,7 +83,7 @@ class DepartamentoPDO {
         
     }
 
-  public static function validaCodNoExiste($CodDepartamento) {
+    public static function validaCodNoExiste($CodDepartamento) {
         $existe = false;
         $consulta = "SELECT * FROM T02_Departamentos1 where CodDepartamento = ?";
         $resConsulta = DBPDO::ejecutarConsulta($consulta, [$CodDepartamento]);

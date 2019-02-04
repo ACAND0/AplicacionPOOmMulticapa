@@ -48,8 +48,6 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
         $this->fechaBajaDepartamento = $fechaBajaDepartamento;
     }
 
-
-
     /*
      * buscaDepartamentosPorDescripcion
      * 
@@ -57,6 +55,14 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
      * 
      * @return Array Array de objetos departamento instanciados
      */
+
+    public static function buscaDepartamentosPorCodigo($codigo) {
+        $aDepartamento = DepartamentoPDO::buscaDepartamentosPorCodigo($codigo);
+
+        //$Departamento = new Departamento($aDepartamento[CodDepartamento], $aDepartamento[DescDepartamento], $aDepartamento[VolumenDeNegocio], $aDepartamento[FechaBajaDepartamento]);
+
+        return $aDepartamento; //Devuelvo un objeto departamento
+    }
 
     public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda) {
         $aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda);

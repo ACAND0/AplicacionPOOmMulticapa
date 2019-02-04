@@ -72,12 +72,11 @@
                 <td>
                     <select name="CODDEPT">
                         <option value="selecciona">Seleccione un Código</option>         
-                        <option value="CAR">CAR</option>
-                        <option value="CEL">CEL</option>
-                        <option value="COT">COT</option>
-                        <option value="DAA">DAA</option>
-                        <option value="GDG">GDG</option>
-                        <option value="GSS">GSS</option>
+                        <option value="DAE">DAE</option>
+                        <option value="DLT">DLT</option>
+                        <option value="DRH">DRH</option>
+                        <option value="MYP">MYP</option>
+                        <option value="TYD">TYD</option>
                     </select>
                     <input class="btn" type="submit" name="Aceptar2" value="Aceptar">
                     <input class="btn" type="submit" name="Atras" value="Atras"><br>

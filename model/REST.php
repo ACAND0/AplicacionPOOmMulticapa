@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Departamento.php';
+
 Class Rest {
 
     public static function obtenerDatosProvincia($codprov) {
@@ -16,27 +18,45 @@ Class Rest {
         return $aProv;
     }
 
-    public static function obtenerDatosDepartamentos($coddept) {
-        $aDept = []; //Almacenaré los datos de la provincia
-        $departamentos = file_get_contents('api/datosDepartamentos.json');
-        $departamentos = json_decode($departamentos, true);
+    public static function obtenerDatosDepartamentos($coddept) {        
+        $aDepartamento = Departamento::buscaDepartamentosPorCodigo($coddept); //Recogo el objeto departaemnto devuelto     
+//        $datosDepartamento['CodDepartamento'] = $Departamento->getCodDepartamento(); //Introducimos valores en el array
+//        $datosDepartamento['DescDepartamento'] = $Departamento->getDescDepartamento();
+//        $datosDepartamento['VolumenDeNegocio'] = $Departamento->getVolumenDeNegocio();
+//
+//        if ($Departamento->getFechaBajaDepartamento() == null) {
+//            $datosDepartamento['FechaBajaDepartamento'] = "El departamento está dado de alta";
+//        } else {
+//            $datosDepartamento['FechaBajaDepartamento'] = $Departamento->getFechaBajaDepartamento();
+//        }
 
-        foreach ($departamentos as $row) {//Recorro el array json por filas
-            if ($coddept == $row['CodDepartamento']) {
-                $aDept['CodDepartamento'] = $row['CodDepartamento'];
-                $aDept['DescDepartamento'] = $row['DescDepartamento'];
-                $aDept['NumEmple'] = $row['NumEmple'];
-                $aDept['Presupuesto'] = $row['Presupuesto'];
-
-                if ($row['FechaBaja'] == null) {
-                    $aDept['FechaBaja'] = "No está dado de baja";
-                } else {
-                    $aDept['FechaBaja'] = $row['FechaBaja'];
-                }
-            }
-        }
-        return $aDept;
+        return $aDepartamento; //Devuelve un array con los datos de departamentos
     }
+
+}
+
+//          ESTE CASO0 SERÍA SI LO REALIZO CON UN ARCHIVO JSON, NO ES UN SERVICIO COMO TAL
+//        
+//        $aDept = []; //Almacenaré los datos de la provincia
+//        $departamentos = file_get_contents('api/datosDepartamentos.json');
+//        $departamentos = json_decode($departamentos, true);
+//
+//        foreach ($departamentos as $row) {//Recorro el array json por filas
+//            if ($coddept == $row['CodDepartamento']) {
+//                $aDept['CodDepartamento'] = $row['CodDepartamento'];
+//                $aDept['DescDepartamento'] = $row['DescDepartamento'];
+//                $aDept['NumEmple'] = $row['NumEmple'];
+//                $aDept['Presupuesto'] = $row['Presupuesto'];
+//
+//                if ($row['FechaBaja'] == null) {
+//                    $aDept['FechaBaja'] = "No está dado de baja";
+//                } else {
+//                    $aDept['FechaBaja'] = $row['FechaBaja'];
+//                }
+//            }
+//        }
+//        return $aDept;
+    
 
     /* https://www.el-tiempo.net/api/json/v1/provincias/49/municipios/49021/weather JODIDAMENTE IMPOSIBLE DE HACER 
       public static function obtenerClimaMunicipio($codmunicipio) {
@@ -54,4 +74,4 @@ Class Rest {
       return $aMun;
       }
      */
-}
+
