@@ -1,7 +1,7 @@
 .carrusel {
     border: 8px ridge #3f3f3f;
-    height: 400px;
-    width: 650px;
+    height: 600px;
+    width: 1000px;
     overflow: hidden;
     box-shadow: 0 0 100px #CCFFFF;
     margin: 20px;
@@ -26,9 +26,11 @@
     font-family: CaviarNegrita;
 }
 .carrusel div a img{
-     height: 400px;
-    width: 650px;
+    height: 600px;
+    width: 1000px;
 }    
+
+
 
 
 .carrusel div:hover {
@@ -38,27 +40,27 @@
 
 @keyframes movimiento {
     20% {
-        transform: translateX(-650px);
+        transform: translateX(-1000px);
         transition: 2s;
     }
 
     40% {
-        transform: translateX(-1300px);
+        transform: translateX(-2000px);
         transition: 2s;
     }
 
     60% {
-        transform: translateX(-1950px);
+        transform: translateX(-3000px);
         transition: 2s;
     }
 
     80% {
-        transform: translateX(-2600px);
+        transform: translateX(-4000px);
         transition: 2s;
     }
 
     100% {
-        transform: translateX(-3250px);
+        transform: translateX(-5000px);
         transition: 2s;
     }
 }

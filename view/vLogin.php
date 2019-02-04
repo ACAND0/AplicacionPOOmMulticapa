@@ -1,6 +1,6 @@
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
     <div>
-        <table  class="tabla01">
+        <table  class="tabla01 login">
             <caption>INICIAR SESIÓN</caption>
             <tr>
                 <td>Usuario: </td>

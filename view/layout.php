@@ -40,6 +40,7 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
 
     </body>
     <footer>
+        <a href="" target="_blank"><img src="webroot/images/cv.png" /></a>
         <a href="doc/phpDoc/index.html" target="_blank"><img src="webroot/images/phpDoc.png" />PHPDoc</a>
         <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa"><img src="webroot/images/GitHub_Logo.png"/></a>
         <a href="../indexProyectoDWES.php">Adrián Cando Oviedo®</a>

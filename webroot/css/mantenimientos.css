@@ -4,9 +4,11 @@
 }
 
 *{
-          outline: none;
+    outline: none;
 
 }
+
+
 
 .titulo {
     background-color: #00CCCC;
@@ -98,4 +100,21 @@
     color: black;
     height: 40px;
     font-family: CaviarNegrita;
+}
+
+
+.login{
+    float: right;
+    width: 280px;
+    margin: 0 auto;
+    padding: 20px 5px 20px 5px;
+}
+
+
+
+@media (max-width: 1316px) {
+    .login{
+        float: none;
+        margin: 0 auto;
+    }
 }
