@@ -1,5 +1,9 @@
 <?php
 
+$contador = 0;//Variable que utilizao para concatenar en el name de cada departamento para así
+        //poder referenciarlo y distinguirlo a la hora de utilizar los botones individuales de cada departamento como
+        //el de borrar
+
 if (isset($_REQUEST['Salir'])) {//Si hemos pulsado salir
     $_SESSION['pagina'] = 'inicio';  //Vaciamos la variable SESSION del usuario
     header("Location: index.php"); //Y redireccionamos al index

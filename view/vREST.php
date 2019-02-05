@@ -3,10 +3,12 @@
         <table class="tabla01">
             <caption>REST</caption>
             <tr>
-                <td>Seleccioneuna provincia de España para obtener sus datos</td>
+                <td>Seleccione una provincia de España para obtener sus datos. 
+                    <br>Estos datos son ofrecidos por un <a href="https://www.el-tiempo.net/" target="_blank"/>servicio web externo</a>
+                    </td>
             </tr>
             <tr>
-                <td >
+                <td>
                     <select name="CODPROV">
                         <option value="selecciona">Seleccione provincia</option>         
                         <option value="15">A coruña</option>         
@@ -66,17 +68,17 @@
                 </td>                                
             
             <tr>
-                <td>Seleccione un departamento para obtener sus datos</td>
+                <td>Seleccione un ciclo formativo para obtener sus asignaturas<br> Este servicio es un 
+                    <a href="http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php" target="_blank"/>servicio rest propio.</a></td>
             </tr>
             <tr>
                 <td>
-                    <select name="CODDEPT">
-                        <option value="selecciona">Seleccione un Código</option>         
-                        <option value="DAE">DAE</option>
-                        <option value="DLT">DLT</option>
-                        <option value="DRH">DRH</option>
-                        <option value="MYP">MYP</option>
-                        <option value="TYD">TYD</option>
+                    <select name="siglas">
+                        <option value="selecciona">Seleccione un ciclo formativo</option>         
+                        <option value="DAW1">DAW1</option>
+                        <option value="DAW2">DAW2</option>
+                        <option value="ASIR1">ASIR1</option>
+                        <option value="ASIR2">ASIR2</option>
                     </select>
                     <input class="btn" type="submit" name="Aceptar2" value="Aceptar">
                     <input class="btn" type="submit" name="Atras" value="Atras"><br>

@@ -57,11 +57,7 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
      */
 
     public static function buscaDepartamentosPorCodigo($codigo) {
-        $aDepartamento = DepartamentoPDO::buscaDepartamentosPorCodigo($codigo);
-
-        //$Departamento = new Departamento($aDepartamento[CodDepartamento], $aDepartamento[DescDepartamento], $aDepartamento[VolumenDeNegocio], $aDepartamento[FechaBajaDepartamento]);
-
-        return $aDepartamento; //Devuelvo un objeto departamento
+        return DepartamentoPDO::buscaDepartamentosPorCodigo($codigo);
     }
 
     public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda) {

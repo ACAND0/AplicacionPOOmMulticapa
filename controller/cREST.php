@@ -35,30 +35,25 @@ if (isset($_REQUEST['Aceptar'])) {
 
 //--------------------------------ESTE CÓDIGO  RECOJE DATOS DE UN FICHERO JSON Y LOS MUESTRA---------------*//
 
-echo "<h1>Datos de un departamento <a target='_blank' href='api/datosDepartamentos.json'>(Servicio propio)</a></h1>";
+echo "<h1>Datos de un departamento</h1>";
 
 //Devuelve un select con los posibles departamentos a consultar
 
 
 if (isset($_REQUEST['Aceptar2'])) {
 
+    $siglas = $_REQUEST[siglas];
 
-    require_once 'api/cAPIREST.php';
-
-    if ($aDepartamento != null) {
-
-        echo "<br><b>Código de departamento: </b>" . $aDepartamento['CodDepartamento'] . "<br>";
-        echo "<b>Nombre de departamento: </b>" . $aDepartamento['DescDepartamento'] . "<br>";
-        echo "<b>Volumen de negocio: </b>" . $aDepartamento['VolumenDeNegocio'] . " €<br>";
-        echo "<b>Fecha de baja: </b>";
-        if ($aDepartamento['FechaBajaDepartamento'] == null) {
-            echo "El departamento está dado de alta";
-        } else {
-            echo $aDepartamento['FechaBajaDepartamento'];
-        }
-        echo "<br>";
-    }else{
-        echo "Seleccione un departamento para obtener sus datos.";
+    if ($siglas == "selecciona") {
+        echo "Seleccione un ciclo formativo para obtener sus asignaturas.";
+    } else {
+        echo "<a target='_blank' href='http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php?ciclo=$siglas'>-> JSON ACTUAL <-</a><br><br>";
+        $asignaturas = Rest::obtenerCF($siglas);//Recogo el array devuelto por la funcion
+        echo "<b>Nombre del Ciclo: </b>" . $asignaturas['nombre'] . "<br>"; //Muestro los valores
+        echo "<b>ASIGNATURA 1: </b>" . $asignaturas['asignatura1'] . "<br>"; 
+        echo "<b>ASIGNATURA 2: </b>" . $asignaturas['asignatura2'] . "<br>";
+        echo "<b>ASIGNATURA 3: </b>" . $asignaturas['asignatura3'] . "<br>";
+        echo "<b>ASIGNATURA 4: </b>" . $asignaturas['asignatura4'] . "<br>";
     }
 }
 
