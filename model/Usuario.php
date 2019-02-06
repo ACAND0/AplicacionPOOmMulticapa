@@ -141,9 +141,20 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
     public static function validarCodNoExiste($codUsuario) {
         return UsuarioPDO::validarCodNoExiste($codUsuario);
     }
+            
+    public static function buscaUsuariosPorDesc($descripcion) {
+        $aObjeUsuarios = []; //Array que almacena los objetos Departamentos instanciados
+        $aUsuarios = UsuarioPDO::buscaUsuariosPorDesc($descripcion);
 
-    public static function buscaUsuariosPorDesc() {
+        foreach ($aUsuarios as $aUsuario) {//Recorro el array de Departamentos para instanciar un objeto Departamento
+            //Creo un objeto departamento con los valores del departamento actual
+            $Usuario = new Usuario($aUsuario[T01_CodUsuario], $aUsuario[T01_Password], $aUsuario[T01_DescUsuario], $aUsuario[T01_NumAccesos], $aUsuario[T01_FechaHoraUltimaConexion], $aUsuario[T01_Perfil]);
+            array_push($aObjeUsuarios, $Usuario); //Añado el objeto departamento creado al array de objetos
+        }
+        return $aObjeUsuarios; //Retorno el array de Objetos Departamento         
     }
+    
+    
 
     public function creaOpinion() {
         

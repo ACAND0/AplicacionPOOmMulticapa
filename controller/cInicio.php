@@ -26,6 +26,12 @@ if (isset($_REQUEST['MantenimientoDepartamentos'])) {//Si hemos pulsado salir
     exit;
 }
 
+if (isset($_REQUEST['MantenimientoUsuarios'])) {//Si hemos pulsado salir
+    $_SESSION['pagina'] = 'mtoUsuarios';  //Vaciamos la variable SESSION del usuario
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
+
 if (isset($_REQUEST['SOAP'])) {//Si hemos pulsado salir
     $_SESSION['paginaanterior'] = 'inicio';  //Vaciamos la variable SESSION del usuario
     $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario

@@ -1,11 +1,6 @@
 <?php
 
 $siglas = $_GET[ciclo];
-$aCiclo['nombre'] = "";
-$aCiclo['asignatura1'] = "";
-$aCiclo['asignatura2'] = "";
-$aCiclo['asignatura3'] = "";
-$aCiclo['asignatura4'] = "";
 switch ($siglas) {//Dependiendo de las siglas ofrecidas por el usuario introduzco unos valores u otros al array
     case "DAW1":
         $aCiclo['nombre'] = "1º de Desarrollo de Aplicaciones Web";
@@ -35,6 +30,9 @@ switch ($siglas) {//Dependiendo de las siglas ofrecidas por el usuario introduzc
         $aCiclo['asignatura3'] = "Implantación de Aplicaciones web";
         $aCiclo['asignatura4'] = "Administración de Sistemas Gestores de bases de datos";
         break;
+    default:
+        $aCiclo['ERROR'] = "NO SE HA ENCONTRADO UN CICLO FORMATIVO CON ESAS SIGLAS";//Este default se muestra en caso de que ninguno d elos anteriores casos se haya dado
+
 }
 
 header('Content-type: application/json');//Establecemos la cabecera del tipo de contenido que vamos a mostrar, JSON

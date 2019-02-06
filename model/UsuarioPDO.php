@@ -95,8 +95,25 @@ class UsuarioPDO implements UsuarioDB {
         return $existe;
     }
 
-    public static function buscaUsuariosPorDesc($descripcion, $criterioBusqueda) {
+    public static function buscaUsuariosPorDesc($descripcion) {
+        $aUsuarios = []; //Array que rec
+        //Dependiendo del criterio de búsqueda crearemos un query u otro
 
+        $consulta = "SELECT * FROM T01_Usuarios1 where T01_DescUsuario like (?)";
+
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, ["%$descripcion%"]);
+        if ($resConsulta->rowCount()) { //Comprobamos si se han obtenido resultados en la consulta
+            while ($resFetch = $resConsulta->fetchObject()) {
+                $aUsuario['T01_CodUsuario'] = $resFetch->T01_CodUsuario; //Introducimos valores en el array
+                $aUsuario['T01_Password'] = $resFetch->T01_Password;
+                $aUsuario['T01_DescUsuario'] = $resFetch->T01_DescUsuario;
+                $aUsuario['T01_NumAccesos'] = $resFetch->T01_NumAccesos;
+                $aUsuario['T01_FechaHoraUltimaConexion'] = $resFetch->T01_FechaHoraUltimaConexion;
+                $aUsuario['T01_Perfil'] = $resFetch->T01_Perfil;
+                array_push($aUsuarios, $aUsuario); //Añadimos el array rellenado anteriormente al array de arrays
+            }
+        }
+        return $aUsuarios;
     }
 
     public static function creaOpinion() {

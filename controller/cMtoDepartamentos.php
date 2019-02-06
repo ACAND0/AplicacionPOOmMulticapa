@@ -66,19 +66,24 @@ echo "<table class='tabla02'>
         <tr class='primerafila'>
             <td>Código</td>
             <td>Descripción</td>
+            <td>Fecha de creación</td>
             <td>Volumen de negocio</td>
             <td>Acciones</td>
         </tr>";
-$descripcion = $_REQUEST['buscarPorDesc'];
+
+$criterioBusqueda = "Todos";
+$descripcion = "";
 
 if (isset($_REQUEST['Buscar'])) {
-    
     $criterioBusqueda = $_REQUEST['criterioBusqueda'];
+    $descripcion = $_REQUEST['buscarPorDesc'];
+}
+
     $aDepartamentos = Departamento::buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda); //Devuelve array de objetos
     if ($aDepartamentos) {
         foreach ($aDepartamentos as $Departamento) {
             $codigo =$Departamento->getCodDepartamento();
-            $fechaCreacion = $Departamento->getCodDepartamento();
+            $fechaCreacion = $Departamento->getFechaCreacionDepartamento();
             $descripcion = $Departamento->getDescDepartamento();
             $volumen = $Departamento->getVolumenDeNegocio();
             $fechaBaja = $Departamento->getFechaBajaDepartamento();
@@ -90,8 +95,9 @@ if (isset($_REQUEST['Buscar'])) {
             }
             echo "<td>$codigo</td>"; //Muestro el actual código de departamento
             echo "<td>$descripcion</td>"; //Muestro la actual descripción del departamento
+            echo "<td>$fechaCreacion</td>"; //Muestro la actual descripción del departamento
             echo "<td>$volumen €</td>"; //Muestro la actual descripción del departamento
-            echo "<td>";
+               echo "<td>";
 
             echo "<div class='bocadillo'>"; //Cada bloque como este produce un icono   
             echo "<button  type='submit' name='Editar'><img src='webroot/images/editar.png'/></button>";
@@ -118,53 +124,7 @@ if (isset($_REQUEST['Buscar'])) {
             echo "</tr>";
         }
     }
-
     echo "</table>";
     echo "</form>"; //Cierro el form aquí para que los botones sean funcionales
-} else {
-    $aDepartamentos = Departamento::buscaDepartamentosPorDescripcion($descripcion, "Todos"); //Devuelve array de objetos
 
-    if ($aDepartamentos) {
-        foreach ($aDepartamentos as $Departamento) {
-            $codigo =$Departamento->getCodDepartamento();
-            $fechaCreacion = $Departamento->getCodDepartamento();
-            $descripcion = $Departamento->getDescDepartamento();
-            $volumen = $Departamento->getVolumenDeNegocio();
-            $fechaBaja = $Departamento->getFechaBajaDepartamento();
-            if ($Departamento->getFechaBajaDepartamento() == null) {//Muestro un encabezado u otro
-                echo "<tr style='background-color: #80FC7A'>"; //Si la fechad e baja es nula se verá el fondo verde
-            } else {
-                echo "<tr style='background-color: #FF4545'>"; //Si la fechad e baja no es nula se verá el fondo rojo
-            }
-            echo "<td>$codigo</td>"; //Muestro el actual código de departamento
-            echo "<td>$descripcion</td>"; //Muestro la actual descripción del departamento
-            echo "<td>$volumen €</td>"; //Muestro la actual descripción del departamento
-            echo "<td>";
-
-            echo "<div class='bocadillo'>"; //Cada bloque como este produce un icono   
-            echo "<button  type='submit' name='Editar..'><img src='webroot/images/editar.png'/></button>";
-            echo "<span class='textoBocadillo'>Editar</span>";
-            echo "</div>";
-
-            echo "<div class='bocadillo'>";
-            echo "<button  type='submit' name='Borrar'><img src='webroot/images/borrar.png'/></button>";
-            echo "<span class='textoBocadillo'>Borrar</span>";
-            echo "</div>";
-
-            if ($fechaBaja != null) {//Dependiendo de el estado del departamento muestro un botón u otro
-                echo "<div class='bocadillo'>";
-                echo "<button  type='submit' name='Baja'><img src='webroot/images/alta.png'/></button>";
-                echo "<span class='textoBocadillo'>Rehabilitación</span>";
-                echo "</div>";
-            } else {
-                echo "<div class='bocadillo'>";
-                echo "<button  type='submit' name='Rehabilitar'><img src='webroot/images/baja.png'/></button>";
-                echo "<span class='textoBocadillo'>Baja lógica</span>";
-                echo "</div>";
-            }
-            echo "</td>";
-            echo "</tr>";
-        }
-    }
-}
 ?>

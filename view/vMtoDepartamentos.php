@@ -37,6 +37,7 @@
         <input class='btn' type="submit" name="Añadir" value="Añadir" >
         <input class='btn' type="submit" name="Salir" value="Volver atrás">
     </div>
+    
 
 
    
