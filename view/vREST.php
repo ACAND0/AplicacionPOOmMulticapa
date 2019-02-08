@@ -1,7 +1,8 @@
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <a href="doc/usoAPI.pdf" target="_blank"><h1 class="titulo" style="color: black">-> Manual de APIs <-</h1></a>
     <div style="float: left;margin-right: 40px;">
         <table class="tabla01" >
-            <caption>REST</caption>
+            <caption>Consultas a las APIs</caption>
             <tr>
                 <td>
                     <font class="error"><?php echo $error ?></font>
@@ -14,65 +15,67 @@
             </tr>
             <tr>
                 <td>Seleccione una provincia de España para obtener sus datos. 
-                    <br>Estos datos son ofrecidos por un <a href="https://www.el-tiempo.net/" target="_blank"/>servicio web externo</a>
+                    <br>Estos datos son ofrecidos por un <a href="https://www.el-tiempo.net/api" target="_blank"/>servicio web externo</a><br>
+                    En este link se encuentran las instrucciones de uso de este servicio rest.
+                    
                 </td>
             </tr>
             <tr>
                 <td>
                     <select name="CODPROV">
                         <option value="selecciona">Seleccione provincia</option>         
-                        <option value="15">A coruña</option>         
-                        <option value="01">Álava</option>         
-                        <option value="02">Albacete</option>         
-                        <option value="03">Alicante</option>         
-                        <option value="04">Almería</option>         
-                        <option value="33">Asturias</option>         
-                        <option value="05">Ávila</option>         
-                        <option value="06">Badajoz</option>         
-                        <option value="07">Baleares</option>         
-                        <option value="08">Barcelona</option>         
-                        <option value="09">Burgos</option>         
-                        <option value="10">Cáceres</option>         
-                        <option value="11">Cádiz</option>         
-                        <option value="39">Cantabria</option>         
-                        <option value="12">Castellón</option>         
-                        <option value="51">Ceuta</option>         
-                        <option value="13">Ciudad Real</option>         
-                        <option value="14">Córdoba</option>         
-                        <option value="16">Cuenca</option>         
-                        <option value="17">Girona</option>         
-                        <option value="18">Granada</option>         
-                        <option value="19">Guadalajara</option>         
-                        <option value="20">Guipúzcoa</option>         
-                        <option value="21">Huelva</option>         
-                        <option value="22">Huesca</option>         
-                        <option value="23">Jaén</option>         
-                        <option value="26">La rioja</option>         
-                        <option value="35">Las palmas</option>         
-                        <option value="24">León</option>         
-                        <option value="25">Lleida</option>         
-                        <option value="27">Lugo</option>         
-                        <option value="28">Madrid</option>         
-                        <option value="29">Málaga</option>         
-                        <option value="52">Melilla</option>         
-                        <option value="30">Murcia</option>         
-                        <option value="31">Navarra</option>         
-                        <option value="32">Ourense</option>         
-                        <option value="34">Palencia</option>         
-                        <option value="36">Pontevedra</option>         
-                        <option value="37">Salamanca</option>         
-                        <option value="38">Santa cruz de tenerife</option>         
-                        <option value="40">Segovia</option>         
-                        <option value="41">Sevilla</option>         
-                        <option value="42">Soria</option>         
-                        <option value="43">Tarragona</option>         
-                        <option value="44">Teruel</option>         
-                        <option value="45">Toledo</option>         
-                        <option value="46">Valencia</option>         
-                        <option value="47">Valladolid</option>         
-                        <option value="48">Vizcaya</option>         
-                        <option value="49">Zamora</option>         
-                        <option value="50">Zaragoza</option>         
+                        <option value="15" <?php if ($codprov == '15') { ?> selected="true" <?php }; ?>>A coruña</option>         
+                        <option value="01" <?php if ($codprov == '01') { ?> selected="true" <?php }; ?>>Álava</option>         
+                        <option value="02" <?php if ($codprov == '02') { ?> selected="true" <?php }; ?>>Albacete</option>         
+                        <option value="03" <?php if ($codprov == '03') { ?> selected="true" <?php }; ?>>Alicante</option>         
+                        <option value="04" <?php if ($codprov == '04') { ?> selected="true" <?php }; ?>>Almería</option>         
+                        <option value="33" <?php if ($codprov == '33') { ?> selected="true" <?php }; ?>>Asturias</option>         
+                        <option value="05" <?php if ($codprov == '05') { ?> selected="true" <?php }; ?>>Ávila</option>         
+                        <option value="06" <?php if ($codprov == '06') { ?> selected="true" <?php }; ?>>Badajoz</option>         
+                        <option value="07" <?php if ($codprov == '07') { ?> selected="true" <?php }; ?>>Baleares</option>         
+                        <option value="08" <?php if ($codprov == '08') { ?> selected="true" <?php }; ?>>Barcelona</option>         
+                        <option value="09" <?php if ($codprov == '09') { ?> selected="true" <?php }; ?>>Burgos</option>         
+                        <option value="10" <?php if ($codprov == '10') { ?> selected="true" <?php }; ?>>Cáceres</option>         
+                        <option value="11" <?php if ($codprov == '11') { ?> selected="true" <?php }; ?>>Cádiz</option>         
+                        <option value="39" <?php if ($codprov == '39') { ?> selected="true" <?php }; ?>>Cantabria</option>         
+                        <option value="12" <?php if ($codprov == '12') { ?> selected="true" <?php }; ?>>Castellón</option>         
+                        <option value="51" <?php if ($codprov == '51') { ?> selected="true" <?php }; ?>>Ceuta</option>         
+                        <option value="13" <?php if ($codprov == '13') { ?> selected="true" <?php }; ?>>Ciudad Real</option>         
+                        <option value="14" <?php if ($codprov == '14') { ?> selected="true" <?php }; ?>>Córdoba</option>         
+                        <option value="16" <?php if ($codprov == '16') { ?> selected="true" <?php }; ?>>Cuenca</option>         
+                        <option value="17" <?php if ($codprov == '17') { ?> selected="true" <?php }; ?>>Girona</option>         
+                        <option value="18" <?php if ($codprov == '18') { ?> selected="true" <?php }; ?>>Granada</option>         
+                        <option value="19" <?php if ($codprov == '19') { ?> selected="true" <?php }; ?>>Guadalajara</option>         
+                        <option value="20" <?php if ($codprov == '20') { ?> selected="true" <?php }; ?>>Guipúzcoa</option>         
+                        <option value="21" <?php if ($codprov == '21') { ?> selected="true" <?php }; ?>>Huelva</option>         
+                        <option value="22" <?php if ($codprov == '22') { ?> selected="true" <?php }; ?>>Huesca</option>         
+                        <option value="23" <?php if ($codprov == '23') { ?> selected="true" <?php }; ?>>Jaén</option>         
+                        <option value="26" <?php if ($codprov == '26') { ?> selected="true" <?php }; ?>>La rioja</option>         
+                        <option value="35" <?php if ($codprov == '35') { ?> selected="true" <?php }; ?>>Las palmas</option>         
+                        <option value="24" <?php if ($codprov == '24') { ?> selected="true" <?php }; ?>>León</option>         
+                        <option value="25" <?php if ($codprov == '25') { ?> selected="true" <?php }; ?>>Lleida</option>         
+                        <option value="27" <?php if ($codprov == '27') { ?> selected="true" <?php }; ?>>Lugo</option>         
+                        <option value="28" <?php if ($codprov == '28') { ?> selected="true" <?php }; ?>>Madrid</option>         
+                        <option value="29" <?php if ($codprov == '29') { ?> selected="true" <?php }; ?>>Málaga</option>         
+                        <option value="52" <?php if ($codprov == '52') { ?> selected="true" <?php }; ?>>Melilla</option>         
+                        <option value="30" <?php if ($codprov == '30') { ?> selected="true" <?php }; ?>>Murcia</option>         
+                        <option value="31" <?php if ($codprov == '31') { ?> selected="true" <?php }; ?>>Navarra</option>         
+                        <option value="32" <?php if ($codprov == '32') { ?> selected="true" <?php }; ?>>Ourense</option>         
+                        <option value="34" <?php if ($codprov == '34') { ?> selected="true" <?php }; ?>>Palencia</option>         
+                        <option value="36" <?php if ($codprov == '36') { ?> selected="true" <?php }; ?>>Pontevedra</option>         
+                        <option value="37" <?php if ($codprov == '37') { ?> selected="true" <?php }; ?>>Salamanca</option>         
+                        <option value="38" <?php if ($codprov == '38') { ?> selected="true" <?php }; ?>>Santa cruz de tenerife</option>         
+                        <option value="40" <?php if ($codprov == '40') { ?> selected="true" <?php }; ?>>Segovia</option>         
+                        <option value="41" <?php if ($codprov == '41') { ?> selected="true" <?php }; ?>>Sevilla</option>         
+                        <option value="42" <?php if ($codprov == '42') { ?> selected="true" <?php }; ?>>Soria</option>         
+                        <option value="43" <?php if ($codprov == '43') { ?> selected="true" <?php }; ?>>Tarragona</option>         
+                        <option value="44" <?php if ($codprov == '44') { ?> selected="true" <?php }; ?>>Teruel</option>         
+                        <option value="45" <?php if ($codprov == '45') { ?> selected="true" <?php }; ?>>Toledo</option>         
+                        <option value="46" <?php if ($codprov == '46') { ?> selected="true" <?php }; ?>>Valencia</option>         
+                        <option value="47" <?php if ($codprov == '47') { ?> selected="true" <?php }; ?>>Valladolid</option>         
+                        <option value="48" <?php if ($codprov == '48') { ?> selected="true" <?php }; ?>>Vizcaya</option>         
+                        <option value="49" <?php if ($codprov == '49') { ?> selected="true" <?php }; ?>>Zamora</option>         
+                        <option value="50" <?php if ($codprov == '50') { ?> selected="true" <?php }; ?>>Zaragoza</option>         
                     </select>
                     <input class="btn" type="submit" name="Aceptar" value="Aceptar">
                 </td>                                
@@ -83,18 +86,23 @@
                 </td>
             </tr>
             <td>Seleccione un ciclo formativo para obtener sus asignaturas<br> Este servicio es un 
-                <!--<a href="http://192.168.1.105/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php" target="_blank"/>servicio rest propio.</a></td>-->
-                <a href="http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php" target="_blank"/>servicio rest propio.</a></td>
+                <!--<a href="http://192.168.20.19/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php" target="_blank"/>servicio rest propio.</a></td>-->
+                <a href="http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php" target="_blank"/>servicio rest propio.</a><br>
+                Este servicio devuelve un array con el nombre del ciclo formativo y<br>
+                4 asignaturas pertenecientes a este ciclo, posiciones respectivas en el array.<br>
+                
             
-        
+            </td>
+
+
             <tr>
                 <td>
                     <select name="siglas">
                         <option value="selecciona">Seleccione un ciclo formativo</option>         
-                        <option value="DAW1">DAW1</option>
-                        <option value="DAW2">DAW2</option>
-                        <option value="ASIR1">ASIR1</option>
-                        <option value="ASIR2">ASIR2</option>
+                        <option value="DAW1" <?php if ($siglas == 'DAW1') { ?> selected="true" <?php }; ?>>DAW1</option>
+                        <option value="DAW2" <?php if ($siglas == 'DAW2') { ?> selected="true" <?php }; ?>>DAW2</option>
+                        <option value="ASIR1" <?php if ($siglas == 'ASIR1') { ?> selected="true" <?php }; ?>>ASIR1</option>
+                        <option value="ASIR2" <?php if ($siglas == 'ASIR2') { ?> selected="true" <?php }; ?>>ASIR2</option>
                     </select>
                     <input class="btn" type="submit" name="Aceptar2" value="Aceptar">
                 </td>                                
@@ -106,10 +114,10 @@
                 </td>
             </tr>
             <td>Seleccione un código de departamento para obtener sus datos<br> Este servicio es un 
-                <!--                 <a href="http://192.168.1.105/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php" target="_blank"/>servicio rest propio.</a>
+                <!--                 <a href="http://192.168.20.19/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php" target="_blank"/>servicio rest propio.</a>
                                 que trabaja contra una base de datos.</td>                -->
 
-                <a href="http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php" target="_blank"/>servicio rest propio.</a>
+                <a href="http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php" target="_blank"/>servicio rest propio</a>
                 que trabaja contra una base de datos.</td>
             </tr>
             <tr>
@@ -117,15 +125,17 @@
                     <select name="codigo">
                         <option value="selecciona">Seleccione un código de departamento</option>  
                         <?php
-                        //Este código genera una lista con todos los departamentos
-                        $aDepartamentos = Departamento::buscaDepartamentosPorDescripcion("", "Todos");
-                        foreach ($aDepartamentos as $Departamento) {
-                            $codigo = $Departamento->getCodDepartamento();
-                            echo "<option value='$codigo'>$codigo</option>";
+                        //Genaración de una lista dinámica
+                        //Recorro el array de códigos
+                        foreach ($aCodigos as $Codigo) {?>
+                        <!-- Establezco el valor del Código actual-->
+                        <!-- Establezco si está seleccionado dependiendo si el código actual de la lista coincide con la variable que el usuario a seleccionado-->
+                        <option value="<?php echo $Codigo ?>" <?php if ($codigo == $Codigo) { ?> selected="true" <?php }; ?>><?php echo $Codigo ?></option>
+                            <?php
                         }
                         ?>
 
-                        
+
                     </select>
                     <input class="btn" type="submit" name="Aceptar3" value="Aceptar">
                     <input class="btn" type="submit" name="Atras" value="Atras"><br>
@@ -152,9 +162,6 @@
     <b>ASIGNATURA 2: </b><?php echo $asignaturas['asignatura2'] ?> <br>
     <b>ASIGNATURA 3: </b><?php echo $asignaturas['asignatura3'] ?> <br>
     <b>ASIGNATURA 4: </b><?php echo $asignaturas['asignatura4'] ?> <br>
-
-
-
 
     <h2>DATOS DE UN DEPARTAMENTO</h2>
     <?php echo $linkJSONDepartamentos ?>

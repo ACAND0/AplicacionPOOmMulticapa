@@ -37,8 +37,57 @@
         <input class='btn' type="submit" name="Añadir" value="Añadir" >
         <input class='btn' type="submit" name="Salir" value="Volver atrás">
     </div>
-    
 
 
-   
+    <table class='tabla02'>
+        <tr class='primerafila'>
+            <td>Código</td>
+            <td>Descripción</td>
+            <td>Fecha de creación</td>
+            <td>Volumen de negocio</td>
+            <td>Acciones</td>
+        </tr>
+        <?php
+        foreach ($aDepartamentos as $key => $Departamento) {
+            $fechaBaja = $Departamento->getFechaBajaDepartamento();
+            if ($fechaBaja == null) {
+                ?>
+                <tr style='background-color: #80FC7A'> <!-- Si la fechad e baja es nula se verá el fondo verde -->
+                <?php } else { ?>
+                <tr style='background-color: #FF4545'> <!-- Si la fechad e baja no es nula se verá el fondo rojo -->
+                <?php } ?>
+                <td><?php echo $Departamento->getCodDepartamento(); ?></td>  <!-- Muestro el actual código de departamento -->
+                <td><?php echo $Departamento->getDescDepartamento(); ?></td> <!-- Muestro la actual descripción del departamento -->                
+                <td><?php echo $Departamento->getFechaCreacionDepartamento(); ?></td> <!-- Muestro la actual descripción del departamento -->
+                <td><?php echo $Departamento->getVolumenDeNegocio(); ?> €</td> <!-- Muestro la actual descripción del departamento -->
+                <td>
+                    <div class='bocadillo'> <!-- Cada bloque como este produce un icono   -->
+                        <button  type='submit' name='Editar<?php echo $key ?>'><img src='webroot/images/editar.png'/></button>
+                        <span class='textoBocadillo'>Editar</span>
+                    </div>
+                    <div class='bocadillo'>
+                        <button  type='submit' name='Borrar<?php echo $key ?>'><img src='webroot/images/borrar.png'/></button>
+                        <span class='textoBocadillo'>Borrar</span>
+                    </div>
+
+                    <?php if ($fechaBaja != null) { ?><!-- Dependiendo de el estado del departamento muestro un botón u otro -->
+                        <div class='bocadillo'>
+                            <button  type='submit' name='Rehabilitar<?php echo $key ?>'><img src='webroot/images/alta.png'/></button>
+                            <span class='textoBocadillo'>Rehabilitación</span>
+                        </div>
+                    <?php } else { ?>
+                        <div class='bocadillo'>
+                            <button  type='submit' name='Baja<?php echo $key ?>'><img src='webroot/images/baja.png'/></button>
+                            <span class='textoBocadillo'>Baja lógica</span>
+                        </div>
+                    <?php } ?>
+                </td>
+            </tr>
+        <?php } ?>
+
+    </table>
+</form>
+
+
+
 

@@ -31,8 +31,7 @@ switch ($siglas) {//Dependiendo de las siglas ofrecidas por el usuario introduzc
         $aCiclo['asignatura4'] = "Administración de Sistemas Gestores de bases de datos";
         break;
     default:
-        $aCiclo['ERROR'] = "NO SE HA ENCONTRADO UN CICLO FORMATIVO CON ESAS SIGLAS";//Este default se muestra en caso de que ninguno d elos anteriores casos se haya dado
-
+        $aCiclo['ERROR'] = "Usted no ha introducido unas siglas que pertenezcan a un CF";//Este default se muestra en caso de que ninguno d elos anteriores casos se haya dado
 }
 
 header('Content-type: application/json');//Establecemos la cabecera del tipo de contenido que vamos a mostrar, JSON

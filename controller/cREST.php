@@ -17,7 +17,6 @@ if (isset($_REQUEST['Aceptar'])) {
     if ($codprov == "selecciona") {
         $error = "Debe de seleccionar una provincia para mostrar los datos.";
     } else {
-//        $linkJSONAEMET = "<a target='_blank' href='https://www.el-tiempo.net/api/json/v1/provincias/$codprov'>-> JSON ACTUAL <-</a><br><br>";
         $linkJSONAEMET = "<a target='_blank' href='https://www.el-tiempo.net/api/json/v1/provincias/$codprov'>-> JSON ACTUAL <-</a><br><br>";
         $aProvincia = Rest::obtenerDatosProvincia($codprov);
     }
@@ -32,7 +31,6 @@ if (isset($_REQUEST['Aceptar2'])) {
         $error = "Seleccione un ciclo formativo para obtener sus asignaturas.";
     } else {
         //Asigno un link con el enlace al JSON del Ciclo actual para mostrarlo en la vista
-//        $linkJSONCiclos = "<a target='_blank' href='http://192.168.1.105/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php?ciclo=$siglas'>-> JSON ACTUAL <-</a><br><br>";
         $linkJSONCiclos = "<a target='_blank' href='http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php?ciclo=$siglas'>-> JSON ACTUAL <-</a><br><br>";
         $asignaturas = Rest::obtenerCF($siglas); //Recogo el array devuelto por la funcion
     }
@@ -45,22 +43,15 @@ if (isset($_REQUEST['Aceptar3'])) {
     if ($codigo == "selecciona") {
         $error = "Seleccione un código para obtener sus datos.";
     } else {
-        //Asigno un link con el enlace al JSON del Ciclo actual para mostrarlo en la vista
+        //Asigno un link con el enlace al JSON del Departamento actual para mostrarlo en la vista
         $linkJSONDepartamentos = "<a target='_blank' href='http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php?codigo=$codigo'>-> JSON ACTUAL <-</a><br><br>";
         $departamento = Rest::obtenerDtosDepartamento($codigo); //Recogo el array devuelto por la funcion
+    
+        
     }
 }
 
-
-
-
-
-
-
-
-
-
-
+$aCodigos = Rest::obtenerCodigosDepartamentos();//Almaceno en un array los departamentos disponibles utilizando el servicio rest
 
 
 $_SESSION['pagina'] = 'rest';

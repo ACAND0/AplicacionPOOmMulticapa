@@ -38,6 +38,8 @@ $vistas = [
     'soap' => 'view/vSOAP.php',
     'tecnologias' => 'view/vTecnologias.php',
     'wip' => 'view/vWIP.php',
+    'bajaLogicaDepartamento' => 'view/vBajaLogicaDepartamento.php',
+    'rehabilitacionDepartamento' => 'view/vRehabilitacionDepartamento.php'
 ];
 
 $controladores = [
@@ -66,5 +68,7 @@ $controladores = [
     'soap' => 'controller/cSOAP.php',
     'tecnologias' => 'controller/cTecnologias.php',
     'wip' => 'controller/cWIP.php',
+    'bajaLogicaDepartamento' => 'controller/cBajaLogicaDepartamento.php',
+    'rehabilitacionDepartamento' => 'controller/cRehabilitacionDepartamento.php'   
 ];
 ?>

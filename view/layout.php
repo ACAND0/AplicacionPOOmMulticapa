@@ -40,10 +40,11 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
 
     </body>
     <footer>
-        <a href="" target="_blank"><img src="webroot/images/cv.png" /></a>
+        <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa" target="_blank"><img src="webroot/images/GitHub_Logo.png"/></a>        
+        <a href="doc/catalogoDeRequisitos.pdf" target="_blank"><img src="webroot/images/catalogo.png"/>Catálogo de requisitos</a>
+        <a href="../indexProyectoDWES.php" style="font-size: 1.5em">Adrián Cando Oviedo®</a>        
+        <a href="doc/cv.pdf" target="_blank"><img src="webroot/images/cv.svg"/></a>     
         <a href="doc/phpDoc/index.html" target="_blank"><img src="webroot/images/phpDoc.png" />PHPDoc</a>
-        <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa"><img src="webroot/images/GitHub_Logo.png"/></a>
-        <a href="../indexProyectoDWES.php">Adrián Cando Oviedo®</a>
-        <a href="http://DAW-USGIT.sauces.local/acando/AplicacionPOOmMulticapa.git"><img src="webroot/images/GitLab_logo.png"/></a>
+        <a href="http://DAW-USGIT.sauces.local/acando/AplicacionPOOmMulticapa.git" target="_blank"><img src="webroot/images/GitLab_logo.png"/></a>
     </footer>
 </html>

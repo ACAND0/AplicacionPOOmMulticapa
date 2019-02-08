@@ -16,7 +16,6 @@
     <div style="margin: 0 auto;text-align: center;">
         <input class='btn' type="submit" name="Importar" value="Importar" >
         <input class='btn' type="submit" name="Exportar" value="Exportar" >
-        <input class='btn' type="submit" name="Añadir" value="Añadir" >
         <input class='btn' type="submit" name="Salir" value="Volver atrás">
     </div>
 
@@ -30,6 +29,37 @@
             <td>Fecha Última Conexión</td>
             <td>Acciones</td>
         </tr>
+<?php
+    foreach ($aUsuarios as $key => $Usuario) {
+        $codigo = $Usuario->getCodUsuario();
+        $desc = $Usuario->getDescUsuario();
+        $perfil = $Usuario->getPerfil();
+        $Visitas = $Usuario->getNumAccesos();
+        if (is_null($Usuario->getFechaHoraUltimaConexion())) {
+            $ultimaConexion = "Este usuario no ha visitado la página";
+        }else{
+            $ultimaConexion = strftime("%Y-%m-%d  %H:%M:%S", $Usuario->getFechaHoraUltimaConexion());
+        }
+        ?>
+        <tr style='background-color: white'>
+        <td><?php echo $codigo ?></td>
+        <td><?php echo $desc ?></td>
+        <td><?php echo $perfil ?></td>
+        <td><?php echo $Visitas ?></td>
+        <td><?php echo $ultimaConexion ?></td>
+        <td>
 
+        <div class='bocadillo'>
+        <button  type='submit' name='Editar<?php echo $key?>'><img src='webroot/images/editar.png'/></button>
+        <span class='textoBocadillo'>Editar</span>
+        </div>
+        <div class='bocadillo'>
+        <button  type='submit' name='Borrar<?php echo $key?>'><img src='webroot/images/borrar.png'/></button>
+        <span class='textoBocadillo'>Borrar</span>
+        </div>
 
-
+        </td>
+        </tr>
+    <?php }?>
+</table>
+</form>

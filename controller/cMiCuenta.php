@@ -50,7 +50,8 @@ if (isset($_REQUEST['Aceptar']) && $entradaOK) {
 
     $aRespuestas[DescUsuario] = $_REQUEST['DescUsuario']; //Recojo la nueva descripcion si ha cambiado, sino es la misma
 
-    $_SESSION['usuario']->modificarUsuario($aRespuestas[DescUsuario]);
+    $_SESSION['usuario']->modificarUsuario($aRespuestas[DescUsuario],null,null);
+    $_SESSION['usuario']->setDescusuario($aRespuestas[DescUsuario]);
         $_SESSION['pagina'] = 'inicio';
         header("Location: index.php");
         exit;

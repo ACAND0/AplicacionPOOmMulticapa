@@ -30,31 +30,6 @@ if (isset($_REQUEST['Exportar'])) {//Si hemos pulsado salir
     exit;
 }
 
-if (isset($_REQUEST['Añadir'])) {//Si hemos pulsado salir
-    $_SESSION['paginaanterior'] = 'mtoUsuarios';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
-    header("Location: index.php"); //Y redireccionamos al index
-    exit;
-}
-
-if (isset($_REQUEST['Editar'])) {//Si hemos pulsado salir
-    $_SESSION['paginaanterior'] = 'mtoUsuarios';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
-    header("Location: index.php"); //Y redireccionamos al index
-    exit;
-}
-
-if (isset($_REQUEST['Borrar'])) {//Si hemos pulsado salir
-    $_SESSION['paginaanterior'] = 'mtoUsuarios';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
-    header("Location: index.php"); //Y redireccionamos al index
-    exit;
-}
-
-
-$_SESSION['pagina'] = 'mtoUsuarios';
-require_once $vistas['layout'];
-
 
 //Abro la tabla que contendrá los datos de los departamentos en la vista
 
@@ -65,42 +40,34 @@ if (isset($_REQUEST['Buscar'])) {
 }
 
 $aUsuarios = Usuario::buscaUsuariosPorDesc($descripcion);
-if ($aUsuarios) {
-    foreach ($aUsuarios as $Usuario) {
-        $codigo = $Usuario->getCodUsuario();
-        $desc = $Usuario->getDescUsuario();
-        $perfil = $Usuario->getPerfil();
-        $Visitas = $Usuario->getNumAccesos();
-        if (is_null($Usuario->getFechaHoraUltimaConexion())) {
-            $ultimaConexion = "Este usuario no ha visitado la página";
-        }else{
-            $ultimaConexion = strftime("%Y-%m-%d  %H:%M:%S", $Usuario->getFechaHoraUltimaConexion());
-        }
-        echo "<tr style='background-color: white'>"; //Si la fechad e baja es nula se verá el fondo verde
-        echo "<td>$codigo</td>"; //Muestro el actual código de departamento
-        echo "<td>$desc</td>"; //Muestro la actual descripción del departamento
-        echo "<td>$perfil</td>"; //Muestro la actual descripción del departamento
-        echo "<td>$Visitas</td>"; //Muestro la actual descripción del departamento
-        echo "<td>$ultimaConexion</td>"; //Muestro la actual descripción del departamento
-        echo "<td>";
 
-        echo "<div class='bocadillo'>"; //Cada bloque como este produce un icono   
-        echo "<button  type='submit' name='Editar'><img src='webroot/images/editar.png'/></button>";
-        echo "<span class='textoBocadillo'>Editar</span>";
-        echo "</div>";
+foreach ($aUsuarios as $key => $Usuario) {//Recorro los departamentos teniendo en cuenta su índice
+    if (isset($_REQUEST['Borrar' . $key])) {//Si se ha pulsado el botón del departamento actual
+        $_SESSION['CodigoUsuario'] = $Usuario->getCodUsuario(); //Establezco el código del departamento actual en la variable de session CodigoUsuario
+        $_SESSION['pagina'] = 'eliminarUsuario'; //Y me voy a la respectiva vista de detalle
+        header("Location: index.php");
+        exit;
+    }
 
-        echo "<div class='bocadillo'>";
-        echo "<button  type='submit' name='Borrar'><img src='webroot/images/borrar.png'/></button>";
-        echo "<span class='textoBocadillo'>Borrar</span>";
-        echo "</div>";
-
-        echo "</td>";
-        echo "</tr>";
+    if (isset($_REQUEST['Editar' . $key])) {//Si se ha pulsado el botón del departamento actual
+        $_SESSION['CodigoUsuario'] = $Usuario->getCodUsuario(); //Establezco el código del departamento actual en la variable de session CodigoUsuario
+        $_SESSION['pagina'] = 'consultarModificarUsuario'; //Y me voy a la respectiva vista de detalle
+        header("Location: index.php");
+        exit;
     }
 }
 
-echo "</table>";
-echo "</form>";
+
+
+
+
+
+
+
+
+$_SESSION['pagina'] = 'mtoUsuarios';
+require_once $vistas['layout'];
+
 
 
 

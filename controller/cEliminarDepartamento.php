@@ -1,4 +1,5 @@
 <?php
+
 /*
  * cBorrarCeunta
  * 
@@ -13,14 +14,15 @@ if (isset($_REQUEST['Cancelar'])) {//Si hemos pulsado salir
 
 
 if (isset($_REQUEST['Aceptar'])) {
-
-    if ($_SESSION['usuario']->borrarUsuario()) {
-        unset($_SESSION['usuario']);  //Vaciamos la variable SESSION del usuario
-        session_destroy(); //Destruimos la sesión
+    $Departamento = Departamento::buscaDepartamentosPorCodigo($_SESSION['CodigoDepartamento']);
+    
+    if ($Departamento->bajaFisicaDepartamento()) {
+        $_SESSION['pagina'] = 'mtoDepartamentos';  
         header("Location: index.php");
+        exit;
     }
 } else {
-    $_SESSION['pagina'] = 'borrarCuenta'; //Establecemos la página en el login
+    $_SESSION['pagina'] = 'eliminarDepartamento'; //Establecemos la página en el login
     require_once $vistas['layout']; //Y cargamos el layout
 }
 

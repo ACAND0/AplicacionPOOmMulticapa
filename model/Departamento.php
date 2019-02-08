@@ -88,19 +88,20 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
     }
 
     public function bajaFisicaDepartamento() {
-        
+        return DepartamentoPDO::bajaFisicaDepartamento($this->getCodDepartamento());
     }
 
     public function bajaLogicaDepartamento() {
-        
+        return DepartamentoPDO::bajaLogicaDepartamento($this->getCodDepartamento());
     }
 
-    public function modificaDepartamento() {
-        
+    public function modificaDepartamento($VolumenDeNegocio, $DescDepartamento) {        
+        return DepartamentoPDO::modificaDepartamento($this->getCodDepartamento(), $VolumenDeNegocio, $DescDepartamento);
     }
 
     public function rehabilitaDepartamento() {
-        
+        return DepartamentoPDO::rehabilitaDepartamento($this->getCodDepartamento());
+
     }
 
     public static function validaCodNoExiste($CodDepartamento) {

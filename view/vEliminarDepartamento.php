@@ -3,7 +3,7 @@
                         <table class="tabla01">
                             <caption>ELIMINAR<br>DEPARTAMENTO</caption>
                             <tr>
-                                <td>¿Está seguro de que desea eliminar este departamento? No habrá vuelta atrás</td>
+                                <td>¿Está seguro de que desea eliminar este departamento <b><?php echo $_SESSION['CodigoDepartamento']; ?></b>? No habrá vuelta atrás</td>
                             </tr>
                             <tr>
                                 <td style="padding-left: 38%;">

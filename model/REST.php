@@ -1,5 +1,5 @@
 <?php
-
+//En casa, sustituir 20.19/DAW205/public_html por 20.19
 Class Rest {
 
     public static function obtenerDatosProvincia($codprov) {
@@ -7,49 +7,52 @@ Class Rest {
         $provincia = file_get_contents('https://www.el-tiempo.net/api/json/v1/provincias/' . $codprov);
         $provincia = json_decode($provincia, true);
 
-        foreach ($provincia as $row) {
-            $aProv['CODPROV'] = $row['CODPROV'];
-            $aProv['NOMBRE_PROVINCIA'] = $row['NOMBRE_PROVINCIA'];
-            $aProv['COMUNIDAD_CIUDAD_AUTONOMA'] = $row['COMUNIDAD_CIUDAD_AUTONOMA'];
-            $aProv['CAPITAL_PROVINCIA'] = $row['CAPITAL_PROVINCIA'];
-        }
+            foreach ($provincia as $row) {
+                $aProv['CODPROV'] = $row['CODPROV'];
+                $aProv['NOMBRE_PROVINCIA'] = $row['NOMBRE_PROVINCIA'];
+                $aProv['COMUNIDAD_CIUDAD_AUTONOMA'] = $row['COMUNIDAD_CIUDAD_AUTONOMA'];
+                $aProv['CAPITAL_PROVINCIA'] = $row['CAPITAL_PROVINCIA'];
+            }
+        
         return $aProv;
     }
 
-    public static function obtenerCF($siglas) { 
+    public static function obtenerCF($siglas) {
         $asignaturas = []; //Almacenaré los datos de los ciclos
-        //$Ciclo = file_get_contents('http://192.168.1.105/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php?ciclo='.$siglas);//Llamo a la api con las siglas del ciclo indicadas por el usuario
-        $Ciclo = file_get_contents('http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php?ciclo='.$siglas);//Llamo a la api con las siglas del ciclo indicadas por el usuario
+        $Ciclo = file_get_contents('http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php?ciclo=' . $siglas); //Llamo a la api con las siglas del ciclo indicadas por el usuario
         //var_dump($Ciclo);//Punto en el que muestro el file_get_contents
-        $aCiclo = json_decode($Ciclo);//Decodifico el fichero JSON
+        $aCiclo = json_decode($Ciclo); //Decodifico el fichero JSON
 
         foreach ($aCiclo as $row => $valor) {
-            $asignaturas[$row] = $valor;//Creo un array con las mismas claves y valores que el devuelto por la api
+            $asignaturas[$row] = $valor; //Creo un array con las mismas claves y valores que el devuelto por la api
         }
-        
-        return $asignaturas;//Devuelvo el array
+
+        return $asignaturas; //Devuelvo el array
     }
-    
-    
-    public static function obtenerDtosDepartamento($codigo) { 
+
+    public static function obtenerDtosDepartamento($codigo) {
         $departamentos = []; //Almacenaré los datos de los ciclos
-        //$Departamento = file_get_contents('http://192.168.1.105/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php?codigo='.$codigo);//Llamo a la api con las siglas del ciclo indicadas por el usuario
-        $Departamento = file_get_contents('http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php?codigo='.$codigo);//Llamo a la api con las siglas del ciclo indicadas por el usuario
+        $Departamento = file_get_contents('http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php?codigo=' . $codigo); //Llamo a la api con las siglas del ciclo indicadas por el usuario
         //var_dump($Ciclo);//Punto en el que muestro el file_get_contents
-        $aDep = json_decode($Departamento);//Decodifico el fichero JSON
+        $aDep = json_decode($Departamento); //Decodifico el fichero JSON
 
         foreach ($aDep as $row => $valor) {
-            $departamentos[$row] = $valor;//Creo un array con las mismas claves y valores que el devuelto por la api
+            $departamentos[$row] = $valor; //Creo un array con las mismas claves y valores que el devuelto por la api
         }
-        
-        return $departamentos;//Devuelvo el array
+
+        return $departamentos; //Devuelvo el array
     }
-    
-    
-    
-    
-    
-    
+
+    public static function obtenerCodigosDepartamentos() {
+        $departamentos = []; //Almacenaré los datos de los ciclos
+
+        $Codigos = file_get_contents('http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCodigosDepartamentos.php'); //Llamo a la api con las siglas del ciclo indicadas por el usuario
+        //var_dump($Ciclo);//Punto en el que muestro el file_get_contents
+        $aCodigos = json_decode($Codigos); //Decodifico el fichero JSON
+
+
+        return $aCodigos; //Devuelvo el array
+    }
 
 }
 

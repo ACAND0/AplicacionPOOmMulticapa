@@ -120,14 +120,13 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
         return $Usuario;
     }
 
+    public function modificarUsuario($DescUsuario, $Perfil, $Password) {
+        return UsuarioPDO::modificarUsuario($this->getCodUsuario(), $DescUsuario, $Perfil, $Password);
+    }
+
     public function cambiarPassword($password) {
         $this->setPassword($password);
         return UsuarioPDO::cambiarPassword($password, $this->getCodUsuario());
-    }
-
-    public function modificarUsuario($DescUsuario) {
-        $this->setDescUsuario($DescUsuario);
-        return UsuarioPDO::modificarUsuario($this->getCodUsuario(), $DescUsuario);
     }
 
     public function borrarUsuario() {
@@ -141,7 +140,7 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
     public static function validarCodNoExiste($codUsuario) {
         return UsuarioPDO::validarCodNoExiste($codUsuario);
     }
-            
+
     public static function buscaUsuariosPorDesc($descripcion) {
         $aObjeUsuarios = []; //Array que almacena los objetos Departamentos instanciados
         $aUsuarios = UsuarioPDO::buscaUsuariosPorDesc($descripcion);
@@ -153,8 +152,14 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
         }
         return $aObjeUsuarios; //Retorno el array de Objetos Departamento         
     }
-    
-    
+
+    public static function buscaUsuariosPorCodigo($codigo) {
+         $aUsuario = UsuarioPDO::buscaUsuariosPorCodigo($codigo);
+        if (!empty($aUsuario)) {
+            $Usuario = new Usuario($aUsuario[T01_CodUsuario], $aUsuario[T01_Password], $aUsuario[T01_DescUsuario], $aUsuario[T01_NumAccesos], $aUsuario[T01_FechaHoraUltimaConexion], $aUsuario[T01_Perfil]);
+        }
+        return $Usuario;
+    }
 
     public function creaOpinion() {
         

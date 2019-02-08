@@ -18,12 +18,10 @@ CodDepartamento varchar(3) primary key,
 DescDepartamento varchar(255),
 FechaCreacionDepartamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 VolumenDeNegocio int,
-FechaBajaDepartamento int default null)engine=innodb;
+FechaBajaDepartamento TIMESTAMP null)engine=innodb;
 
 -- CREAR USUARIO --
 CREATE USER 'userDAW205_DBAplicacion1819'@'%' IDENTIFIED BY 'paso';
 -- ASIGNAR PRIVILEGIOS A USUARIO  --
 GRANT ALL PRIVILEGES ON `DAW205_DBproyectoAplicacion1819` . * TO `userDAW205_DBAplicacion1819`@'%';
-
-
 

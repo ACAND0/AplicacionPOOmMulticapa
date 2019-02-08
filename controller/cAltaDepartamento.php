@@ -28,7 +28,7 @@ if (isset($_REQUEST['Aceptar'])) {
     //Valido las entradas
     $aErrores[CodDepartamento] = validacionFormularios::comprobarAlfabetico($_REQUEST['CodDepartamento'], 3, 3, 1);
     $aErrores[DescDepartamento] = validacionFormularios::comprobarAlfanumerico($_REQUEST['DescDepartamento'], 255, 5, 1);
-    $aErrores[VolumenDeNegocio] = validacionFormularios::comprobarEntero($_REQUEST['VolumenDeNegocio'], 10000, 100, 1);
+    $aErrores[VolumenDeNegocio] = validacionFormularios::comprobarEntero($_REQUEST['VolumenDeNegocio'], 100000, 100, 1);
 
    
 

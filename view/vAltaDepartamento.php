@@ -10,7 +10,7 @@
             <tr>
                 <td>Descripción del departamento</td>
                 <td>
-                    <textarea type="textarea"name="DescDepartamento" rows="5" cols="30"><?php echo $_REQUEST['DescDepartamento']; ?> </textarea>
+                    <textarea type="textarea" name="DescDepartamento" rows="5" cols="30"><?php echo $_REQUEST['DescDepartamento']; ?></textarea>
                     <font class="error"><?php echo $aErrores[DescDepartamento]; ?></font>
                 </td>
             </tr>
