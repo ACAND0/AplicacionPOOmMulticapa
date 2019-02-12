@@ -1,9 +1,8 @@
 
 a:link,a:visited,a:hover,a:active{ /*Estilo de los links*/
-        color: #00CCCC;
-        text-decoration: none;
+    color: #00CCCC;
+    text-decoration: none;
 }
-
 
 
 @font-face {
@@ -19,12 +18,11 @@ a:link,a:visited,a:hover,a:active{ /*Estilo de los links*/
 body {
     background-image: url("../images/fondo1.jpg");
     background-size: auto;
-    background-repeat: no-repeat;
-    height: 20%;
+    background-repeat: repeat;
     font-family: Caviar;
     color: white;
-    position: relative;
-    margin-bottom: 50px;
+    margin: 0;
+  margin-bottom: 40px;
 }
 
 
@@ -67,27 +65,30 @@ body {
 footer{
     background-color: white;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
-    left: 0px;
-    margin: 20px 0 0 0;
+    height: 40px;
     padding: 10px;
     text-align: center;
-    margin-top: 20px;
-    z-index: 20;
-    
 }
 
 footer a:link,footer a:visited,footer a:active{
     text-decoration: none;
     font-family: CaviarNegrita;
-    font-size: 0.8em;
+    font-size: 1em;
     color: black;
     padding: 0px 15px 0px 15px;
 }
 
+@media screen and (max-width: 600px){
+    footer a img{
+        height: 10px; 
+    }
+} 
+
 footer  img{
-    height: 25px; 
+    height: 20px; 
+    display: inline-block;
 }
 
 
@@ -114,18 +115,18 @@ input:not([type="submit"]):not([type="button"]):focus, textarea:focus{
 }
 
 .apariciontexto{
- animation-duration: 4s;
-  animation-name: apariciontexto;
+    animation-duration: 4s;
+    animation-name: apariciontexto;
 }
 
 @keyframes apariciontexto {
-  from {
-    color: transparent;
-  }
+    from {
+        color: transparent;
+    }
 
-  to {
-    color: white;
-  }
+    to {
+        color: white;
+    }
 }
 
 

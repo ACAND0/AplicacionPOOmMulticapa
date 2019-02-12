@@ -1,9 +1,10 @@
 <?php
-/*
- * MiCuenta
+/**
+ * Archivo cMiCuenta.php
  * 
- * Este controlador permite redireccionar según que botón hayamos pulsado a CambiarPassword o BorrarCuenta
- * Modifica la descripción de un usuario si se ha pulsado aceptar y la validación es correcta.
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
  */
 if (isset($_REQUEST['Cancelar'])) {//Si hemos pulsado salir
     $_SESSION['pagina'] = 'inicio';  //V
@@ -50,7 +51,8 @@ if (isset($_REQUEST['Aceptar']) && $entradaOK) {
 
     $aRespuestas[DescUsuario] = $_REQUEST['DescUsuario']; //Recojo la nueva descripcion si ha cambiado, sino es la misma
 
-    $_SESSION['usuario']->modificarUsuario($aRespuestas[DescUsuario]);
+    $_SESSION['usuario']->modificarUsuario($aRespuestas[DescUsuario],null,null);
+    $_SESSION['usuario']->setDescusuario($aRespuestas[DescUsuario]);
         $_SESSION['pagina'] = 'inicio';
         header("Location: index.php");
         exit;

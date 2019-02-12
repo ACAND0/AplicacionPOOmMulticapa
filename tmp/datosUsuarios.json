@@ -1,0 +1,74 @@
+[
+    {
+        "CodUsuario": "admin",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Cuenta de administrador",
+        "NumAccesos": "19",
+        "FechaHoraUltimaConexi\u00f3n": "1549801277",
+        "Perfil": "administrador"
+    },
+    {
+        "CodUsuario": "adrian",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Usuario de Adri\u00e1n Cando Oviedo",
+        "NumAccesos": "2",
+        "FechaHoraUltimaConexi\u00f3n": "1549796130",
+        "Perfil": "administrador"
+    },
+    {
+        "CodUsuario": "alejandro",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Cuenta de Alejandro",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "christian",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Cuenta de Christian",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "david",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Cuenta de David",
+        "NumAccesos": "1",
+        "FechaHoraUltimaConexi\u00f3n": "1549796125",
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "heraclio",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Usuario de Heraclio Borbujo",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "israel",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Cuenta de Israel",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "mario",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Cuenta de Mario Casquero",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "tania",
+        "Password": "b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342",
+        "DescUsuario": "Cuenta de Tania Mateos",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    }
+]

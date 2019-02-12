@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Archivo cMtoDepartamentos.php
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
+ */
 $contador = 0; //Variable que utilizao para concatenar en el name de cada departamento para así
 //poder referenciarlo y distinguirlo a la hora de utilizar los botones individuales de cada departamento como
 //el de borrar
@@ -17,15 +23,13 @@ if (isset($_REQUEST['limpiarBuscar'])) {//Si hemos pulsado salir
 }
 
 if (isset($_REQUEST['Importar'])) {//Si hemos pulsado salir
-    $_SESSION['paginaanterior'] = 'mtoDepartamentos';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
+    $_SESSION['pagina'] = 'importarDepartamentos';  //Vaciamos la variable SESSION del usuario
     header("Location: index.php"); //Y redireccionamos al index
     exit;
 }
 
 if (isset($_REQUEST['Exportar'])) {//Si hemos pulsado salir
-    $_SESSION['paginaanterior'] = 'mtoDepartamentos';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
+    $_SESSION['pagina'] = 'exportarDepartamentos';  //Vaciamos la variable SESSION del usuario
     header("Location: index.php"); //Y redireccionamos al index
     exit;
 }

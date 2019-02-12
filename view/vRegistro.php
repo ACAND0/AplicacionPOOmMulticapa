@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <td>Contraseña</td>
-                <td><input type="password" size="50" name="Password" value="<?php echo $_REQUEST['Password']; ?>" placeholder="Mínimo 3 caracteres">
+                <td><input type="password" size="45" name="Password" value="<?php echo $_REQUEST['Password']; ?>" placeholder="Mínimo 5 caracteres, una mayúscula y un número">
                     <font class="error"><?php echo $aErrores[Password]; ?></font>
                 </td>
             </tr>

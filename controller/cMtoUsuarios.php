@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Archivo cMtoUsuarios.php
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
+ */
 $contador = 0; //Variable que utilizao para concatenar en el name de cada departamento para así
 //poder referenciarlo y distinguirlo a la hora de utilizar los botones individuales de cada departamento como
 //el de borrar
@@ -10,22 +16,20 @@ if (isset($_REQUEST['Salir'])) {//Si hemos pulsado salir
     exit;
 }
 
-if (isset($_REQUEST['Importar'])) {//Si hemos pulsado salir
-    $_SESSION['paginaanterior'] = 'mtoUsuarios';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
-    header("Location: index.php"); //Y redireccionamos al index
-    exit;
-}
-
 if (isset($_REQUEST['limpiarBuscar'])) {//Si hemos pulsado salir
     $_SESSION['pagina'] = 'mtoUsuarios';  //Vaciamos la variable SESSION del usuario
     header("Location: index.php"); //Y redireccionamos al index
     exit;
 }
 
+if (isset($_REQUEST['Importar'])) {//Si hemos pulsado salir
+    $_SESSION['pagina'] = 'importarUsuarios';  //Vaciamos la variable SESSION del usuario
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
+
 if (isset($_REQUEST['Exportar'])) {//Si hemos pulsado salir
-    $_SESSION['paginaanterior'] = 'mtoUsuarios';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['pagina'] = 'wip';  //Vaciamos la variable SESSION del usuario
+    $_SESSION['pagina'] = 'exportarUsuarios';  //Vaciamos la variable SESSION del usuario
     header("Location: index.php"); //Y redireccionamos al index
     exit;
 }
@@ -56,13 +60,6 @@ foreach ($aUsuarios as $key => $Usuario) {//Recorro los departamentos teniendo e
         exit;
     }
 }
-
-
-
-
-
-
-
 
 
 $_SESSION['pagina'] = 'mtoUsuarios';

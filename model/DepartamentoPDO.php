@@ -1,9 +1,38 @@
 <?php
 
+/**
+ * Archivo DepartamentoPDO.php
+ * 
+ * Este archivo contiene una clase con varias funciones, las cuales manejan las operaciones
+ * relacionadas con los objetos Departamento en nuestra aplicación, es utilizada por la clase Departamento
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package model
+ */
 require_once "DBPDO.php";
 
+/**
+ *  Class UsuarioPDO
+ * 
+ * Contiene funciones que operan con objetos Departamento directamente ejecutando querys con la clase
+ * DBPDO 
+ * 
+ * @author Adrián Cando Oviedo
+ * @modifiedDate 11/02/2019
+ * @version 2.6
+ * 
+ */
 class DepartamentoPDO {
 
+    /**
+     *  static function buscaDepartamentosPorCodigo($codigo)
+     * 
+     * Busca y recopila la información de la abse de datos de un departamento con el código pasado como parámetro
+     * 
+     * @param string $codigo
+     * @return array Array con los datos de un departamento
+     */
     public static function buscaDepartamentosPorCodigo($codigo) {
         $aDepartamento = []; //Array que rec
         //Dependiendo del criterio de búsqueda crearemos un query u otro
@@ -22,6 +51,16 @@ class DepartamentoPDO {
         return $aDepartamento;
     }
 
+    /**
+     * static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda)
+     * 
+     * Busca los departamentos que coincidan con la descripción y el criterio de búsqueda
+     * pasados como parámetros
+     * 
+     * @param string $descripcion 
+     * @param string $criterioBusqueda
+     * @return array Array de objetos Departamento
+     */
     public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda) {
         $aDepartamentos = []; //Array que rec
         //Dependiendo del criterio de búsqueda crearemos un query u otro
@@ -49,6 +88,16 @@ class DepartamentoPDO {
         return $aDepartamentos;
     }
 
+    /**
+     * static function altaDepartamento($CodDepartamento, $DescDepartamento, $VolumenNegocio)
+     * 
+     * 
+     * 
+     * @param string $CodDepartamento
+     * @param string $DescDepartamento 
+     * @param int $VolumenNegocio
+     * @return boolean
+     */
     public static function altaDepartamento($CodDepartamento, $DescDepartamento, $VolumenNegocio) {
         $DepartamentoCreado = false;
 
@@ -67,6 +116,14 @@ class DepartamentoPDO {
         return $DepartamentoCreado;
     }
 
+    /**
+     *  static function bajaFisicaDepartamento($codDepartamento)
+     * 
+     * Elimina el departamento que contenga el código paasado como parámetro
+     * 
+     * @param string $codDepartamento
+     * @return boolean
+     */
     public static function bajaFisicaDepartamento($codDepartamento) {
         $eliminado = false;
         $consulta = "DELETE FROM T02_Departamentos1 WHERE CodDepartamento=?";
@@ -77,6 +134,15 @@ class DepartamentoPDO {
         return $eliminado;
     }
 
+    /**
+     *  static function bajaLogicaDepartamento($CodDepartamento)
+     * 
+     * Establece una fecha de baja(la actual) a la columna FechaBajaDepartamento del Departamento que contenga
+     * el código pasado como parámetro
+     * 
+     * @param string $CodDepartamento
+     * @return boolean
+     */
     public static function bajaLogicaDepartamento($CodDepartamento) {
         $dadoDeBaja = false;
         $consulta = "UPDATE T02_Departamentos1 SET FechaBajaDepartamento=CURRENT_TIMESTAMP WHERE CodDepartamento=?";
@@ -87,6 +153,16 @@ class DepartamentoPDO {
         return $dadoDeBaja;
     }
 
+    /**
+     * static function modificaDepartamento($CodDepartamento, $VolumenDeNegocio, $DescDepartamento)
+     * 
+     * Modifica un departamento en la base de datos
+     * 
+     * @param string $CodDepartamento
+     * @param int $VolumenDeNegocio 
+     * @param string $DescDepartamento
+     * @return boolean
+     */
     public static function modificaDepartamento($CodDepartamento, $VolumenDeNegocio, $DescDepartamento) {
         $modificado = false;
         $consulta = "UPDATE T02_Departamentos1 SET DescDepartamento=?, VolumenDeNegocio=? WHERE CodDepartamento=?";
@@ -97,6 +173,15 @@ class DepartamentoPDO {
         return $modificado;
     }
 
+    /**
+     *  static function rehabilitaDepartamento($CodDepartamento)
+     * 
+     * Establece la fecha de baja a null del departamento que contenga
+     * el código pasado como parámetro
+     * 
+     * @param string $CodDepartamento
+     * @return boolean
+     */
     public static function rehabilitaDepartamento($CodDepartamento) {
         $rehabilitado = false;
         $consulta = "UPDATE T02_Departamentos1 SET FechaBajaDepartamento=null WHERE CodDepartamento=?";
@@ -104,8 +189,18 @@ class DepartamentoPDO {
         if ($resConsulta->rowCount() != 0) {
             $rehabilitado = true;
         }
-        return $rehabilitado;    }
+        return $rehabilitado;
+    }
 
+    /**
+     *  static function validaCodNoExiste($CodDepartamento)
+     * 
+     * Valida si existe un departamento  que contenga
+     * el código pasado como parámetro
+     * 
+     * @param string $CodDepartamento
+     * @return boolean
+     */
     public static function validaCodNoExiste($CodDepartamento) {
         $existe = false;
         $consulta = "SELECT * FROM T02_Departamentos1 where CodDepartamento = ?";
@@ -114,6 +209,29 @@ class DepartamentoPDO {
             $existe = true;
         }
         return $existe;
+    }
+
+    /**
+     *  
+     * static function importarDepartamento($CodDepartamento, $DescDepartamento, $FechaCreacionDepartamento, $VolumenNegocio, $FechaBajaDepartamento)ype $VolumenNegocio
+     * 
+     * importa 1 Departamento con los parámetros pasados a la tabla, INSERT
+     * 
+     * @param string $CodDepartamento
+     * @param string $DescDepartamento
+     * @param string $FechaCreacionDepartamento
+     * @param int $VolumenNegocio
+     * @param string $FechaBajaDepartamento
+     * @return boolean
+     */
+    public static function importarDepartamento($CodDepartamento, $DescDepartamento, $FechaCreacionDepartamento, $VolumenNegocio, $FechaBajaDepartamento) {
+        $DepartamentoImportado = false;
+        $consulta = "INSERT INTO T02_Departamentos1 VALUES (?,?,?,?,?)";
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, [strtoupper($CodDepartamento), $DescDepartamento, $FechaCreacionDepartamento, $VolumenNegocio, $FechaBajaDepartamento]);
+        if ($resConsulta->rowCount() != 0) {
+            $DepartamentoImportado = true;
+        }
+        return $DepartamentoImportado;
     }
 
 }

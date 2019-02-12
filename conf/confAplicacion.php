@@ -39,7 +39,11 @@ $vistas = [
     'tecnologias' => 'view/vTecnologias.php',
     'wip' => 'view/vWIP.php',
     'bajaLogicaDepartamento' => 'view/vBajaLogicaDepartamento.php',
-    'rehabilitacionDepartamento' => 'view/vRehabilitacionDepartamento.php'
+    'rehabilitacionDepartamento' => 'view/vRehabilitacionDepartamento.php',
+    'exportarDepartamentos' => 'view/vExportarDepartamentos.php',
+    'importarDepartamentos' => 'view/vImportarDepartamentos.php',
+    'exportarUsuarios' => 'view/vExportarUsuarios.php',
+    'importarUsuarios' => 'view/vImportarUsuarios.php'
 ];
 
 $controladores = [
@@ -69,6 +73,10 @@ $controladores = [
     'tecnologias' => 'controller/cTecnologias.php',
     'wip' => 'controller/cWIP.php',
     'bajaLogicaDepartamento' => 'controller/cBajaLogicaDepartamento.php',
-    'rehabilitacionDepartamento' => 'controller/cRehabilitacionDepartamento.php'   
+    'rehabilitacionDepartamento' => 'controller/cRehabilitacionDepartamento.php',
+    'exportarDepartamentos' => 'controller/cExportarDepartamentos.php',
+    'importarDepartamentos' => 'controller/cImportarDepartamentos.php',
+    'exportarUsuarios' => 'controller/cExportarUsuarios.php',
+    'importarUsuarios' => 'controller/cImportarUsuarios.php'    
 ];
 ?>

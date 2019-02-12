@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0">
+
+
+    <channel>  
+        <title> Adrián Cando Oviedo - Aplicación POO/Multicapa</title>
+        <link>http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/index.php</link>
+        <description> 
+            Toda la aplicación multicapa
+        </description>
+        
+        <item>
+            <title>Index de la aplicación</title>
+            <link>http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/index.php</link>
+            <description>Index en el que se encuentra mi aplicación</description>
+        </item>        
+        <item>
+            <title>Árbol de navegación</title>
+            <link>http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/webroot/images/ArbolNavegacion.jpg</link>
+            <description>Árbol de navegación, representa las acciones y efectos de un usuario y los caminos que puede seguir por la alicación</description>
+        </item>        
+        <item>
+            <title>Diagrama de casos de uso</title>
+            <link>http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/webroot/images/CasosDeUso.jpg</link>
+            <description>Diagrama que representa la autoridad de los usuarios y lo que puede hacer depende que tipo de usuario sea.</description>
+        </item>        
+        <item>
+            <title>Diagrama de clases</title>
+            <link>http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/webroot/images/DiagramaDeClases.png</link>
+            <description>Diagrama que representa las clases con sus atributos y métodos correspondientes</description>
+        </item>       
+        <item>
+            <title>Estructura de almacenamiento</title>
+            <link>http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/webroot/images/EstructuraDeAlmacenamiento.JPG</link>
+            <description>Diagrama que representa las clases con sus atributos y métodos correspondientes</description>
+        </item>       
+        <item>
+            <title>Relación de ficheros</title>
+            <link>http://daw-used.sauces.local/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/webroot/images/RelacionDeFicheros.jpg</link>
+            <description>Relación existente entre ficheros de vista, controlador, modelos y acceso a datos.</description>
+        </item>
+        
+    </channel> 
+
+</rss>

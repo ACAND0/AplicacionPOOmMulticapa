@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Archivo cConsultarModificarDepartamento.php
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
+ */
 if (isset($_REQUEST['Cancelar'])) {//Si se ha pulsado el botón cancelar
     $_SESSION['pagina'] = 'mtoDepartamentos';
     header("Location: index.php");

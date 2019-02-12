@@ -1,18 +1,22 @@
 <?php
-/*
- * layout
- * 
- * Esta es una plantilla, que contiene lo que cualquier vista de la aplicación tiene, encabezado cuerpo y footer.
- * 
- */
 
+/**
+ * Archivo layout.php
+ * 
+ * Este archivo contiene una plantilla, la cual se utiliza en todas las vistas de la aplicación
+ * incluye una vista dependiendo de la página que hayamos pasado
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package view
+ */
 
 if (isset($_SESSION['usuario'])) {//Si hay una sesión iniciada
     $vista = $vistas['inicio']; //Cargamos la vista de inicio
 }
 if (isset($_SESSION['pagina'])) {//Si hay una página definida
     $vista = $vistas[$_SESSION['pagina']]; //Cargamos la vista de dicha página
-}else{
+} else {
     $vista = $vistas['login'];
 }
 ?>
@@ -24,7 +28,10 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="webroot/css/style01.css">
         <link rel="stylesheet" type="text/css" href="webroot/css/carrusel.css">
+        <link rel = "stylesheet" type = "text/css" href = "webroot/css/mantenimientos.css">
+
         <link rel="icon" href="webroot/favicon/favicon.ico" type="image/gif" >
+        <script type="text/javascript" src="webroot/js/funciones.js"></script>
 
     </head>
 
@@ -33,14 +40,16 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
         require_once $vista;
         ?>
 
-
-
     </body>
     <footer>
+        <a href="core/RSSdesarrollo.xml" target="_blank"><img src="webroot/images/rss.png"/></a>        
+        <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa" target="_blank"><img src="webroot/images/GitHub_Logo.png"/></a>        
+        <a href="doc/catalogoDeRequisitos.pdf" target="_blank"><img src="webroot/images/catalogo.png"/>Catálogo de requisitos</a>
+        <a href="../../index.html" style="font-size: 1.5em"  target="_blank">Adrián Cando Oviedo®</a>        
+        <a href="doc/cv.pdf" target="_blank"><img src="webroot/images/cv.svg"/></a>     
         <a href="doc/phpDoc/index.html" target="_blank"><img src="webroot/images/phpDoc.png" />PHPDoc</a>
-        <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa"><img src="webroot/images/GitHub_Logo.png"/></a>
-        <a>Adrián Cando Oviedo®</a>
-        <a href="http://DAW-USGIT.sauces.local/acando/AplicacionPOOmMulticapa.git"><img src="webroot/images/GitLab_logo.png"/></a>
+        <a href="http://DAW-USGIT.sauces.local/acando/AplicacionPOOmMulticapa.git" target="_blank"><img src="webroot/images/GitLab_logo.png"/></a>
+        <a href="doc/tecnologias.html" target="_blank"><img src="webroot/images/tecnologias.png"/>Tecnologías</a>
     </footer>
 </html>
 

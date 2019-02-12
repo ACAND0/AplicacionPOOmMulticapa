@@ -80,18 +80,26 @@
     width: 45%;
     margin: 0 auto;
     font-weight: bold;
+    border: 1px solid #00CCCC;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #002147;
+    box-shadow: 5px 5px 10px #00CCCC;
+    
 }
 
 .cajabusqueda input:first-of-type{
     line-height: 30px; 
     width: 60%;
     font-size: 1.2em; 
+    border-radius: 10px;
 }
 
 .tabla02 tr:first-of-type {
     color: #00CCCC;
     background-color: black;
     height: 60px;
+    padding-bottom: 5px;
 }
 
 

@@ -1,0 +1,41 @@
+<?php
+/**
+ * Archivo cExportarDepartamentos.php
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
+ */
+if (isset($_REQUEST['Cancelar'])) {//Si hemos pulsado salir
+    $_SESSION['pagina'] = 'mtoDepartamentos';  //Vaciamos la variable SESSION del usuario
+    header("Location: index.php"); //Y redireccionamos al index
+    exit;
+}
+
+$fichero = "tmp/datosDepartamentos.json";
+$datosJSON = []; //Array que gurdará los departamentos
+
+$aDepartamentos = Departamento::buscaDepartamentosPorDescripcion("", "Todos"); //Devuelve array de objetos
+
+foreach ($aDepartamentos as $Departamento) {
+    $aDepartamento['CodDepartamento'] = $Departamento->getCodDepartamento();
+    $aDepartamento['DescDepartamento'] = $Departamento->getDescDepartamento();
+    $aDepartamento['FechaCreacionDepartamento'] = $Departamento->getFechaCreacionDepartamento();
+    $aDepartamento['VolumenDeNegocio'] = $Departamento->getVolumenDeNegocio();
+    $aDepartamento['FechaBajaDepartamento'] = $Departamento->getFechaBajaDepartamento();
+//Inserto los elementos al array
+    array_push($datosJSON, $aDepartamento);
+}
+
+//Esta última opción se utiliza para formatear legiblemente el fichero JSON creado
+    $stringJSON = json_encode($datosJSON, JSON_PRETTY_PRINT);
+
+    if (file_put_contents($fichero, $stringJSON) != 0) { //Guarda el elemento XML anterior en la ruta especificada. 
+//Si todo sale bien se muestra este mensaje con el enlace al fichero JSON
+        echo '<h1  style=color:green>Se han exportado los datos en el fichero <a href=' . $fichero . ' target="_blank">datosDepartamentos.json</a></h1><br>';
+    } else {
+        echo '<h1  style=color:red>No se han exportado los datos en el fichero ' . $fichero . '</h1><br>';
+    }
+    
+$_SESSION['pagina'] = 'exportarDepartamentos';
+require_once $vistas['layout'];    

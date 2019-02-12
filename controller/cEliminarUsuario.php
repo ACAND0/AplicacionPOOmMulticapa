@@ -1,11 +1,16 @@
 <?php
-
-/*
- * cBorrarCeunta
- * 
+/**
+ * Archivo cEliminarUsuario.php
+  * 
  * Este controlador se encarga de llamar a la función de borrarUsuario() si has pulsado aceptar.
  * Redirecciona al index si todo está correcto.
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
  */
+
+ 
 if (isset($_REQUEST['Cancelar'])) {//Si hemos pulsado salir
     $_SESSION['pagina'] = 'mtoUsuarios';  //V
     header("Location: index.php"); //Y redireccionamos al index

@@ -2,7 +2,7 @@
     <a href="doc/usoAPI.pdf" target="_blank"><h1 class="titulo" style="color: black">-> Manual de APIs <-</h1></a>
     <div style="float: left;margin-right: 40px;">
         <table class="tabla01" >
-            <caption>Consultas a las APIs</caption>
+            <caption>Consultas información de municipio</caption>
             <tr>
                 <td>
                     <font class="error"><?php echo $error ?></font>
@@ -17,7 +17,7 @@
                 <td>Seleccione una provincia de España para obtener sus datos. 
                     <br>Estos datos son ofrecidos por un <a href="https://www.el-tiempo.net/api" target="_blank"/>servicio web externo</a><br>
                     En este link se encuentran las instrucciones de uso de este servicio rest.
-                    
+
                 </td>
             </tr>
             <tr>
@@ -80,18 +80,23 @@
                     <input class="btn" type="submit" name="Aceptar" value="Aceptar">
                 </td>                                
             </tr>
-            <tr>
-                <td>
-                    <b>Ciclos Formativos</b>
-                </td>
-            </tr>
+        </table>
+        <h2>DATOS DE PROVINCIAS </h2><?php echo $linkJSONAEMET ?>
+
+        <b>Código de provincia: </b><?php echo $aProvincia['CODPROV'] ?><br>
+        <b>Nombre de provincia: </b><?php echo $aProvincia['NOMBRE_PROVINCIA'] ?><br>
+        <b>Comunidad autónoma: </b><?php echo $aProvincia['COMUNIDAD_CIUDAD_AUTONOMA'] ?><br>
+        <b>Capital de provincia: </b><?php echo $aProvincia['CAPITAL_PROVINCIA'] ?><br>
+        <table class="tabla01" >
+            <caption>Consultas sobre ciclos formativos</caption>
+
             <td>Seleccione un ciclo formativo para obtener sus asignaturas<br> Este servicio es un 
                 <!--<a href="http://192.168.20.19/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php" target="_blank"/>servicio rest propio.</a></td>-->
                 <a href="http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php" target="_blank"/>servicio rest propio.</a><br>
                 Este servicio devuelve un array con el nombre del ciclo formativo y<br>
                 4 asignaturas pertenecientes a este ciclo, posiciones respectivas en el array.<br>
-                
-            
+
+
             </td>
 
 
@@ -107,12 +112,17 @@
                     <input class="btn" type="submit" name="Aceptar2" value="Aceptar">
                 </td>                                
             </tr>
+        </table>
 
-            <tr>
-                <td>
-                    <b>Departamentos</b>
-                </td>
-            </tr>
+        <h2>DATOS DE CICLOS FORMATIVOS</h2>
+        <?php echo $linkJSONCiclos ?>
+        <b>Nombre del Ciclo: </b><?php echo$asignaturas['nombre'] ?><br>
+        <b>ASIGNATURA 1: </b><?php echo $asignaturas['asignatura1'] ?><br>
+        <b>ASIGNATURA 2: </b><?php echo $asignaturas['asignatura2'] ?> <br>
+        <b>ASIGNATURA 3: </b><?php echo $asignaturas['asignatura3'] ?> <br>
+        <b>ASIGNATURA 4: </b><?php echo $asignaturas['asignatura4'] ?> <br>
+        <table class="tabla01" >
+            <caption>Consultas sobre departamentos</caption>
             <td>Seleccione un código de departamento para obtener sus datos<br> Este servicio es un 
                 <!--                 <a href="http://192.168.20.19/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php" target="_blank"/>servicio rest propio.</a>
                                 que trabaja contra una base de datos.</td>                -->
@@ -127,10 +137,11 @@
                         <?php
                         //Genaración de una lista dinámica
                         //Recorro el array de códigos
-                        foreach ($aCodigos as $Codigo) {?>
-                        <!-- Establezco el valor del Código actual-->
-                        <!-- Establezco si está seleccionado dependiendo si el código actual de la lista coincide con la variable que el usuario a seleccionado-->
-                        <option value="<?php echo $Codigo ?>" <?php if ($codigo == $Codigo) { ?> selected="true" <?php }; ?>><?php echo $Codigo ?></option>
+                        foreach ($aCodigos as $Codigo) {
+                            ?>
+                            <!-- Establezco el valor del Código actual-->
+                            <!-- Establezco si está seleccionado dependiendo si el código actual de la lista coincide con la variable que el usuario a seleccionado-->
+                            <option value="<?php echo $Codigo ?>" <?php if ($codigo == $Codigo) { ?> selected="true" <?php }; ?>><?php echo $Codigo ?></option>
                             <?php
                         }
                         ?>
@@ -141,37 +152,15 @@
                     <input class="btn" type="submit" name="Atras" value="Atras"><br>
                 </td>                                
             </tr>
-
-
         </table>
+
+        <h2>DATOS DE UN DEPARTAMENTO</h2>
+        <?php echo $linkJSONDepartamentos ?>
+        <b>Código de departamento: </b><?php echo $departamento['CodDepartamento'] ?><br>
+        <b>Descripción de departamento: </b><?php echo $departamento['DescDepartamento'] ?><br>
+        <b>Volumen de negocio: </b><?php echo $departamento['VolumenNegocio'] ?> <br>
+        <b>Fecha de creación: </b><?php echo $departamento['FechaCreacionDepartamento'] ?> <br>
     </div>
-
-
-
-    <h2>DATOS DE PROVINCIAS </h2><?php echo $linkJSONAEMET ?>
-
-    <b>Código de provincia: </b><?php echo $aProvincia['CODPROV'] ?><br>
-    <b>Nombre de provincia: </b><?php echo $aProvincia['NOMBRE_PROVINCIA'] ?><br>
-    <b>Comunidad autónoma: </b><?php echo $aProvincia['COMUNIDAD_CIUDAD_AUTONOMA'] ?><br>
-    <b>Capital de provincia: </b><?php echo $aProvincia['CAPITAL_PROVINCIA'] ?><br>
-
-    <h2>DATOS DE CICLOS FORMATIVOS</h2>
-    <?php echo $linkJSONCiclos ?>
-    <b>Nombre del Ciclo: </b><?php echo$asignaturas['nombre'] ?><br>
-    <b>ASIGNATURA 1: </b><?php echo $asignaturas['asignatura1'] ?><br>
-    <b>ASIGNATURA 2: </b><?php echo $asignaturas['asignatura2'] ?> <br>
-    <b>ASIGNATURA 3: </b><?php echo $asignaturas['asignatura3'] ?> <br>
-    <b>ASIGNATURA 4: </b><?php echo $asignaturas['asignatura4'] ?> <br>
-
-    <h2>DATOS DE UN DEPARTAMENTO</h2>
-    <?php echo $linkJSONDepartamentos ?>
-    <b>Código de departamento: </b><?php echo $departamento['CodDepartamento'] ?><br>
-    <b>Descripción de departamento: </b><?php echo $departamento['DescDepartamento'] ?><br>
-    <b>Volumen de negocio: </b><?php echo $departamento['VolumenNegocio'] ?> <br>
-    <b>Fecha de creación: </b><?php echo $departamento['FechaCreacionDepartamento'] ?> <br>
-
-
-
 </form>
 
 

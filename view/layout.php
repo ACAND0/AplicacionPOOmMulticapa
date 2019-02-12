@@ -1,11 +1,15 @@
 <?php
-/*
- * layout
- * 
- * Esta es una plantilla, que contiene lo que cualquier vista de la aplicación tiene, encabezado cuerpo y footer.
- * 
- */
 
+/**
+ * Archivo layout.php
+ * 
+ * Este archivo contiene una plantilla, la cual se utiliza en todas las vistas de la aplicación
+ * incluye una vista dependiendo de la página que hayamos pasado
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package view
+ */
 
 if (isset($_SESSION['usuario'])) {//Si hay una sesión iniciada
     $vista = $vistas['inicio']; //Cargamos la vista de inicio
@@ -36,15 +40,16 @@ if (isset($_SESSION['pagina'])) {//Si hay una página definida
         require_once $vista;
         ?>
 
-
-
     </body>
+    
     <footer>
+        <a href="core/RSSdesarrollo.xml" target="_blank"><img src="webroot/images/rss.png"/></a>        
         <a href="https://github.com/ACAND0/AplicacionPOOmMulticapa" target="_blank"><img src="webroot/images/GitHub_Logo.png"/></a>        
         <a href="doc/catalogoDeRequisitos.pdf" target="_blank"><img src="webroot/images/catalogo.png"/>Catálogo de requisitos</a>
-        <a href="../indexProyectoDWES.php" style="font-size: 1.5em">Adrián Cando Oviedo®</a>        
+        <a href="../../index.html"   target="_blank">Adrián Cando Oviedo®</a>        
         <a href="doc/cv.pdf" target="_blank"><img src="webroot/images/cv.svg"/></a>     
         <a href="doc/phpDoc/index.html" target="_blank"><img src="webroot/images/phpDoc.png" />PHPDoc</a>
         <a href="http://DAW-USGIT.sauces.local/acando/AplicacionPOOmMulticapa.git" target="_blank"><img src="webroot/images/GitLab_logo.png"/></a>
+        <a href="doc/tecnologias.html" target="_blank"><img src="webroot/images/tecnologias.png"/>Tecnologías</a>
     </footer>
 </html>

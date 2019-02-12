@@ -1,3 +1,5 @@
+
+
 <form class="formCentrado"action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><br>
 
     <img id="cuerpo" src="webroot/images/xubi.png" width="300" height="400"/><br>

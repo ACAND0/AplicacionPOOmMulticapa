@@ -1,7 +1,31 @@
 <?php
-//En casa, sustituir 20.19/DAW205/public_html por 20.19
-Class Rest {
 
+/**
+ * Archivo REST.php
+ * 
+ * Este archivo contiene una clase con varias funciones, las cuales devuelven datos de algún servicio REST
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package model
+ */
+
+/**
+ * Class Rest
+ * 
+ * Encargada de ejecutar las funciones que consultan datos de servicios web, externos y propios
+ * 
+ */
+Class Rest {
+/**
+ * public static function obtenerDatosProvincia($codprov)
+ * 
+ * Función encargada de según que códgio de provinia le pasemos como parámetro
+ * nos devuelva un array con los datos de esa provincia
+ * 
+ * @param int $codprov
+ * @return Array    Array de provincias
+ */
     public static function obtenerDatosProvincia($codprov) {
         $aProv = []; //Almacenaré los datos de la provincia
         $provincia = file_get_contents('https://www.el-tiempo.net/api/json/v1/provincias/' . $codprov);
@@ -17,6 +41,16 @@ Class Rest {
         return $aProv;
     }
 
+    
+    /**
+     * public static function obtenerCF($siglas)
+     * 
+     * Esta función según que siglas pasemos como parámetro devolverá los datos de un
+     * ciclo formativo u otro
+     * 
+     * @param string $siglas
+     * @return Array    Array con información del ciclo formativo
+     */
     public static function obtenerCF($siglas) {
         $asignaturas = []; //Almacenaré los datos de los ciclos
         $Ciclo = file_get_contents('http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiCiclos.php?ciclo=' . $siglas); //Llamo a la api con las siglas del ciclo indicadas por el usuario
@@ -30,6 +64,15 @@ Class Rest {
         return $asignaturas; //Devuelvo el array
     }
 
+    
+    /**
+     * public static function obtenerDtosDepartamento($codigo)
+     * 
+     * Pasando un código de departamento obtenemos los datos de este
+     * 
+     * @param string $codigo
+     * @return Array    Array con los datos de un departamento
+     */
     public static function obtenerDtosDepartamento($codigo) {
         $departamentos = []; //Almacenaré los datos de los ciclos
         $Departamento = file_get_contents('http://192.168.20.19/DAW205/public_html/ProyectoDWES/proyectoAplicacion1819/api/ApiDepartamentos.php?codigo=' . $codigo); //Llamo a la api con las siglas del ciclo indicadas por el usuario
@@ -43,6 +86,14 @@ Class Rest {
         return $departamentos; //Devuelvo el array
     }
 
+    /**
+     * public static function obtenerCodigosDepartamentos()
+     * 
+     * Es recomendable utilizar esta función combinada con la anterior para implementar 
+     * correctamente el servicio REST de departamentos propio
+     * 
+     * @return Array    Array con todos los códigos disponibles actualmente
+     */
     public static function obtenerCodigosDepartamentos() {
         $departamentos = []; //Almacenaré los datos de los ciclos
 

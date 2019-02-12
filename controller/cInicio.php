@@ -1,11 +1,16 @@
 <?php
-/*
- * cInicio
+/**
+ * Archivo cRegistro.php
  * 
  * Controlador del inicio, se encarga de comprobar que botones has podido pulsar y 
  * redireccionar y de cargar en variables los datos que mostraremos posterirmente en la vista
  * eliminando así la conexión de la vista con el modelo.
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
  */
+
 
 if (isset($_REQUEST['Salir'])) {//Si hemos pulsado salir
     unset($_SESSION['usuario']);  //Vaciamos la variable SESSION del usuario

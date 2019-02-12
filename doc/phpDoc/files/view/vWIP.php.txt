@@ -1,9 +1,45 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 
+<form class="formCentrado"action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><br>
+
+    <img id="cuerpo" src="webroot/images/xubi.png" width="300" height="400"/><br>
+    <img id="cabeza" src="webroot/images/cabezaxubi.png" width="300" height="400"/><br>
+    <input class='btn' type="submit" name="ATRAS" value="Volver Atrás"/>
+
+
+
+</form>
+
+<style>
+    #cuerpo, #cabeza{
+        position: absolute;
+        margin: 0 auto;
+        margin-left: -150px;
+    }
+
+    .btn{
+        margin-top: 380px;
+    }
+
+    #cabeza{
+        width: 120px;
+        height: 150px;
+        margin-left: -48px;
+        margin-top: -50px;
+        animation:  girar 0.2s infinite;
+        animation-direction: alternate;
+    }
+
+
+    @-webkit-keyframes girar {
+        from {
+            transform: rotate(-20deg);
+
+        }
+        to {
+            transform: rotate(20deg);
+        }
+    }
+
+
+</style>

@@ -1,0 +1,72 @@
+[
+    {
+        "CodUsuario": "admin",
+        "DescUsuario": "Cuenta de administrador",
+        "NumAccesos": "18",
+        "FechaHoraUltimaConexi\u00f3n": "1549797910",
+        "Perfil": "administrador"
+    },
+    {
+        "CodUsuario": "adrian",
+        "DescUsuario": "Usuario de Adri\u00e1n Cando Oviedo",
+        "NumAccesos": "2",
+        "FechaHoraUltimaConexi\u00f3n": "1549796130",
+        "Perfil": "administrador"
+    },
+    {
+        "CodUsuario": "alejandro",
+        "DescUsuario": "Cuenta de Alejandro",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "christian",
+        "DescUsuario": "Cuenta de Christian",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "david",
+        "DescUsuario": "Cuenta de David",
+        "NumAccesos": "1",
+        "FechaHoraUltimaConexi\u00f3n": "1549796125",
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "heraclio",
+        "DescUsuario": "Usuario de Heraclio Borbujo",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "israel",
+        "DescUsuario": "Cuenta de Israel",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "mario",
+        "DescUsuario": "Cuenta de Mario Casquero",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "tania",
+        "DescUsuario": "Cuenta de Tania Mateos",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    },
+    {
+        "CodUsuario": "victor",
+        "DescUsuario": "Cuenta de Victor aka Xubi",
+        "NumAccesos": "0",
+        "FechaHoraUltimaConexi\u00f3n": null,
+        "Perfil": "usuario"
+    }
+]

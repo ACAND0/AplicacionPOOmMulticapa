@@ -9,6 +9,7 @@
  */
 require_once "conf/configDB.php";
 require_once "model/Usuario.php";
+require_once "model/Departamento.php";
 require_once "core/validacion.php";
 $vistas = [
     'layout' => 'view/layout.php',
@@ -37,6 +38,12 @@ $vistas = [
     'soap' => 'view/vSOAP.php',
     'tecnologias' => 'view/vTecnologias.php',
     'wip' => 'view/vWIP.php',
+    'bajaLogicaDepartamento' => 'view/vBajaLogicaDepartamento.php',
+    'rehabilitacionDepartamento' => 'view/vRehabilitacionDepartamento.php',
+    'exportarDepartamentos' => 'view/vExportarDepartamentos.php',
+    'importarDepartamentos' => 'view/vImportarDepartamentos.php',
+    'exportarUsuarios' => 'view/vExportarUsuarios.php',
+    'importarUsuarios' => 'view/vImportarUsuarios.php'
 ];
 
 $controladores = [
@@ -65,6 +72,12 @@ $controladores = [
     'soap' => 'controller/cSOAP.php',
     'tecnologias' => 'controller/cTecnologias.php',
     'wip' => 'controller/cWIP.php',
+    'bajaLogicaDepartamento' => 'controller/cBajaLogicaDepartamento.php',
+    'rehabilitacionDepartamento' => 'controller/cRehabilitacionDepartamento.php',
+    'exportarDepartamentos' => 'controller/cExportarDepartamentos.php',
+    'importarDepartamentos' => 'controller/cImportarDepartamentos.php',
+    'exportarUsuarios' => 'controller/cExportarUsuarios.php',
+    'importarUsuarios' => 'controller/cImportarUsuarios.php'    
 ];
 ?>
 

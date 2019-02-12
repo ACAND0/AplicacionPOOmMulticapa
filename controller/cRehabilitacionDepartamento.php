@@ -1,4 +1,11 @@
 <?php
+/**
+ * Archivo cRehabilitacionDepartamento.php
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
+ */
 
 if (isset($_REQUEST['Cancelar'])) {
     $_SESSION['pagina'] = 'mtoDepartamentos';

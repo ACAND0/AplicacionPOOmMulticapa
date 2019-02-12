@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Archivo cBajaLogicaDepartamento.php
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
+ */
 if (isset($_REQUEST['Cancelar'])) {
     $_SESSION['pagina'] = 'mtoDepartamentos';
     require_once $vistas["layout"];

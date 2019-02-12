@@ -1,3 +1,13 @@
+<?php
+/**
+ * Archivo vLogin.php
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package view
+ */
+?>
+
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
     <div>
         <table  class="tabla01 login">
@@ -30,13 +40,12 @@
 
 <div class="carrusel" style="margin: 20px auto auto auto;">
     <div>
-        <a href="webroot/images/DiagramaDeClases.png" target="_blank">DIAGRAMA DE CLASES<img src="webroot/images/DiagramaDeClases.png" /></a>        
+        <a href="webroot/images/DiagramaDeClases.png" target="_blank">DIAGRAMA DE CLASES<img src="webroot/images/DiagramaDeClases.png" /></a>    
+        <a href="webroot/images/ModeloFisicoDeDatos.png" target="_blank">MODELO FÍSICO DE DATOS<img src="webroot/images/ModeloFisicoDeDatos.png" /></a>        
         <a href="webroot/images/EstructuraDeAlmacenamiento.JPG" target="_blank">ESTRUCTURA DE ALMACENAMIENTO<img src="webroot/images/EstructuraDeAlmacenamiento.JPG" /></a>       
         <a href="webroot/images/ArbolNavegacion.jpg" target="_blank">ÁRBOL DE NAVEGACIÓN<img src="webroot/images/ArbolNavegacion.jpg" /></a>
         <a href="webroot/images/CasosDeUso.jpg" target="_blank">DIAGRAMA DE CASOS DE USO<img src="webroot/images/CasosDeUso.jpg" /></a>
-        <a href="webroot/images/ModeloFisicoDeDatos.jpg" target="_blank">MODELO FÍSICO DE DATOS<img src="webroot/images/ModeloFisicoDeDatos.jpg" /></a>
         <a href="webroot/images/RelacionDeFicheros.jpg" target="_blank">RELACIÓN DE FICHEROS<img src="webroot/images/RelacionDeFicheros.jpg" /></a>
-
     </div>
 </div>
 

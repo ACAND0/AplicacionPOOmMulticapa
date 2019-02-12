@@ -3,7 +3,7 @@
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
 
     <div class="cajabusqueda" >
-        <input class="cajabuscar" type="text"  name="buscarPorDesc" placeholder="Introduzca búsqeda por descripción"
+        <input class="cajabuscar" type="text"  name="buscarPorDesc" placeholder="Introduzca búsqueda por descripción"
                value="<?php echo $_REQUEST['buscarPorDesc']; ?>" >
 
         <input class='btn' type="submit" name="Buscar" value="Buscar">

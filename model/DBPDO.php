@@ -1,24 +1,41 @@
 <?php
-/*
- * Fichero DBPDO.php
+/**
+ * Archivo DBPDO.php
  * 
+ * Este archivo contiene una función con la utilidad de establecer una conexión con la base de datos
+ * y ejecutar una consulta con cierto parámetros
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package model
+ */
+
+
+/**
+ * 
+ * Class DBPDO
+ * 
+ * Función con la utilidad de establecer una conexión con la base de datos
+ * y ejecutar una consulta con cierto parámetros
+ * 
+ * @author Adrián Cando Oviedo
+ * @modifiedDate 11/02/2019
+ * @version 2.6
  * 
  * 
  */
 
-
-/*
- * 
- * 
- * @author Adrián Camdo Oviedo
- * @modifiedDate 28/01/2019
- * @version 1.5
- * 
- * 
- *  */
-
-
 Class DBPDO {
+    
+    /**
+     * public static function ejecutarConsulta
+     * 
+     * Establece una conexión PDO con la base de datos y ejecuta una consulta
+     * 
+     * @param String $sentenciaSQL
+     * @param Array $parametros
+     * @return int
+     */
 
     public static function ejecutarConsulta($sentenciaSQL, $parametros) {
         try {//Establecemos la conexión a la base de datos

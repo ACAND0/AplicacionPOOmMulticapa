@@ -1,14 +1,23 @@
 <?php
+/**
+ * Archivo cSOAP.php
+ * 
+ * Controlador del servicio SOAP
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
+ */
 
-$cliente = new SoapClient("http://www.webservicex.net/CurrencyConvertor.asmx?WSDL");
+$provincia = "ZAMORA";
+$municipio = "BENAVENTE";
 
 
-$parametros = [
-    FromCurrency => "EUR",
-    ToCurrency => "USD"
-];
+$cliente = new nusoap_client("https://ovc.catastro.meh.es/ovcservweb/ovcswlocalizacionrc/ovccallejero.asmx?wsdl","wsdl");
 
-$cliente->
+
+
+$cliente-
 
 $tasa = $cliente->ConversionRate($parametros);
 $resultado = $tasa->ConversionRateResult;

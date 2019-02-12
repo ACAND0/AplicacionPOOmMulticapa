@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Archivo cMiCuenta.php
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package controller
+ */
 if (isset($_REQUEST['Registrarse'])) {//Si se ha pulsado el botón aceptar
 
     $_SESSION['pagina'] = 'registro';

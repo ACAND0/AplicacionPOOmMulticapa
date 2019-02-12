@@ -1,0 +1,51 @@
+[
+    {
+        "CodDepartamento": "ASE",
+        "DescDepartamento": "asasasas",
+        "FechaCreacionDepartamento": "2019-02-10 12:45:37",
+        "VolumenDeNegocio": "11234",
+        "FechaBajaDepartamento": null
+    },
+    {
+        "CodDepartamento": "CAR",
+        "DescDepartamento": "Departamento de cohes",
+        "FechaCreacionDepartamento": "2019-02-07 20:17:55",
+        "VolumenDeNegocio": "98650",
+        "FechaBajaDepartamento": null
+    },
+    {
+        "CodDepartamento": "CCC",
+        "DescDepartamento": "aaaaaaaaaaa",
+        "FechaCreacionDepartamento": "2019-02-07 20:17:42",
+        "VolumenDeNegocio": "213",
+        "FechaBajaDepartamento": "2019-02-10 13:00:58"
+    },
+    {
+        "CodDepartamento": "DAE",
+        "DescDepartamento": "Asuntos Econ\u00f3micos",
+        "FechaCreacionDepartamento": "2019-02-05 17:58:15",
+        "VolumenDeNegocio": "2000",
+        "FechaBajaDepartamento": "2019-02-10 13:01:00"
+    },
+    {
+        "CodDepartamento": "DLT",
+        "DescDepartamento": "Log\u00edstica y Transporte",
+        "FechaCreacionDepartamento": "2019-02-05 17:58:15",
+        "VolumenDeNegocio": "3200",
+        "FechaBajaDepartamento": "2019-02-10 13:01:02"
+    },
+    {
+        "CodDepartamento": "DRH",
+        "DescDepartamento": "Recursos Humanos",
+        "FechaCreacionDepartamento": "2019-02-05 17:58:15",
+        "VolumenDeNegocio": "2004",
+        "FechaBajaDepartamento": null
+    },
+    {
+        "CodDepartamento": "EER",
+        "DescDepartamento": "afasfafasfasf",
+        "FechaCreacionDepartamento": "2019-02-07 20:21:00",
+        "VolumenDeNegocio": "1234",
+        "FechaBajaDepartamento": "2019-02-10 13:00:49"
+    }
+]
