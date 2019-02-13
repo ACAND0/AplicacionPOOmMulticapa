@@ -134,4 +134,20 @@ input:not([type="submit"]):not([type="button"]):focus, textarea:focus{
     font-weight: bold;
     margin: 0 auto;
     text-align: center;
+    
+}
+
+.paginacion a{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 3px 6px 3px 6px;
+    text-align: center;
+}
+
+#inactivo {
+  pointer-events: none;
+  cursor: default;
+  color: lightgrey;
 }
