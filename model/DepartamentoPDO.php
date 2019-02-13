@@ -61,7 +61,7 @@ class DepartamentoPDO {
      * @param string $criterioBusqueda
      * @return array Array de objetos Departamento
      */
-    public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda) {
+    public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda, $primerRegistro, $registrosPorPagina) {
         $aDepartamentos = []; //Array que rec
         //Dependiendo del criterio de búsqueda crearemos un query u otro
 
@@ -74,7 +74,10 @@ class DepartamentoPDO {
             $consulta = "SELECT * FROM T02_Departamentos1 where DescDepartamento like (?) AND FechaBajaDepartamento is null";
         }
 
-        $resConsulta = DBPDO::ejecutarConsulta($consulta, ["%$descripcion%"]);
+
+
+        $resConsulta = DBPDO::ejecutarConsulta($consulta . " limit $primerRegistro,$registrosPorPagina", ["%$descripcion%"]); //Concateno a la consulta el limit con el comienzo del registro y el numero de registros a contar
+
         if ($resConsulta->rowCount() != 0) { //Comprobamos si se han obtenido resultados en la consulta
             while ($resFetch = $resConsulta->fetchObject()) {//Minetras podamos instanciar objetos
                 $aDepartamento['CodDepartamento'] = $resFetch->CodDepartamento; //Introducimos valores en el array
@@ -86,6 +89,29 @@ class DepartamentoPDO {
             }
         }
         return $aDepartamentos;
+    }
+/**
+ * 
+ * @param string $descripcion
+ * @param string $criterioBusqueda
+ * @return string
+ */
+    public static function contarDepartamentosPorDesc($descripcion, $criterioBusqueda) {
+        $consulta = "SELECT COUNT(*) FROM T02_Departamentos1 where DescDepartamento like (?)";
+
+        if ($criterioBusqueda == 'Baja') {
+            $consulta = "SELECT COUNT(*) FROM  T02_Departamentos1 where DescDepartamento like (?) AND FechaBajaDepartamento is not null";
+        }
+        if ($criterioBusqueda == 'Alta') {
+            $consulta = "SELECT COUNT(*) FROM T02_Departamentos1 where DescDepartamento like (?) AND FechaBajaDepartamento is null";
+        }
+
+        $resConsulta = DBPDO::ejecutarConsulta($consulta, ["%$descripcion%"]); //Concateno a la consulta el limit con el comienzo del registro y el numero de registros a contar
+
+        if ($resConsulta->rowCount()) { //Comprobamos si se han obtenido resultados en la consulta.
+            $numRegistros = $resConsulta->fetchColumn(0);
+        }
+        return $numRegistros;
     }
 
     /**

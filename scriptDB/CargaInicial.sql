@@ -18,4 +18,9 @@ insert into T02_Departamentos1 values ('TYD','Tecnología y Desarrollo',CURRENT_
                                  ('DRH','Recursos Humanos',CURRENT_TIMESTAMP,200,null),
                                  ('MYP','Marketing y Personal',CURRENT_TIMESTAMP,4560,null),
                                  ('DLT','Logística y Transporte',CURRENT_TIMESTAMP,3200,null),
+                                 ('AAA','Departamento de Oficina AAA',CURRENT_TIMESTAMP,5500,null),
+                                 ('BBB','Departamento de Oficina BBB',CURRENT_TIMESTAMP,10500,null),
+                                 ('CCC','Departamento de Oficina CCC',CURRENT_TIMESTAMP,200,null),
+                                 ('DDD','Departamento de Oficina DDD',CURRENT_TIMESTAMP,6500,null),
+                                 ('EEE','Departamento de Oficina EEE',CURRENT_TIMESTAMP,9500,null),
                                  ('DAE','Asuntos Económicos',CURRENT_TIMESTAMP,10090,null);

@@ -49,6 +49,8 @@
         </tr>
         <?php
         foreach ($aDepartamentos as $key => $Departamento) {
+            $key = $key + $primerRegistro; //Con esto asigno al key su valor actual más el de la propia página
+            
             $fechaBaja = $Departamento->getFechaBajaDepartamento();
             if ($fechaBaja == null) {
                 ?>
@@ -86,6 +88,21 @@
         <?php } ?>
 
     </table>
+    <div class="paginacion">
+        <a href="?pag=1">Primera</a>
+        <a href="?pag=<?php if($_GET[pag]>1){echo (($_GET[pag])-1);}else{ echo "1";}?>"><</a>
+        <?php
+        //Array para recorrer las páginas y poder crear la paginación
+        //Muestro los números de página creando links que podifican la página
+        for ($i = 1; $i <= $totalPaginas; $i++) {
+            echo " <a href='?pag=" . $i . "'>" . $i . "</a> "; //Link que al pulsarlo almacena una variable en la URL llamada página con el valor de páginas
+        }
+        
+        ?>
+        <a href="?pag=<?php if($_GET[pag]<$totalPaginas){echo (($_GET[pag])+1);}else{echo $totalPaginas;}?>">></a>
+        <a href="?pag=<?php echo $totalPaginas ?>">Ultima</a>
+        <br>Página  <?php echo $pagina ?> de <?php echo $totalPaginas?>
+    </div>
 </form>
 
 
