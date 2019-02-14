@@ -294,9 +294,9 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
      * @param string $descripcion
      * @return array Array de objetos Usuario
      */
-    public static function buscaUsuariosPorDesc($descripcion) {
+    public static function buscaUsuariosPorDesc($descripcion, $primerRegistro, $registrosPorPagina) {
         $aObjeUsuarios = []; //Array que almacena los objetos Departamentos instanciados
-        $aUsuarios = UsuarioPDO::buscaUsuariosPorDesc($descripcion);
+        $aUsuarios = UsuarioPDO::buscaUsuariosPorDesc($descripcion, $primerRegistro, $registrosPorPagina);
 
         foreach ($aUsuarios as $aUsuario) {//Recorro el array de Departamentos para instanciar un objeto Departamento
             //Creo un objeto departamento con los valores del departamento actual
@@ -304,6 +304,10 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
             array_push($aObjeUsuarios, $Usuario); //Añado el objeto departamento creado al array de objetos
         }
         return $aObjeUsuarios; //Retorno el array de Objetos Departamento         
+    }
+
+    public static function contarUsuariosPorDesc($descripcion) {
+        return UsuarioPDO::contarUsuariosPorDesc($descripcion);
     }
 
     /**
