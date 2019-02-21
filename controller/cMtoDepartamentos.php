@@ -19,7 +19,7 @@ if (isset($_REQUEST['Salir'])) {//Si hemos pulsado salir
 
 if (isset($_REQUEST['limpiarBuscar'])) {//Si hemos pulsado salir
     $_SESSION['pagina'] = 'mtoDepartamentos';  //Vaciamos la variable SESSION del usuario
-    $_SESSION['criterioBusqueda'] = "Todos"; //Limpiamos el criterio de búsqueda
+    $_SESSION['criterioBusqueda'] = ""; //Limpiamos el criterio de búsqueda
     $_SESSION['buscarPorDesc'] = "";//Limpiamos la descripción
     header("Location: index.php"); //Y redireccionamos al index
     exit;
@@ -77,11 +77,11 @@ foreach ($_SESSION['aDepartamentos'] as $key => $Departamento) {//Recorro los de
     }
 }
 
-
-
 if (isset($_REQUEST['Buscar'])) {//Si se ha pulsado buscar establezco los valores recogiéndolos
     $_SESSION['criterioBusqueda'] = $_REQUEST['criterioBusqueda'];//Guardamos el criterio de búsqueda en la sesión para que se mantenga
     $_SESSION['buscarPorDesc'] = $_REQUEST['buscarPorDesc'];//Guardamos la búsqueda por descripción en la sesión para que se mantenga
+}else{
+    $_SESSION['criterioBusqueda'] = "Todos";
 }
 
 //*****************************************DATOS SOBRE PAGINACIÓN************************//
@@ -100,6 +100,19 @@ $primerRegistro = ($pagina - 1) * $registrosPorPagina; //Registro por el cual em
 
 //Recojo los departamentos actuales en una variable de sesión para que permanezca 
 $_SESSION['aDepartamentos'] = Departamento::buscaDepartamentosPorDescripcion($_SESSION['buscarPorDesc'], $_SESSION['criterioBusqueda'], $primerRegistro, $registrosPorPagina); //Devuelve array de objetos
+
+/* Gráficos */
+$depBaja = 0;
+$depAlta = 0;
+$numeroFilas = Departamento::contarDepartamentosPorDesc("", "Todos"); //Número de filas
+$DepartamentosAltaBaja = Departamento::buscaDepartamentosPorDescripcion("", "Todos", 0, $numeroFilas);
+foreach ($DepartamentosAltaBaja as $key => $Departamento) {
+            if($Departamento->getFechaBajaDepartamento() == null){
+                $depAlta++;
+            }else{
+                $depBaja++;
+            }
+}
 
 $_SESSION['pagina'] = 'mtoDepartamentos';
 require_once $vistas['layout'];

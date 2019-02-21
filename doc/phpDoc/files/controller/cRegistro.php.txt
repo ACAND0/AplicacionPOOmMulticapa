@@ -28,9 +28,9 @@ $aErrores = [
 ];
 
 
-if (isset($_REQUEST['Aceptar'])) {
+if (isset($_REQUEST['Aceptar'])) { 
     //Valido las entradas
-    $aErrores[CodUsuario] = validacionFormularios::comprobarAlfanumerico($_REQUEST['CodUsuario'], 15, 3, 1);
+    $aErrores[CodUsuario] = validacionFormularios::comprobarAlfabetico($_REQUEST['CodUsuario'], 15, 3, 1);
     $aErrores[DescUsuario] = validacionFormularios::comprobarAlfanumerico($_REQUEST['DescUsuario'], 255, 5, 1);
     $aErrores[Password] = validacionFormularios::validarPassword($_REQUEST['Password'], 1, 5);
 

@@ -85,14 +85,19 @@
     border-radius: 10px;
     background-color: #002147;
     box-shadow: 5px 5px 10px #00CCCC;
-    
 }
+
 
 .cajabusqueda input:first-of-type{
     line-height: 30px; 
     width: 60%;
     font-size: 1.2em; 
     border-radius: 10px;
+}
+
+.cajabusqueda h3{
+    text-align: center;
+    margin: 10px;
 }
 
 .tabla02 tr:first-of-type {
@@ -116,6 +121,7 @@
     margin: 0 auto;
     padding: 20px 5px 20px 5px;
 }
+
 
 
 

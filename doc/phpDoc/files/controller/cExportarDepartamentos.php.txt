@@ -15,7 +15,9 @@ if (isset($_REQUEST['Cancelar'])) {//Si hemos pulsado salir
 $fichero = "tmp/datosDepartamentos.json";
 $datosJSON = []; //Array que gurdará los departamentos
 
-$aDepartamentos = Departamento::buscaDepartamentosPorDescripcion("", "Todos"); //Devuelve array de objetos
+$numeroDepartamentos = Departamento::contarDepartamentosPorDesc("", "Todos");
+
+$aDepartamentos = Departamento::buscaDepartamentosPorDescripcion("", "Todos",0,$numeroDepartamentos); //Devuelve array de objetos
 
 foreach ($aDepartamentos as $Departamento) {
     $aDepartamento['CodDepartamento'] = $Departamento->getCodDepartamento();

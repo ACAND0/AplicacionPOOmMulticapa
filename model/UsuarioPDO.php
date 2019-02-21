@@ -190,8 +190,11 @@ class UsuarioPDO {
      * Busca usuarios según la descripción
      * 
      * @param string $descripcion
+     * @param int $primerRegistro
+     * @param int $registrosPorPagina
      * @return array  Array de usuarios, que contiene arrays con información de cada usuario
      */
+
     public static function buscaUsuariosPorDesc($descripcion, $primerRegistro, $registrosPorPagina) {
         $aUsuarios = []; //Array que rec
         //Dependiendo del criterio de búsqueda crearemos un query u otro
@@ -213,6 +216,14 @@ class UsuarioPDO {
         return $aUsuarios;
     }
 
+    /**
+     * public static function contarUsuariosPorDesc($descripcion)
+     * 
+     * Cuenta los usuarios que existen según la descripción pasada como parámetro
+     * 
+     * @param string $descripcion
+     * @return int Entero que hace referencia al número de usuarios existentes con esa descripción
+     */
     public static function contarUsuariosPorDesc($descripcion) {
         $consulta = "SELECT COUNT(*) FROM T01_Usuarios1 where T01_DescUsuario like (?)";
         $resConsulta = DBPDO::ejecutarConsulta($consulta,["%$descripcion%"]); //Concateno a la consulta el limit con el comienzo del registro y el numero de registros a contar

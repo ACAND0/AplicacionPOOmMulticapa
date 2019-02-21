@@ -183,7 +183,7 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
         }
         return $Departamento;
     }
-
+ 
     /**
      * public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda)
      * 
@@ -193,10 +193,13 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
      * 
      * @param string $descripcion
      * @param string $criterioBusqueda Alta,Baja o Todos, según su estado de fecha de baja
+     * @param int $primerRegistro
+     * @param int $registrosPorPagina
      * @return array Array de objetos departamento
      */
-    public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda,$primerRegistro,$registrosPorPagina) {
-        $aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda,$primerRegistro,$registrosPorPagina);
+
+    public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda, $primerRegistro, $registrosPorPagina) {
+        $aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda, $primerRegistro, $registrosPorPagina);
         $aObjeDepartamentos = []; //Array que almacena los objetos Departamentos instanciados
 
         foreach ($aDepartamentos as $aDepartamento) {//Recorro el array de Departamentos para instanciar un objeto Departamento
@@ -206,11 +209,19 @@ Class Departamento { //extends desde aqui orequire_once desde UsuariosPDO?
         }
         return $aObjeDepartamentos; //Retorno el array de Objetos Departamento 
     }
-    
-    
-        public static function contarDepartamentosPorDesc($descripcion, $criterioBusqueda) {
-            return DepartamentoPDO::contarDepartamentosPorDesc($descripcion, $criterioBusqueda);
-        }
+
+    /**
+     *  public static function contarDepartamentosPorDesc($descripcion, $criterioBusqueda)
+     * 
+     * Función que llama a contarDepartamentosPorDesc de la clase DepartamentoPDO
+     * 
+     * @param string $descripcion
+     * @param string $criterioBusqueda
+     * @return int Entero con el número de departamentos encontrados con esa descripción y criterio de búsqueda
+     */
+    public static function contarDepartamentosPorDesc($descripcion, $criterioBusqueda) {
+        return DepartamentoPDO::contarDepartamentosPorDesc($descripcion, $criterioBusqueda);
+    }
 
     /**
      * public static function altaDepartamento($CodDepartamento, $DescDepartamento, $VolumenNegocio)

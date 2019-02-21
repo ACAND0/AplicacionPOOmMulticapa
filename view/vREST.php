@@ -1,8 +1,10 @@
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" style="margin-bottom: 1350px;">
     <a href="doc/usoAPI.pdf" target="_blank"><h1 class="titulo" style="color: black">-> Manual de APIs <-</h1></a>
     <div style="float: left;margin-right: 40px;">
         <table class="tabla01" >
             <caption>Consultas información de municipio</caption>
+            <input class="btn" type="submit" name="Atras" value="Atras"><br>
+
             <tr>
                 <td>
                     <font class="error"><?php echo $error ?></font>
@@ -149,7 +151,6 @@
 
                     </select>
                     <input class="btn" type="submit" name="Aceptar3" value="Aceptar">
-                    <input class="btn" type="submit" name="Atras" value="Atras"><br>
                 </td>                                
             </tr>
         </table>

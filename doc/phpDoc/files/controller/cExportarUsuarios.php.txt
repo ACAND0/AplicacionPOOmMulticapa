@@ -14,8 +14,10 @@ if (isset($_REQUEST['Cancelar'])) {//Si hemos pulsado salir
 
 $fichero = "tmp/datosUsuarios.json";
 $datosJSON = []; //Array que gurdará los departamentos
+$numeroUsuarios = Usuario::contarUsuariosPorDesc("");
 
-$aUsuarios = Usuario::buscaUsuariosPorDesc("");
+
+$aUsuarios = Usuario::buscaUsuariosPorDesc("",0,$numeroUsuarios);
 
 foreach ($aUsuarios as $Usuario) {
     $aUsuario['CodUsuario'] = $Usuario->getCodUsuario();

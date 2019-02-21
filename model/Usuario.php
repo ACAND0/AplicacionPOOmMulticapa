@@ -292,6 +292,8 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
      * el cual será devuelto
      * 
      * @param string $descripcion
+     * @param int $primerRegistro
+     * @param int $registrosPorPagina
      * @return array Array de objetos Usuario
      */
     public static function buscaUsuariosPorDesc($descripcion, $primerRegistro, $registrosPorPagina) {
@@ -306,6 +308,14 @@ Class Usuario { //extends desde aqui orequire_once desde UsuariosPDO?
         return $aObjeUsuarios; //Retorno el array de Objetos Departamento         
     }
 
+    /**
+     * public static function contarUsuariosPorDesc($descripcion)
+     * 
+     * Llama a contarUsuariosPorDesc de la clase UsuarioPDO
+     * 
+     * @param string $descripcion
+     * @return type
+     */
     public static function contarUsuariosPorDesc($descripcion) {
         return UsuarioPDO::contarUsuariosPorDesc($descripcion);
     }

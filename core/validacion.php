@@ -1,4 +1,15 @@
 <?php
+/**
+ * Archivo validacion.php
+ * 
+ * Este archivo contiene funciones de validación
+ * 
+ * @author Adrián Cando Oviedo
+ * @version 2.6
+ * @package core
+ */
+
+
 
 /**
  * Class validacionFormularios
@@ -23,6 +34,10 @@
 class validacionFormularios {
 
     /**
+     * public static function comprobarAlfabetico($cadena, $maxTamanio, $minTamanio, $obligatorio)
+     * 
+     * Comprueba la validez de un texto alfabético
+     * 
      * @function comprobarAlfabetico();
      * @author Adrián Cando Oviedo
      * @version 1.0 He eliminado todos los if innecesrios que había simplificandolo a llamar a las funciones internas de errores que devuelven un error si le hay
@@ -34,7 +49,8 @@ class validacionFormularios {
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
      * @return null -> Si la variable errores es null o en su defecto contiene tan sólo espacios en blanco
      *         $mensajeError -> Que contiene una cadena con los errores que han surgido concatenados.
-     *      */
+     *      
+     */
     public static function comprobarAlfabetico($cadena, $maxTamanio, $minTamanio, $obligatorio) {
         // Patrón para campos de solo texto
         $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ\s]+$/";
@@ -60,10 +76,13 @@ class validacionFormularios {
         }
     }
 
-// Función para comprobar un campo AlfaNumerico
-// Return nada si es correcto, si hay errores devuelve un mensaje de error
-// Si es un 1 es obligatorio, si es un 0 no lo es
     /**
+     * public static function comprobarAlfaNumerico($cadena, $maxTamanio, $minTamanio, $obligatorio)
+     * 
+     * Función para comprobar un campo AlfaNumerico
+     * Return nada si es correcto, si hay errores devuelve un mensaje de error
+     * Si es un 1 es obligatorio, si es un 0 no lo es
+     * 
      * @function comprobarAlfaNumerico();        
      * @author Adrián Cando Oviedo
      * @version 1.0 He eliminado todos los if innecesrios que había simplificandolo a llamar a las funciones internas de errores que devuelven un error si le hay
@@ -94,10 +113,13 @@ class validacionFormularios {
         }
     }
 
-// Función para comprobar si es un campo entero
-// Return null es correcto, si no muestra el mensaje de error
-// Si es un 1 es obligatorio, si es un 0 no lo es
     /**
+     * public static function comprobarEntero($integer, $max, $min, $obligatorio)
+     * 
+     * Función para comprobar si es un campo entero
+     * Return null es correcto, si no muestra el mensaje de error
+     * Si es un 1 es obligatorio, si es un 0 no lo es
+     * 
      * @author Christian Muñiz de la Huerga
      * @function comprobarEntero();
      * @param $integer Número entero a comprobar
@@ -106,16 +128,16 @@ class validacionFormularios {
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
      * @return null|string Devuelve null en el caso en el que esté correcto, si no devuelve una cadena con el mensaje de error.
      */
-    public static function comprobarEntero($integer, $max, $min, $obligatorio){
+    public static function comprobarEntero($integer, $max, $min, $obligatorio) {
         $mensajeError = null;
         if (!filter_var($integer, FILTER_VALIDATE_INT)) {
             $mensajeError = "El campo no es un entero. ";
         }
-        if($integer>$max){
-            $mensajeError = $mensajeError."El número no puede ser mayor que ".$max.".";
+        if ($integer > $max) {
+            $mensajeError = $mensajeError . "El número no puede ser mayor que " . $max . ".";
         }
-        if($integer<$min){
-            $mensajeError = $mensajeError."El número no puede ser menor que ".$min.".";
+        if ($integer < $min) {
+            $mensajeError = $mensajeError . "El número no puede ser menor que " . $min . ".";
         }
         if (empty($integer) && $obligatorio == 0) {
             $mensajeError = null;
@@ -123,10 +145,13 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-// Función para comprobar si es un campo float
-// Return null es correcto, si no muestra el mensaje de error
-// Si es un 1 es obligatorio, si es un 0 no lo es
     /**
+     * public static function comprobarFloat($float, $max, $min, $obligatorio)
+     * 
+     * Función para comprobar si es un campo float
+     * Return null es correcto, si no muestra el mensaje de error
+     * Si es un 1 es obligatorio, si es un 0 no lo es
+     * 
      * @author Christian Muñiz de la Huerga
      * @function comprobarFloat();
      * @param $float Número entero a comprobar
@@ -135,16 +160,16 @@ class validacionFormularios {
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
      * @return null|string Devuelve null en el caso en el que esté correcto, si no devuelve una cadena con el mensaje de error.
      */
-    public static function comprobarFloat($float, $max, $min, $obligatorio){
+    public static function comprobarFloat($float, $max, $min, $obligatorio) {
         $mensajeError = null;
         if (!filter_var($float, FILTER_VALIDATE_FLOAT)) {
             $mensajeError = "El campo no es un decimal. ";
         }
-        if($float>$max){
-            $mensajeError = $mensajeError."El número no puede ser mayor que ".$max.".";
+        if ($float > $max) {
+            $mensajeError = $mensajeError . "El número no puede ser mayor que " . $max . ".";
         }
-        if($float<$min){
-            $mensajeError = $mensajeError."El número no puede ser menor que ".$min.".";
+        if ($float < $min) {
+            $mensajeError = $mensajeError . "El número no puede ser menor que " . $min . ".";
         }
         if (empty($float) && $obligatorio == 0) {
             $mensajeError = null;
@@ -152,11 +177,13 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-// Función para comprobar si es un correo electronico
-// Return nada si es correcto, si hay errores devuelve un mensaje de error
-// Si es un 1 es obligatorio, si es un 0 no lo es
-// 
     /**
+     * public static function validarEmail($email, $maxTamanio, $minTamanio, $obligatorio)
+     * 
+     * Función para comprobar si es un correo electronico
+     * Return nada si es correcto, si hay errores devuelve un mensaje de error
+     * Si es un 1 es obligatorio, si es un 0 no lo es
+     * 
      * @function validarEmail();
      * @author Adrián Cando Oviedo
      * @version 1.3 He modificado el tratamiento de los mensajes de error, y las comprobaciones, adaptadas a la nueva forma de los mensajes. He eliminado los if innecesarios
@@ -191,10 +218,13 @@ class validacionFormularios {
         }
     }
 
-// Función para comprobar si es una url, local o no
-// Devuelve null si es correcto, sino muestra el mensaje de error
-// Si el parámetro $obligatorio es un 1 es obligatorio, si es un 0 es opcional
     /**
+     * public static function validarURL($url, $obligatorio)
+     * 
+     * Función para comprobar si es una url, local o no
+     * Devuelve null si es correcto, sino muestra el mensaje de error
+     * Si el parámetro $obligatorio es un 1 es obligatorio, si es un 0 es opcional
+     * 
      * @function validarURL();
      * @author Christian Muñiz de la Huerga
      * @param $url Cadena a comprobar.
@@ -203,19 +233,23 @@ class validacionFormularios {
      */
     public static function validarURL($url, $obligatorio) {
         $mensajeError = null;
-        
-        if (!filter_var($url, FILTER_VALIDATE_URL)){
+
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
             $mensajeError = " Formato incorrecto de URL.";
-        }        
-        
-        if($obligatorio==0 && empty($url)){
-            $mensajeError=null;
-        }        
-                
+        }
+
+        if ($obligatorio == 0 && empty($url)) {
+            $mensajeError = null;
+        }
+
         return $mensajeError;
     }
 
     /**
+     * public static function validarFecha($fecha, $obligatorio)
+     * 
+     * Función que valida una fecha
+     * 
      * @function validarFecha();
      * @param $fecha Cadena a comprobar.
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
@@ -228,7 +262,7 @@ class validacionFormularios {
         if (self::validateDate($fecha) && !self::comprobarNoVacio($fecha) && ($fecha > $fechaMinima) && ($fecha < $fechaMaxima)) {
             $mensajeError = null;
         } else {
-            $mensajeError = " Por favor introduzca una fecha entre " . $fechaMinima . " y " . $fechaMaxima.".";
+            $mensajeError = " Por favor introduzca una fecha entre " . $fechaMinima . " y " . $fechaMaxima . ".";
         }
         if (!self::validateDate($fecha, 'Y-m-d')) {
             $mensajeError = " Formato incorrecto de fecha (Año-Mes-dia) (2000-01-01).";
@@ -246,15 +280,10 @@ class validacionFormularios {
     }
 
     /**
-     * @function validarDni();
-     *
-     * @param $dni cadena a comprobar.
-     * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
-     * @return null|string Devuelve null si es correcto o un mensaje de error en caso de que lo haya.
-     */
-
-    /**
+     * public static function validarDni($dni, $obligatorio)
+     * 
      * Si no es obligatorio, da por válido un campo vacío o un DNI, si lo es, será necesario introducir un DNI bien formateado
+     * 
      * @function validarDni();
      * @author Mario Casquero Jañez
      * @param $dni cadena a comprobar.
@@ -276,29 +305,35 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-    // Valida el código postal, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
     /**
+     * public static function validarCp($cp, $obligatorio)
+     * 
+     * Valida el código postal, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
+     * 
      * @function validarCp();
      * @author Mario Casquero Jañez
      * @param $cp cadena a comprobar.
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
      * @return null|string Devuelve null si es correcto o un mensaje de error en caso de que lo haya.
      */
-    public static function validarCp($cp, $obligatorio){
+    public static function validarCp($cp, $obligatorio) {
         $mensajeError = null;
 
-        if (!preg_match('/^[0-9]{5}$/i', $cp)){
-            $mensajeError=" El código postal no es válido.";
+        if (!preg_match('/^[0-9]{5}$/i', $cp)) {
+            $mensajeError = " El código postal no es válido.";
         }
 
-        if ($obligatorio == 0 && empty($cp)){
+        if ($obligatorio == 0 && empty($cp)) {
             $mensajeError = null;
         }
         return $mensajeError;
     }
 
-    // Valida el password, comprueba longitud y si al menos contiene una mayúscula y un número, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
     /**
+     * public static function validarPassword($passwd, $obligatorio, $longitud)
+     * 
+     * Valida el password, comprueba longitud y si al menos contiene una mayúscula y un número, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
+     * 
      * @function validarPassword();
      * @author Mario Casquero Jañez
      * @param $passwd cadena a comprobar.
@@ -310,7 +345,7 @@ class validacionFormularios {
         $mensajeError = null;
 
         if (strlen($passwd) < $longitud) {
-            $mensajeError = " La contraseña debe ser del al menos ". $longitud ." caracteres.";
+            $mensajeError = " La contraseña debe ser del al menos " . $longitud . " caracteres.";
         }
         if (!preg_match("`[A-Z]`", $passwd) || !preg_match("`[0-9]`", $passwd)) {
             $mensajeError .= " La contraseña debe contener una mayúscula y un número.";
@@ -322,8 +357,11 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-// Valida el radio button, comprueba que tiene al menos un valor marcado, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
     /**
+     * public static function validarRadioB($radioB, $obligatorio)
+     * 
+     * Valida el radio button, comprueba que tiene al menos un valor marcado, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
+     * 
      * @function validarRadioB();
      * @author Mario Casquero Jañez
      * @param $radioB nombre del radio button o grupo de radio buttons.
@@ -343,8 +381,11 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-// Valida el radio button, comprueba que tiene al menos un valor marcado, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
     /**
+     * public static function validarCheckBox($checkB, $obligatorio)
+     * 
+     * Valida el radio button, comprueba que tiene al menos un valor marcado, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto 
+     *
      * @function validarCheckBox();
      * @author Mario Casquero Jañez
      * @param $checkB nombre del checkbox o grupo ellos.
@@ -364,11 +405,14 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-// Función para validar si no esta vacio
-// Return null si está vacío el mensajeError, cadena con error si es que lo hay  
-// Función para validar si no esta vacio
-// Return false esta vacio, true no esta vacio
     /**
+     * public static function comprobarNoVacio($cadena)
+     * 
+     * Función para validar si no esta vacio
+     * Return null si está vacío el mensajeError, cadena con error si es que lo hay  
+     * Función para validar si no esta vacio
+     * Return false esta vacio, true no esta vacio
+     * 
      * @function comprobarNoVacio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -387,10 +431,13 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-// Función para tamaño maximo
-// Si tamaño es 0 significa que no tiene limite
-// Return false no es correcto, true es correcta
     /**
+     * public static function comprobarMaxTamanio($cadena, $tamanio)
+     * 
+     * Función para tamaño maximo
+     * Si tamaño es 0 significa que no tiene limite
+     * Return false no es correcto, true es correcta
+     * 
      * @function comprobarMaxTamanio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -408,10 +455,13 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-// Función para tamaño minimo
-// Si el tamaño es 0 significa que no tiene limite
-// Return false no es correcto, true es correcta
     /**
+     * public static function comprobarMinTamanio($cadena, $tamanio)
+     * 
+     * Función para tamaño minimo
+     * Si el tamaño es 0 significa que no tiene limite
+     * Return false no es correcto, true es correc*
+     * 
      * @function comprobarMinTamanio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -429,10 +479,13 @@ class validacionFormularios {
         return $mensajeError;
     }
 
-// Función para validar la fecha
-// Recibe una fecha y un formato el por defecto es año-mes-dia
-// Devuelve True si es una fecha valida y un false si no la es
     /**
+     * public static function validateDate($date, $format = 'Y-m-d')
+     * 
+     * Función para validar la fecha
+     * Recibe una fecha y un formato el por defecto es año-mes-dia
+     * Devuelve True si es una fecha valida y un false si no la es
+     * 
      * @function validateFecha();
      *
      * @param $date Fecha a comprobar
@@ -445,6 +498,10 @@ class validacionFormularios {
     }
 
     /**
+     * public static function validarElementoEnLista($elementoElegido, $aOpciones, $obligatorio)
+     * 
+     * Valida los elementos de una lista
+     * 
      * @author Christian Muñiz de la Huerga
      * @function validarElementoEnLista();
      * @param $elementoElegido Elemento introducido que se va a comprobar.
@@ -465,6 +522,10 @@ class validacionFormularios {
     }
 
     /**
+     * public static function validaTelefono($tel, $obligatorio)
+     * 
+     * Valida un teléfono
+     * 
      * @function validaTelefono(); 
      * @author Tania Mateos
      * @author Adrián Cando Oviedo
@@ -477,7 +538,7 @@ class validacionFormularios {
     public static function validaTelefono($tel, $obligatorio) {
         $mensajeError = null;
         $patron = "/^[9|6|7][0-9]{8}$/";
-        if (!preg_match($patron, $tel) && self::comprobarNoVacio($tel)!=null) {
+        if (!preg_match($patron, $tel) && self::comprobarNoVacio($tel) != null) {
             $mensajeError .= " El teléfono debe comenzar por 9, 6 o 7 y a continuación 8 dígitos del 0 al 9.";
         }
         if (empty(htmlspecialchars(strip_tags(trim($tel)))) && $obligatorio == 0) {
@@ -485,6 +546,7 @@ class validacionFormularios {
         }
         return $mensajeError;
     }
+
 }
 
 ?>

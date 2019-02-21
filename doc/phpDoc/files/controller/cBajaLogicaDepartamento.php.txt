@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Archivo cBajaLogicaDepartamento.php
  * 
@@ -25,15 +26,12 @@ if (isset($_REQUEST['Aceptar'])) {
 
     if ($Departamento->bajaLogicaDepartamento()) {
         $_SESSION['pagina'] = 'mtoDepartamentos';
-        require_once $vistas["layout"];
         header("Location: index.php");
         exit;
     }
+} else {
+
+    $_SESSION['pagina'] = 'bajaLogicaDepartamento';
+    require_once $vistas["layout"];
 }
-
-
-
-
-$_SESSION['pagina'] = 'bajaLogicaDepartamento';
-require_once $vistas["layout"];
 ?>

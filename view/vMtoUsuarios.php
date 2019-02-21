@@ -3,21 +3,15 @@
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
 
     <div class="cajabusqueda" >
-        <input class="cajabuscar" type="text"  name="buscarPorDesc" placeholder="Introduzca búsqueda por descripción"
-               value="<?php echo $_SESSION['buscarPorDesc']; ?>" >
+        <h3>Criterios de búsqueda</h3>
+        <input class="cajabuscar" type="text"  name="buscarPorDesc" placeholder="Introduzca búsqueda por descripción"  value="<?php echo $_SESSION['buscarPorDesc']; ?>" autofocus>
+        <input class='btn' type="submit" name="Buscar" value="Buscar"  tabindex=1>
+        <input class='btn' type='submit' name='limpiarBuscar' value='Limpiar Búsqueda'><br>
 
-        <input class='btn' type="submit" name="Buscar" value="Buscar">
-        <input class='btn' type='submit' name='limpiarBuscar' value='Limpiar Búsqueda' ><br>
-
-
+ 
     </div>
 
-    <br><br>
-    <div style="margin: 0 auto;text-align: center;">
-        <input class='btn' type="submit" name="Importar" value="Importar" >
-        <input class='btn' type="submit" name="Exportar" value="Exportar" >
-        <input class='btn' type="submit" name="Salir" value="Volver atrás">
-    </div>
+ 
 
 
     <table class='tabla02'>
@@ -118,4 +112,10 @@
         }
         ?>
     </div>
+       <div style="margin: 0 auto;text-align: center;">
+           <br>
+        <input class='btn' type="submit" name="Importar" value="Importar" >
+        <input class='btn' type="submit" name="Exportar" value="Exportar" ><br><br>
+        <input class='btn' type="submit" name="Salir" value="Volver atrás">
+   </div><br>
 </form>

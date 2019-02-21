@@ -39,6 +39,10 @@ if (isset($_REQUEST['Aceptar'])) {
         $aErrores[PasswordNueva] = "Las contraseñas no coinciden";
         $aErrores[ConfirmarPasswordNueva] = "Las contraseñas no coinciden";
     }
+    
+    if ($_REQUEST[PasswordNueva] == $_SESSION['usuario']->getPassword()){
+        $aErrores[PasswordNueva] = "La nueva contraseña no puede ser la actual";
+    }
 
     foreach ($aErrores as $campo => $error) {
         if ($error != null) {
@@ -55,8 +59,6 @@ if (isset($_REQUEST['Aceptar']) && $entradaOK) {
         $_SESSION['pagina'] = 'miCuenta';
         header("Location: index.php"); //Y redireccionamos al index
         exit;
-    } else {
-        echo "NADA";
     }
 } else {
     $_SESSION['pagina'] = 'cambiarPassword'; //Establecemos la página en el login

@@ -1,25 +1,30 @@
 <h1 class="titulo">MANTENIMIENTO DE DEPARTAMENTOS</h1>
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
-    <div class="cajabusqueda" >
-        <input class="cajabuscar" type="text"  name="buscarPorDesc" placeholder="Introduzca búsqueda por descripción" value="<?php echo $_SESSION['buscarPorDesc']; ?>" >
-        
-        <input class='btn' type="submit" name="Buscar" value="Buscar">
-        <input class='btn' type='submit' name='limpiarBuscar' value='Limpiar Búsqueda' ><br>
-        
-        Criterios de búsqueda:
-        <input type="radio" name="criterioBusqueda" <?php if ($_SESSION['criterioBusqueda'] == "Baja") {echo "checked";}?> value="Baja">Baja
-        <input type="radio" name="criterioBusqueda" <?php if ($_SESSION['criterioBusqueda'] == "Alta") {echo "checked";}?> value="Alta">Alta
-        <input type="radio" name="criterioBusqueda" <?php if ($_SESSION['criterioBusqueda'] == "Todos") {echo "checked";}?> value="Todos">Todos
-    </div>
 
-    <br><br>
-    
-    <div style="margin: 0 auto;text-align: center;">
-        <input class='btn' type="submit" name="Importar" value="Importar" >
-        <input class='btn' type="submit" name="Exportar" value="Exportar" >
-        <input class='btn' type="submit" name="Añadir" value="Añadir" >
-        <input class='btn' type="submit" name="Salir" value="Volver atrás">
+
+    <div class="cajabusqueda" >
+        <h3>Criterios de búsqueda</h3>
+        <input class="cajabuscar" type="text"  name="buscarPorDesc" placeholder="Introduzca búsqueda por descripción" value="<?php echo $_SESSION['buscarPorDesc']; ?>" autofocus>
+
+        <input class='btn' type="submit" name="Buscar" value="Buscar"  ><br>
+
+        <input type="radio" name="criterioBusqueda" <?php
+        if ($_SESSION['criterioBusqueda'] == "Baja") {
+            echo "checked";
+        }
+        ?> value="Baja">Baja
+        <input type="radio" name="criterioBusqueda" <?php
+        if ($_SESSION['criterioBusqueda'] == "Alta") {
+            echo "checked";
+        }
+        ?> value="Alta">Alta
+        <input type="radio" name="criterioBusqueda" <?php
+        if ($_SESSION['criterioBusqueda'] == "Todos") {
+            echo "checked";
+        }
+        ?> value="Todos">Todos        <input class='btn' type='submit' name='limpiarBuscar' value='Limpiar Búsqueda' ><br>
+
     </div>
 
 
@@ -79,8 +84,8 @@
                 </tr>
 
             <?php } ?>
-    <?php } ?>
-        </table>
+        <?php } ?>
+    </table>
 
     <br>
     <div class="paginacion">
@@ -128,6 +133,26 @@
         }
         ?>
     </div>
+    <br>
+    <div style="margin: 0 auto;text-align: center;">
+        <input class='btn' type="submit" name="Añadir" value="Añadir" style="float:center"><br>
+        <input class='btn' type="submit" name="Importar" value="Importar" >&nbsp;&nbsp;&nbsp;
+        <input class='btn' type="submit" name="Exportar" value="Exportar" ><br>
+        <input class='btn' type="submit" name="Salir" value="Volver atrás">
+    </div>
+
+    <!--Gráficos-->
+    <div class="containerCanvas">
+        <script src="webroot/js/Chart.min.js"></script>
+        <script src="webroot/js/graficos.js"></script>
+        <input id="depAlta" value="<?php echo $depAlta; ?>" style="visibility: hidden">
+        <input id="depBaja" value="<?php echo $depBaja; ?>" style="visibility: hidden">
+        <canvas id="micanvas"></canvas>
+        <canvas id="micanvas2"></canvas>
+    </div>
+    <!-- -->
+
+
 </form>
 
 

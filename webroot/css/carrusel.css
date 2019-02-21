@@ -1,78 +1,71 @@
-.carrusel {
-    border: 8px ridge #3f3f3f;
-    height: 600px;
-    width: 1000px;
+
+
+.imagenes {
+    border: 1px solid #160050;
+    border-radius: 20px;
+    height: 400px;
+    width: 650px;
     overflow: hidden;
-    box-shadow: 0 0 100px #CCFFFF;
-    margin: 20px;
+    box-shadow: 0 0 40px #00cccc;
+    /*overflow: hidden;*/
 }
 
-.carrusel div {    
-
+.imagenes div {
     display: flex;
-    animation-name: movimiento;
-    transition: 2s;
-    animation-delay: 2s;
-    animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    transition-timing-function: linear;
 }
-.carrusel div a{    
-    background-color: #CCFFFF;
+
+.imagenes div a{
     text-align: center;
-    text-decoration: none;
-    color:black;
-    font-family: CaviarNegrita;
-}
-.carrusel div a img{
-    height: 600px;
-    width: 1000px;
-}    
-
-
-
-
-.carrusel div:hover {
-    animation-play-state: paused;
+    background-color: white;
+    font-weight: bold;
 }
 
+.botones {/* Div que alberga los botones del carrusel*/
+    width: 650px;
+    text-align: center;
+}
 
-@keyframes movimiento {
-    20% {
-        transform: translateX(-1000px);
-        transition: 2s;
-    }
+.botones label {
+    border: 2px solid #000000;
+    border-radius: 3px;
+    width: 1px;
+    height: 1px;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: 0 5px 0 5px;
+}
 
-    40% {
-        transform: translateX(-2000px);
-        transition: 2s;
-    }
+.botonActivo {
+    background-color: #00cccc;
+    border-color: red;
 
-    60% {
-        transform: translateX(-3000px);
-        transition: 2s;
-    }
+}
 
-    80% {
-        transform: translateX(-4000px);
-        transition: 2s;
-    }
+.botones label:hover {
+    cursor: pointer;
+}
 
-    100% {
-        transform: translateX(-5000px);
-        transition: 2s;
+.sUno{/* Centrado de carrusel*/
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 662px) {
+    .contenedor {
+        transform: scale(0.7);
     }
 }
 
-@keyframes color {
-    100% {
-        color: #5f30dd;
-            transition: 2s;
-
+@media (max-width: 500px) {
+    .contenedor {
+        transform: scale(0.6);
     }
 }
 
-
-
-
+@media (max-width: 450px) {
+    .contenedor {
+        transform: scale(0.5);
+    }
+}

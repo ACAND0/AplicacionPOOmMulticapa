@@ -4,8 +4,8 @@ require_once '../conf/configDB.php';
 require_once '../model/Departamento.php';
 
 $aDept = [];
-
-$aDepartamentos = Departamento::buscaDepartamentosPorDescripcion("", "Todos"); //Devuelve array de objetos
+$numDepartamentos = Departamento::contarDepartamentosPorDesc("", "Todos");
+$aDepartamentos = Departamento::buscaDepartamentosPorDescripcion("", "Todos",0,$numDepartamentos); //Devuelve array de objetos
     if ($aDepartamentos) {
         foreach ($aDepartamentos as $Departamento) {
             $codigo = $Departamento->getCodDepartamento();

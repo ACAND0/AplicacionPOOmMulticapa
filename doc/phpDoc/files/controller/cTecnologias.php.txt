@@ -1,5 +1,0 @@
-<?php
-
-
-    $_SESSION['pagina'] = 'altaDepartamento';
-    require_once $vistas['layout'];

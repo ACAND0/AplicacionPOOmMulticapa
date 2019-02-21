@@ -26,4 +26,25 @@ if ($NumAccesos > 0) {
     <input class='btn' type="submit" name="Salir" value="Cerrar Sesión"/>
 
 
+
 </form>
+<br>
+<div class="elementosJS" style="display: flex;justify-content: center;">
+    <!-- Calendario-->
+    <table id="calendar">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <script type="text/javascript" src="webroot/js/calendario.js"></script>
+    </table>
+</div>

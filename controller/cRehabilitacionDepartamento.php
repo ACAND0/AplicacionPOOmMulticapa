@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Archivo cRehabilitacionDepartamento.php
  * 
@@ -6,7 +7,6 @@
  * @version 2.6
  * @package controller
  */
-
 if (isset($_REQUEST['Cancelar'])) {
     $_SESSION['pagina'] = 'mtoDepartamentos';
     require_once $vistas["layout"];
@@ -27,15 +27,11 @@ if (isset($_REQUEST['Aceptar'])) {
 
     if ($Departamento->rehabilitaDepartamento()) {
         $_SESSION['pagina'] = 'mtoDepartamentos';
-        require_once $vistas["layout"];
         header("Location: index.php");
         exit;
     }
+} else {
+    $_SESSION['pagina'] = 'rehabilitacionDepartamento';
+    require_once $vistas["layout"];
 }
-
-
-
-
-$_SESSION['pagina'] = 'rehabilitacionDepartamento';
-require_once $vistas["layout"];
 ?>

@@ -59,8 +59,12 @@ class DepartamentoPDO {
      * 
      * @param string $descripcion 
      * @param string $criterioBusqueda
+     * @param int $primerRegistro
+     * @param int $registrosPorPagina
      * @return array Array de objetos Departamento
      */
+    
+
     public static function buscaDepartamentosPorDescripcion($descripcion, $criterioBusqueda, $primerRegistro, $registrosPorPagina) {
         $aDepartamentos = []; //Array que rec
         //Dependiendo del criterio de búsqueda crearemos un query u otro
@@ -91,10 +95,13 @@ class DepartamentoPDO {
         return $aDepartamentos;
     }
 /**
+ * public static function contarDepartamentosPorDesc($descripcion, $criterioBusqueda)
+ * 
+ * Función que dependiendo la descripción y el criterio de búsqueda que se pase, se cuentan los departamentos con estas características
  * 
  * @param string $descripcion
  * @param string $criterioBusqueda
- * @return string
+ * @return int Entero con el número de departamentos encontrados con esa descripción y criterio de búsqueda
  */
     public static function contarDepartamentosPorDesc($descripcion, $criterioBusqueda) {
         $consulta = "SELECT COUNT(*) FROM T02_Departamentos1 where DescDepartamento like (?)";
